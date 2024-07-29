@@ -117,7 +117,7 @@ class TestUntitled:
     ]
         elif selected_position == "All positions":
             metric_options = [
-       "Successful defensive actions per 90","Defensive duels per 90","Aerial duels per 90","Sliding tackles per 90","PAdj Sliding tackles","Interceptions per 90","PAdj Interceptions","Successful attacking actions per 90","xG per 90","Shots per 90","Crosses per 90","Dribbles per 90","Offensive duels per 90","Touches in box per 90","Progressive runs per 90","Accelerations per 90","Fouls suffered per 90","Passes per 90","Forward passes per 90","Long passes per 90","xA per 90","Shot assists per 90","Key passes per 90","Passes to final third per 90","Passes to penalty area per 90","Through passes per 90","Deep completions per 90","Progressive passes per 90","Aerial duels won %","Shots on target %","Goal conversion %","Accurate crosses %","Successful dribbles %","Offensive duels won %","Accurate passes %","Accurate forward passes %","Accurate progressive passes %","Possession +/-"
+       "Successful defensive actions per 90","Defensive duels per 90","Aerial duels per 90","Sliding tackles per 90","PAdj Sliding tackles","Interceptions per 90","PAdj Interceptions","Successful attacking actions per 90","xG per 90","Shots per 90","Crosses per 90","Dribbles per 90","Offensive duels per 90","Touches in box per 90","Progressive runs per 90","Accelerations per 90","Fouls suffered per 90","Passes per 90","Forward passes per 90","Long passes per 90","xA per 90","Shot assists per 90","Key passes per 90","Passes to final third per 90","Passes to penalty area per 90","Through passes per 90","Deep completions per 90","Progressive passes per 90","Shots on target %","Goal conversion %","Accurate crosses %","Successful dribbles %","Offensive duels won %","Accurate passes %","Accurate forward passes %","Accurate progressive passes %","Possession +/-"
     ]
             
         selected_metric = random.choice(metric_options)
@@ -170,8 +170,7 @@ class TestUntitled:
         # Select metric
         dropdown = self.driver.find_element(By.ID, "metric")
         WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, f"//option[. = '{selected_metric}']"))
-        ).click()
+            EC.element_to_be_clickable((By.XPATH, f"//option[. = 'Minutes played']"))).click()
 
         # Select position
         dropdown = self.driver.find_element(By.ID, "position")
@@ -179,16 +178,22 @@ class TestUntitled:
             EC.element_to_be_clickable((By.XPATH, f"//option[. = '{selected_position}']"))
         ).click()
 
-        # Select age
-        dropdown = self.driver.find_element(By.ID, "age")
+        dropdown = self.driver.find_element(By.ID, "metric")
         WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, f"//option[. = '{selected_age}']"))
+            EC.element_to_be_clickable((By.XPATH, f"//option[. = '{selected_metric}']"))
         ).click()
+
 
         # Select league
         dropdown = self.driver.find_element(By.ID, "league")
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, f"//option[. = '{selected_league}']"))
+        ).click()
+
+                # Select age
+        dropdown = self.driver.find_element(By.ID, "age")
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, f"//option[. = '{selected_age}']"))
         ).click()
 
         # Wait for the label to be visible and scroll into view
