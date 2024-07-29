@@ -250,7 +250,7 @@ class TestUntitled:
 
         if metadata_response.status_code != 200:
             print("Failed to create metadata:", metadata_response.status_code, metadata_response.text)
-                return
+            return
         
         selected_metric = selected_metric.replace(" per 90", "")
         selected_position = selected_position.replace("er", "ers")
