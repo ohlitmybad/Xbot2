@@ -246,7 +246,6 @@ class TestUntitled:
         # Create the tweet text dynamically
         tweet_text = f"{selected_league} {selected_age} {selected_position} : {selected_metric}\n\n{specific_text}\n\n👉 datamb.football"
         tweet_text = tweet_text.replace("  ", " ")
-        tweet_text = re.sub(r'\(.*?\)', '', tweet_text).strip()
 
 
         # Create the tweet with the media attached
