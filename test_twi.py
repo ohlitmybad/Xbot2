@@ -134,8 +134,8 @@ class TestUntitled:
 
 # Define weights for each league category
         weights = [
-    0.25,
-    0.20,
+    0.26,
+    0.19,
     0.09, 0.09,
     0.06, 0.05, 0.05, 0.04,
     0.03, 0.03, 0.03,  # Low weight
