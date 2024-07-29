@@ -113,7 +113,7 @@ class TestUntitled:
         elif selected_position == "Striker":
     # Define metrics for Striker
             metric_options = [
-       "Successful defensive actions per 90","Aerial duels per 90","Successful attacking actions per 90","xG per 90","Shots per 90","Dribbles per 90","Offensive duels per 90","Touches in box per 90","Fouls suffered per 90","xA per 90","Shot assists per 90","Key passes per 90","Aerial duels won %","Shots on target %","Goal conversion %","Successful dribbles %","Offensive duels won %","Accurate passes %","Possession +/-"
+       "Successful defensive actions per 90","Aerial duels per 90","Successful attacking actions per 90","xG per 90","Shots per 90","Dribbles per 90","Offensive duels per 90","Touches in box per 90","Fouls suffered per 90","xA per 90","Key passes per 90","Aerial duels won %","Shots on target %","Goal conversion %","Successful dribbles %","Offensive duels won %","Accurate passes %","Possession +/-"
     ]
         elif selected_position == "All positions":
             metric_options = [
