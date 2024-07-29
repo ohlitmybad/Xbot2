@@ -287,6 +287,10 @@ class TestUntitled:
         tweet_text = tweet_text.replace("🇨🇴 Colombia", "🇨🇴 Primera A")
         tweet_text = tweet_text.replace("🇪🇨 Ecuador", "🇪🇨 Serie A")
         tweet_text = tweet_text.replace("🇵🇾 Paraguay", "🇵🇾 Primera División")
+        tweet_text = tweet_text.replace("Short / medium", "Short")
+        tweet_text = tweet_text.replace("short / medium", "short")
+        tweet_text = tweet_text.replace("Successful a", "A")
+        tweet_text = tweet_text.replace("Successful d", "D")
         
 
 
