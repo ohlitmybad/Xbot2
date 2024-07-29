@@ -9,6 +9,7 @@ import requests
 from requests_oauthlib import OAuth1
 from selenium.webdriver.chrome.options import Options
 import os
+import re
 
 
 # Your credentials
@@ -245,6 +246,8 @@ class TestUntitled:
         # Create the tweet text dynamically
         tweet_text = f"{selected_league} {selected_age} {selected_position} : {selected_metric}\n\n{specific_text}\n\n👉 datamb.football"
         tweet_text = tweet_text.replace("  ", " ")
+        tweet_text = re.sub(r'\(.*?\)', '', tweet_text).strip()
+
 
         # Create the tweet with the media attached
         tweet_url = "https://api.twitter.com/2/tweets"
