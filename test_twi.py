@@ -205,7 +205,12 @@ class TestUntitled:
         self.driver.execute_script("""
     document.documentElement.style.overflow = 'hidden';  // Hide horizontal and vertical scroll bars
     document.body.style.overflow = 'hidden';  // Hide scroll bars on body
+    var resultContainer = document.querySelector('.result-container');
+    if (resultContainer) {
+        resultContainer.style.overflow = 'hidden';  // Hide scroll bars on result-container div
+    }
 """)
+
       
         # Save screenshot
         self.driver.save_screenshot('screenshot.png')
