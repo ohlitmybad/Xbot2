@@ -68,8 +68,9 @@ class TestUntitled:
 # Define position options
         position_options = ["Goalkeeper", "Centre-back", "Full-back", "Midfielder", "Winger", "Striker", "All positions"]
 
-# Randomize selection of position
-        selected_position = random.choice(position_options)
+        weights2 = [0.11, 0.15, 0.12, 0.17, 0.15, 0.13, 0.17]  # Adjust the weights as needed
+
+        selected_position = random.choices(position_options, weights=weights2, k=1)[0]
 
 # Define metric options based on selected position
         if selected_position == "Goalkeeper":
