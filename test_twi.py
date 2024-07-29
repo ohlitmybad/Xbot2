@@ -116,7 +116,7 @@ class TestUntitled:
     ]
         elif selected_position == "All positions":
             metric_options = [
-       "Successful defensive actions per 90","Defensive duels per 90","Aerial duels per 90","Sliding tackles per 90","PAdj Sliding tackles","Interceptions per 90","PAdj Interceptions","Successful attacking actions per 90","xG per 90","Shots per 90","Crosses per 90","Dribbles per 90","Offensive duels per 90","Touches in box per 90","Progressive runs per 90","Accelerations per 90","Fouls suffered per 90","Passes per 90","Forward passes per 90","Long passes per 90","xA per 90","Shot assists per 90","Key passes per 90","Passes to final third per 90","Passes to penalty area per 90","Through passes per 90","Deep completions per 90","Progressive passes per 90","Defensive duels won %","Aerial duels won %","Shots on target %","Goal conversion %","Accurate crosses %","Successful dribbles %","Offensive duels won %","Accurate passes %","Accurate forward passes %","Accurate progressive passes %","Possession +/-"
+       "Successful defensive actions per 90","Defensive duels per 90","Aerial duels per 90","Sliding tackles per 90","PAdj Sliding tackles","Interceptions per 90","PAdj Interceptions","Successful attacking actions per 90","xG per 90","Shots per 90","Crosses per 90","Dribbles per 90","Offensive duels per 90","Touches in box per 90","Progressive runs per 90","Accelerations per 90","Fouls suffered per 90","Passes per 90","Forward passes per 90","Long passes per 90","xA per 90","Shot assists per 90","Key passes per 90","Passes to final third per 90","Passes to penalty area per 90","Through passes per 90","Deep completions per 90","Progressive passes per 90","Aerial duels won %","Shots on target %","Goal conversion %","Accurate crosses %","Successful dribbles %","Offensive duels won %","Accurate passes %","Accurate forward passes %","Accurate progressive passes %","Possession +/-"
     ]
             
         selected_metric = random.choice(metric_options)
@@ -235,6 +235,7 @@ class TestUntitled:
         selected_metric = selected_metric.replace(" per 90", "")
         selected_position = selected_position.replace("er", "ers")
         selected_position = selected_position.replace("ack", "acks")
+        selected_position = selected_position.replace("All positions", "Players")
         selected_age = selected_age.replace("Age", "")
 
 
