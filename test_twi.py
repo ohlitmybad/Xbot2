@@ -80,7 +80,7 @@ class TestUntitled:
         "Accurate progressive passes %", "Accurate short / medium passes %", 
         "Accurate long passes %", "Accurate passes to final third %", 
         "Progressive passes per 90", "Passes to final third per 90", "Passes per 90", 
-        "Forward passes per 90", "Long passes per 90", "Short / medium passes per 90", 
+        "Long passes per 90", "Short / medium passes per 90", 
         "Successful defensive actions per 90", 
         "Aerial duels per 90"
     ]
@@ -114,7 +114,7 @@ class TestUntitled:
         elif selected_position == "Striker":
     # Define metrics for Striker
             metric_options = [
-       "Successful defensive actions per 90","Aerial duels per 90","Successful attacking actions per 90","xG per 90","Shots per 90","Dribbles per 90","Offensive duels per 90","Touches in box per 90","Fouls suffered per 90","xA per 90","Key passes per 90","Aerial duels won %","Shots on target %","Goal conversion %","Successful dribbles %","Offensive duels won %","Accurate passes %","Possession +/-"
+       "Successful defensive actions per 90","Aerial duels per 90","xG per 90","Shots per 90","Touches in box per 90","Fouls suffered per 90","xA per 90","Key passes per 90","Aerial duels won %","Shots on target %","Goal conversion %","Successful dribbles %","Offensive duels won %","Accurate passes %","Possession +/-"
     ]
         elif selected_position == "All positions":
             metric_options = [
@@ -135,9 +135,9 @@ class TestUntitled:
 
 # Define weights for each league category
         weights = [
-    0.25,
-    0.18,
-    0.11, 0.09,
+    0.24,
+    0.17,
+    0.13, 0.09,
     0.06, 0.05, 0.05, 0.04,
     0.03, 0.03, 0.03,  # Low weight
     0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025 
