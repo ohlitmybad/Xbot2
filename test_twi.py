@@ -54,7 +54,7 @@ class TestUntitled:
     def test_untitled(self):
         self.driver.get("https://datamb.football/proindex/")
         time.sleep(1)
-        self.driver.set_window_size(976, 850)
+        self.driver.set_window_size(976, 780)
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.NAME, "eml"))
         ).send_keys("tombolivier@gmail.com")
