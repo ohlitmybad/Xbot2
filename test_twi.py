@@ -54,7 +54,7 @@ class TestUntitled:
     def test_untitled(self):
         self.driver.get("https://datamb.football/proindex/")
         time.sleep(1)
-        self.driver.set_window_size(976, 630)
+        self.driver.set_window_size(976, 690)
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.NAME, "eml"))
         ).send_keys("tombolivier@gmail.com")
@@ -256,7 +256,7 @@ class TestUntitled:
 
 
         # Create the tweet text dynamically
-        tweet_text = f"{selected_league} {selected_age} {selected_position} : {selected_metric}\n\n{specific_text}\n\n👉 datamb.football"
+        tweet_text = f"{selected_league} {selected_age} {selected_position} 2023/24 : {selected_metric}\n\n{specific_text}\n\n👉 datamb.football"
         tweet_text = tweet_text.replace("  ", " ")
         tweet_text = tweet_text.replace(" Wanderers", "")
         tweet_text = tweet_text.replace("Borussia ", "")
