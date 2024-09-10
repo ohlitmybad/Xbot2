@@ -18,7 +18,6 @@ API_KEY_SECRET = 'O2r4p5hyCZ7ZYjsVK73RAnReH7GnZQKahswukRbOOSfUoLevGp'
 ACCESS_TOKEN = '1389871650125094913-tHVJvdSksSHn89CCTQhgxfNpF1QENW'
 ACCESS_TOKEN_SECRET = 'LWrKGzeokBFq7IxbA18gFsyE4bAGgeJYc6gTNDTIUJoV2'
 
-
 class TestUntitled:
     def setup_method(self, method):
         chrome_options = Options()
@@ -55,7 +54,7 @@ class TestUntitled:
     def test_untitled(self):
         self.driver.get("https://datamb.football/proindex/")
         time.sleep(1)
-        self.driver.set_window_size(976, 772)
+        self.driver.set_window_size(976, 630)
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.NAME, "eml"))
         ).send_keys("tombolivier@gmail.com")
@@ -69,7 +68,7 @@ class TestUntitled:
 # Define position options
         position_options = ["Goalkeeper", "Centre-back", "Full-back", "Midfielder", "Winger", "Striker", "All positions"]
 
-        weights2 = [0.05, 0.10, 0.05, 0.21, 0.21, 0.15, 0.23]  # Adjust the weights as needed
+        weights2 = [0.10, 0.16, 0.10, 0.18, 0.15, 0.13, 0.18]  # Adjust the weights as needed
 
         selected_position = random.choices(position_options, weights=weights2, k=1)[0]
 
@@ -128,16 +127,20 @@ class TestUntitled:
         league_options = [
     "🇪🇺 Top 5 Leagues",
     "🇪🇺 Top 7 Leagues",
-    "🌍 All Leagues", 
-    "🌍 Outside Top 7",
+    "🌍 All Leagues", "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League",
+    "🇪🇸 La Liga", "🇩🇪 Bundesliga", "🇮🇹 Serie A", "🇫🇷 Ligue 1",  # Medium weight
+    "🌍 Outside Top 7", "🇵🇹 Liga Portugal", "🇳🇱 Eredivisie", # Low weight
+    "🇧🇪 Belgium", "🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland", "🇦🇹 Austria", "🇨🇭 Switzerland", "🇹🇷 Türkiye", "🇩🇰 Denmark", "🇸🇪 Sweden", "🇳🇴 Norway", "🇭🇷 Croatia", "🇷🇸 Serbia", "🇨🇿 Czech Republic", "🇵🇱 Poland", "🇺🇦 Ukraine", "🇷🇺 Russia", "🇬🇷 Greece", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇦 Saudi Arabia", "🇺🇸 United States",  "🇲🇽 Mexico", "🇧🇷 Brazil", "🇦🇷 Argentina", "🇺🇾 Uruguay", "🇨🇱 Chile", "🇨🇴 Colombia", "🇪🇨 Ecuador",  "🇵🇾 Paraguay", "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Championship", "🇪🇸 Spain Segunda", "🇮🇹 Serie B", "🇩🇪 2. Bundesliga", "🇫🇷 Ligue 2"  # Lowest weight
 ]
 
 # Define weights for each league category
         weights = [
-    0.1,
-    0.1,
-    0.65,
-    0.15,
+    0.24,
+    0.17,
+    0.13, 0.09,
+    0.06, 0.05, 0.05, 0.04,
+    0.03, 0.03, 0.03,  # Low weight
+    0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025 
 ]
 
 # Ensure weights match the length of league_options
@@ -150,12 +153,16 @@ class TestUntitled:
 
         # Define age options based on selected league
         if selected_league in ["🇪🇺 Top 7 Leagues", "🇪🇺 Top 5 Leagues", "🌍 All Leagues", "🌍 Outside Top 7"]:
-            if selected_position != "Goalkeeper":
-                age_options = ["U18", "U19", "U20", "U21"]
+            if selected_position == "All positions":
+                age_options = ["Age", "U19", "U20", "U21", "U23", "U24"]
+                selected_age = random.choice(age_options)
+
+            elif selected_position != "Goalkeeper":
+                age_options = ["Age", "U20", "U21", "U23", "U24"]
                 selected_age = random.choice(age_options)
 
             elif selected_position in "Goalkeeper":
-                age_options = ["U21", "U23"]
+                age_options = ["Age", "U23", "U24"]
                 selected_age = random.choice(age_options)
         else:
             selected_age = "Age"
@@ -257,7 +264,7 @@ class TestUntitled:
 
 
         # Create the tweet text dynamically
-        tweet_text = f"{selected_league} {selected_age} {selected_position} 2023/24 : {selected_metric}\n\n{specific_text}\n\n👉 datamb.football"
+        tweet_text = f"{selected_league} {selected_age} {selected_position} : {selected_metric}\n\n{specific_text}\n\n👉 datamb.football"
         tweet_text = tweet_text.replace("  ", " ")
         tweet_text = tweet_text.replace(" Wanderers", "")
         tweet_text = tweet_text.replace("Borussia ", "")
