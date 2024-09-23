@@ -311,7 +311,7 @@ class TestUntitled:
         tweet_text = tweet_text.replace("Successful d", "D")
         tweet_text = tweet_text.replace("7 Leagues", "7 League")
         tweet_text = tweet_text.replace("5 Leagues", "5 League")
-
+        tweet_text = tweet_text.replace("Wingers", "Wingers & Att Mid")
         
         
 
