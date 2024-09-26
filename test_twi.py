@@ -13,10 +13,10 @@ import re
 
 
 # Your credentials
-API_KEY = '9VG6eYAmiPw8mvRVUuN23BSee'
-API_KEY_SECRET = 'O2r4p5hyCZ7ZYjsVK73RAnReH7GnZQKahswukRbOOSfUoLevGp'
-ACCESS_TOKEN = '1389871650125094913-tHVJvdSksSHn89CCTQhgxfNpF1QENW'
-ACCESS_TOKEN_SECRET = 'LWrKGzeokBFq7IxbA18gFsyE4bAGgeJYc6gTNDTIUJoV2'
+API_KEY = '9nC32tpOLmoMIn3Om5hRaXKPI'
+API_KEY_SECRET = 'ALgxkcFXqPebpivj8k0yA31lb9ogtDsbfjzlMTUBe3h5LA6981'
+ACCESS_TOKEN = '1838671117298413568-3Fbx2afKvg3JuY3dzc7vd9Mqy65Mam'
+ACCESS_TOKEN_SECRET = 'w9T3L3OJoUUxjbw0xHAUuVpKqbhAl0NGbQrRB454qFEXz'
 
 class TestUntitled:
     def setup_method(self, method):
@@ -329,6 +329,26 @@ class TestUntitled:
         
         if response.status_code == 201:
             print("Tweet successfully sent!")
+            first_tweet_id = response.json()['data']['id']
+            
+            # Create the follow-up tweet
+            follow_up_text = "Compare Top 7 League players, or subscribe to access more leagues, metrics, and tools ⤵️ datamb.football"
+            follow_up_payload = {
+                "text": follow_up_text,
+                "reply": {
+                    "in_reply_to_tweet_id": first_tweet_id
+                }
+            }
+
+            
+            # Send the follow-up tweet
+            follow_up_response = requests.post(tweet_url, json=follow_up_payload, auth=auth)
+            
+            if follow_up_response.status_code == 201:
+                print("Follow-up tweet successfully sent!")
+            else:
+                print("Failed to send follow-up tweet:", follow_up_response.status_code, follow_up_response.text)
+
         else:
             print("Failed to send tweet:", response.status_code, response.text)
 
