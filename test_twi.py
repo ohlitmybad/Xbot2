@@ -134,12 +134,12 @@ class TestUntitled:
 
 # Define weights for each league category
         weights = [
-    0.40,
-    0.27,
+    0.39,
+    0.28,
     0.15,
     0.08, 
-    0.5,
-    0.5        
+    0.05,
+    0.05        
 ]
 
 # Ensure weights match the length of league_options
