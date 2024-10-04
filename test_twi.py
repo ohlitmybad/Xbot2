@@ -67,7 +67,7 @@ class TestUntitled:
 # Define position options
         position_options = ["Goalkeeper", "Centre-back", "Full-back", "Midfielder", "Winger", "Striker", "All positions"]
 
-        weights2 = [0.10, 0.16, 0.10, 0.18, 0.15, 0.13, 0.18]  # Adjust the weights as needed
+        weights2 = [0.07, 0.17, 0.09, 0.19, 0.16, 0.12, 0.20]  # Adjust the weights as needed
 
         selected_position = random.choices(position_options, weights=weights2, k=1)[0]
 
@@ -126,20 +126,20 @@ class TestUntitled:
         league_options = [
     "🇪🇺 Top 5 Leagues",
     "🇪🇺 Top 7 Leagues",
-    "🌍 All Leagues", "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League",
-    "🇪🇸 La Liga", "🇩🇪 Bundesliga", "🇮🇹 Serie A", "🇫🇷 Ligue 1",  # Medium weight
-    "🌍 Outside Top 7", "🇵🇹 Liga Portugal", "🇳🇱 Eredivisie", # Low weight
-    "🇧🇪 Belgium", "🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland", "🇦🇹 Austria", "🇨🇭 Switzerland", "🇹🇷 Türkiye", "🇩🇰 Denmark", "🇸🇪 Sweden", "🇳🇴 Norway", "🇭🇷 Croatia", "🇷🇸 Serbia", "🇨🇿 Czech Republic", "🇵🇱 Poland", "🇺🇦 Ukraine", "🇷🇺 Russia", "🇬🇷 Greece", "🇯🇵 Japan", "🇰🇷 Korea", "🇸🇦 Saudi Arabia", "🇺🇸 United States",  "🇲🇽 Mexico", "🇧🇷 Brazil", "🇦🇷 Argentina", "🇺🇾 Uruguay", "🇨🇱 Chile", "🇨🇴 Colombia", "🇪🇨 Ecuador",  "🇵🇾 Paraguay", "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Championship", "🇪🇸 Spain Segunda", "🇮🇹 Serie B", "🇩🇪 2. Bundesliga", "🇫🇷 Ligue 2"  # Lowest weight
+    "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League",
+    "🇪🇸 La Liga",
+    "🇩🇪 Bundesliga", 
+    "🇮🇹 Serie A"
 ]
 
 # Define weights for each league category
         weights = [
-    0.24,
-    0.17,
-    0.13, 0.09,
-    0.06, 0.05, 0.05, 0.04,
-    0.03, 0.03, 0.03,  # Low weight
-    0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025, 0.0025 
+    0.40,
+    0.27,
+    0.15,
+    0.08, 
+    0.5,
+    0.5        
 ]
 
 # Ensure weights match the length of league_options
@@ -153,7 +153,7 @@ class TestUntitled:
         # Define age options based on selected league
         if selected_league in ["🇪🇺 Top 7 Leagues", "🇪🇺 Top 5 Leagues", "🌍 All Leagues", "🌍 Outside Top 7"]:
             if selected_position == "All positions":
-                age_options = ["Age", "U19", "U20", "U21", "U23", "U24"]
+                age_options = ["Age", "U18", "U19", "U20", "U21", "U23", "U24"]
                 selected_age = random.choice(age_options)
 
             elif selected_position != "Goalkeeper":
