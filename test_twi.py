@@ -312,7 +312,6 @@ class TestUntitled:
         tweet_text = tweet_text.replace("5 Leagues", "5 League")
         tweet_text = tweet_text.replace("Wingers", "Wingers & Att Mid")
         
-        time.sleep(50 * 60)
 
 
 
