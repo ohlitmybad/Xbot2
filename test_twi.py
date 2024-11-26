@@ -263,7 +263,7 @@ class TestUntitled:
 
 
         # Create the tweet text dynamically
-        tweet_text = f"{selected_league} {selected_age} {selected_position} : {selected_metric}\n\n{specific_text}\n\n👉 datamb.football"
+        tweet_text = f"{selected_league} {selected_age} {selected_position} : {selected_metric}\n\n{specific_text}\n\nFree trial 👉 datamb.football"
         tweet_text = tweet_text.replace("  ", " ")
         tweet_text = tweet_text.replace(" Wanderers", "")
         tweet_text = tweet_text.replace("Borussia ", "")
