@@ -331,7 +331,7 @@ class TestUntitled:
             first_tweet_id = response.json()['data']['id']
             
             # Create the follow-up tweet
-            follow_up_text = "Compare Top 7 League players, or subscribe to access more leagues, metrics, and tools ⤵️ datamb.football"
+            follow_up_text = "Compare Top 7 League players, or join the free trial to access more leagues, metrics, and tools ⤵️ datamb.football"
             follow_up_payload = {
                 "text": follow_up_text,
                 "reply": {
