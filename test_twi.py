@@ -263,7 +263,7 @@ class TestUntitled:
 
 
         # Create the tweet text dynamically
-        tweet_text = f"{selected_league} {selected_age} {selected_position} : {selected_metric}\n\n{specific_text}\n\nFree trial 👉 datamb.football"
+        tweet_text = f"{selected_league} {selected_age} {selected_position} : {selected_metric}\n\n{specific_text}\n\n📊 datamb.football"
         tweet_text = tweet_text.replace("  ", " ")
         tweet_text = tweet_text.replace(" Wanderers", "")
         tweet_text = tweet_text.replace("Borussia ", "")
@@ -331,7 +331,7 @@ class TestUntitled:
             first_tweet_id = response.json()['data']['id']
             
             # Create the follow-up tweet
-            follow_up_text = "Compare Top 7 League players, or join the free trial to access more leagues, metrics, and tools ⤵️ datamb.football"
+            follow_up_text = "Compare Top 7 League players, or subscribe to access more leagues, metrics, and tools ⤵️ datamb.football"
             follow_up_payload = {
                 "text": follow_up_text,
                 "reply": {
