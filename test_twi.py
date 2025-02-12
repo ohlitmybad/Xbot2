@@ -67,7 +67,7 @@ class TestUntitled:
 # Define position options
         position_options = ["Goalkeeper", "Centre-back", "Full-back", "Midfielder", "Winger", "Striker", "All positions"]
 
-        weights2 = [0.07, 0.17, 0.09, 0.19, 0.16, 0.12, 0.20]  # Adjust the weights as needed
+        weights2 = [0.03, 0.09, 0.09, 0.21, 0.18, 0.17, 0.23]  # Adjust the weights as needed
 
         selected_position = random.choices(position_options, weights=weights2, k=1)[0]
 
