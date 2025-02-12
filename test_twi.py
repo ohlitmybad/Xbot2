@@ -85,39 +85,31 @@ class TestUntitled:
     ]
         elif selected_position == "Centre-back":
             metric_options = [
-        "Possessions won per 90", "Defensive duels per 90", 
-        "Aerial duels per 90", "Sliding tackles per 90", "Sliding tackles (PAdj)", 
-        "Interceptions per 90", "Interceptions (PAdj)", "Dribbles per 90", 
-        "Progressive runs per 90", "Passes per 90", "Forward passes per 90", 
-        "Long passes per 90", "Key passes per 90", "Passes to final third per 90", 
-        "Passes to penalty box per 90", "Through passes per 90", 
-        "Progressive passes per 90", "Defensive duels won %", 
-        "Aerial duels won %", "Pass completion %", "Forward pass completion %", 
-        "Progressive pass accuracy %", "Possession +/-"
+    "Passes completed per 90", "Long passes completed per 90", "Accurate passes to final third per 90", "Accurate passes to penalty box per 90", "Through passes completed per 90", "Progressive passes completed per 90", "Progressive passes (PAdj)", "Forward pass ratio", "Possessions won - lost per 90", "Possession +/-", "Progressive actions per 90", "Progressive action rate" 
+
     ]
         elif selected_position == "Full-back":
     # Define metrics for Full-back
             metric_options = [
-       "Possessions won per 90","Defensive duels per 90","Aerial duels per 90","Sliding tackles per 90","Sliding tackles (PAdj)","Interceptions per 90","Interceptions (PAdj)","Successful attacking actions per 90","xG per 90","Shots per 90","Crosses per 90","Dribbles per 90","Offensive duels per 90","Touches in box per 90","Progressive runs per 90","Accelerations per 90","Fouls suffered per 90","Passes per 90","Forward passes per 90","Long passes per 90","xA per 90","Shot assists per 90","Key passes per 90","Passes to final third per 90","Passes to penalty box per 90","Through passes per 90","Deep completions per 90","Progressive passes per 90","Defensive duels won %","Aerial duels won %","Accurate crosses %","Dribble success rate %","Offensive duels won %","Pass completion %","Forward pass completion %","Progressive pass accuracy %","Possession +/-"
+ "xA per 100 passes", "Chance creation ratio", "Goals + Assists per 90", "xG+xA per 90", "Assists - xA per 90", "Passes completed per 90", "Long passes completed per 90", "Accurate passes to final third per 90", "Accurate passes to penalty box per 90", "Through passes completed per 90", "Progressive passes completed per 90", "Progressive passes (PAdj)", "Forward pass ratio", "Successful dribbles per 90", "Dribbles per 100 touches", "Ball-carrying frequency", "Duels won %", "Duels won per 90", "Possessions won - lost per 90", "Possession +/-", "Progressive actions per 90", "Progressive action rate"
     ]
         elif selected_position == "Midfielder":
     # Define metrics for Midfielder
             metric_options = [
-       "Possessions won per 90","Defensive duels per 90","Aerial duels per 90","Sliding tackles per 90","Sliding tackles (PAdj)","Interceptions per 90","Interceptions (PAdj)","Successful attacking actions per 90","xG per 90","Shots per 90","Crosses per 90","Dribbles per 90","Offensive duels per 90","Touches in box per 90","Progressive runs per 90","Accelerations per 90","Fouls suffered per 90","Passes per 90","Forward passes per 90","Long passes per 90","xA per 90","Shot assists per 90","Key passes per 90","Passes to final third per 90","Passes to penalty box per 90","Through passes per 90","Deep completions per 90","Progressive passes per 90","Defensive duels won %","Aerial duels won %","Pass completion %","Forward pass completion %","Progressive pass accuracy %","Dribble success rate %","Offensive duels won %","Possession +/-"
+"Goals - xG per 90", "xG per 100 touches", "Goals per 100 touches", "npxG per 90", "xA per 100 passes", "Chance creation ratio", "Goals + Assists per 90", "NPG+A per 90", "xG+xA per 90", "npxG+xA per 90", "Assists - xA per 90", "Pre-assists per 90", "Passes completed per 90", "Long passes completed per 90", "Accurate passes to final third per 90", "Accurate passes to penalty box per 90", "Through passes completed per 90", "Progressive passes completed per 90", "Progressive passes (Pad)", "Forward pass ratio", "Dribbles per 100 touches", "Ball-carrying frequency", "Duels won %", "Duels won per 90", "Possessions won - lost per 90", "Possession +/-", "Progressive actions per 90", "Progressive action rate"
     ]
         elif selected_position == "Winger":
     # Define metrics for Winger
             metric_options = [
-       "Possession +/-","Shots on target %","Goal conversion %","Accurate crosses %","Dribble success rate %","Offensive duels won %","Defensive duels won %","Aerial duels won %","Possessions won per 90","Successful attacking actions per 90","xG per 90","Shots per 90","Crosses per 90","Dribbles per 90","Offensive duels per 90","Touches in box per 90","Progressive runs per 90","Accelerations per 90","Fouls suffered per 90","Passes per 90","xA per 90","Shot assists per 90","Key passes per 90","Passes to final third per 90","Passes to penalty box per 90","Through passes per 90","Deep completions per 90","Progressive passes per 90"
+"xG/Shot", "Goals - xG per 90", "xG per 100 touches", "Shot frequency", "Goals per 100 touches", "npxG per 90", "npxG/Shot", "xA per 100 passes", "Chance creation ratio", "Goals + Assists per 90", "NPG+A per 90", "xG+xA per 90", "npxG+xA per 90", "Assists - xA per 90", "Progressive passes (PAdj)", "Successful dribbles per 90", "Dribbles per 100 touches", "Ball-carrying frequency", "Duels won %", "Duels won per 90", "Progressive actions per 90", "Progressive action rate"
     ]
         elif selected_position == "Striker":
     # Define metrics for Striker
             metric_options = [
-       "Possessions won per 90","Aerial duels per 90","xG per 90","Shots per 90","Touches in box per 90","Fouls suffered per 90","xA per 90","Key passes per 90","Aerial duels won %","Shots on target %","Goal conversion %","Dribble success rate %","Offensive duels won %","Pass completion %","Possession +/-"
-    ]
+"xG/Shot", "Goals - xG per 90", "xG per 100 touches", "Shot frequency", "Goals per 100 touches", "npxG per 90", "npxG/Shot", "xA per 100 passes", "Chance creation ratio", "Goals + Assists per 90", "NPG+A per 90", "xG+xA per 90", "npxG+xA per 90", "Dribbles per 100 touches"    ]
         elif selected_position == "All positions":
             metric_options = [
-       "Possessions won per 90","Defensive duels per 90","Aerial duels per 90","Sliding tackles per 90","Sliding tackles (PAdj)","Interceptions per 90","Interceptions (PAdj)","Successful attacking actions per 90","xG per 90","Shots per 90","Crosses per 90","Dribbles per 90","Offensive duels per 90","Touches in box per 90","Progressive runs per 90","Accelerations per 90","Fouls suffered per 90","Passes per 90","Forward passes per 90","Long passes per 90","xA per 90","Shot assists per 90","Key passes per 90","Passes to final third per 90","Passes to penalty box per 90","Through passes per 90","Deep completions per 90","Progressive passes per 90","Pass completion %","Forward pass completion %","Progressive pass accuracy %","Possession +/-"
+"xG/Shot", "Goals - xG per 90", "xG per 100 touches", "Shot frequency", "Goals per 100 touches", "npxG per 90", "npxG/Shot","xA per 100 passes", "Chance creation ratio", "Goals + Assists per 90", "NPG+A per 90", "xG+xA per 90", "npxG+xA per 90", "Assists - xA per 90", "Pre-assists per 90","Passes completed per 90", "Long passes completed per 90", "Accurate passes to final third per 90", "Accurate passes to penalty box per 90", "Through passes completed per 90", "Progressive passes completed per 90", "Progressive passes (PAdj)","Forward pass ratio", "Successful dribbles per 90", "Dribbles per 100 touches", "Ball-carrying frequency", "Duels won %", "Duels won per 90", "Possessions won - lost per 90", "Possession +/-", "Progressive actions per 90", "Progressive action rate"
     ]
             
         selected_metric = random.choice(metric_options)
