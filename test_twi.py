@@ -81,7 +81,7 @@ class TestUntitled:
         "Progressive passes per 90", "Passes to final third per 90", "Passes per 90", 
         "Long passes per 90", "Short passes per 90", 
         "Possessions won per 90", 
-        "Aerial duels per 90"
+        "Aerial duels per 90", "Saves per 90"
     ]
         elif selected_position == "Centre-back":
             metric_options = [
@@ -306,8 +306,6 @@ class TestUntitled:
         tweet_text = tweet_text.replace("🇵🇾 Paraguay", "🇵🇾 Primera División")
         tweet_text = tweet_text.replace("Short / medium", "Short")
         tweet_text = tweet_text.replace("short / medium", "short")
-        tweet_text = tweet_text.replace("Successful a", "A")
-        tweet_text = tweet_text.replace("Successful d", "D")
         tweet_text = tweet_text.replace("7 Leagues", "7 League")
         tweet_text = tweet_text.replace("5 Leagues", "5 League")
         tweet_text = tweet_text.replace("Wingers", "Wingers & Att Mid")
