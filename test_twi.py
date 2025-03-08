@@ -96,7 +96,7 @@ class TestUntitled:
         elif selected_position == "Midfielder":
     # Define metrics for Midfielder
             metric_options = [
-"Goals - xG per 90", "xG per 100 touches", "Goals per 100 touches", "npxG per 90", "xA per 100 passes", "Chance creation ratio",  "NPG+A per 90", "xG+xA per 90", "npxG+xA per 90", "Assists - xA per 90", "Pre-assists per 90", "Passes completed per 90", "Long passes completed per 90", "Accurate passes to final third per 90", "Through passes completed per 90", "Progressive passes completed per 90", "Progressive passes (Pad)", "Forward pass ratio", "Dribbles per 100 touches", "Ball-carrying frequency", "Duels won %", "Duels won per 90", "Possessions won - lost per 90", "Possession +/-", "Progressive actions per 90", "Progressive action rate"
+"Goals - xG per 90", "xG per 100 touches", "Goals per 100 touches", "npxG per 90", "xA per 100 passes", "Chance creation ratio",  "NPG+A per 90", "xG+xA per 90", "npxG+xA per 90", "Assists - xA per 90", "Pre-assists per 90", "Passes completed per 90", "Long passes completed per 90", "Accurate passes to final third per 90", "Through passes completed per 90", "Progressive passes completed per 90", "Progressive passes (PAdj)", "Forward pass ratio", "Dribbles per 100 touches", "Ball-carrying frequency", "Duels won %", "Duels won per 90", "Possessions won - lost per 90", "Possession +/-", "Progressive actions per 90", "Progressive action rate"
     ]
         elif selected_position == "Winger":
     # Define metrics for Winger
