@@ -59,7 +59,7 @@ class TestUntitled:
         ).send_keys("tombolivier@gmail.com")
         
         self.driver.find_element(By.NAME, "pwd").send_keys("password1")
-        self.driver.find_element(By.CSS_SELECTOR, ".SFmfllog:nth-child(3) button").click()
+        self.driver.find_element(By.CSS_SELECTOR, ".SFfrm button").click()
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.ID, "metric"))
         )
