@@ -229,7 +229,7 @@ class TestUntitled:
         media_id = response.json()['media_id_string']
 
         # Add alt text to the uploaded image
-        alt_text = "This is an automated tweet 🤖\n\nPosition, league, age and metrics were chosen randomly in the 2024/25 dataset.\n\nPlayer age and team refer to their age and team during the season.\n\nPositions are determined via the player's average heat map.\n\nSubscribe to DataMB Pro for more leagues and tools!"  # Add your alt text here
+        alt_text = "This is an automated tweet 🤖\n\nPosition, league, age and metrics were chosen randomly in the 2024/25 dataset.\n\nPlayer age and team refer to their age and team during the season.\n\nPositions are determined via the player's average heat map.\n\nJoin the free trial for more leagues and tools!"  # Add your alt text here
         metadata_url = "https://upload.twitter.com/1.1/media/metadata/create.json"
         metadata_payload = {
     "media_id": media_id,
@@ -252,7 +252,7 @@ class TestUntitled:
 
 
         # Create the tweet text dynamically
-        tweet_text = f"{selected_league} {selected_age} {selected_position} : {selected_metric}\n\n{specific_text}\n\n📊 datamb.football"
+        tweet_text = f"{selected_league} {selected_age} {selected_position} : {selected_metric}\n\n{specific_text}\n\n📊 Free trial: datamb.football"
         tweet_text = tweet_text.replace("  ", " ")
         tweet_text = tweet_text.replace(" Wanderers", "")
         tweet_text = tweet_text.replace("Borussia ", "")
