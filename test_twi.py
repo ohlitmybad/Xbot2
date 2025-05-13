@@ -300,7 +300,7 @@ class TestUntitled:
         tweet_text = tweet_text.replace("Wingers", "Wingers & Att Mid")
         
 
-        time.sleep(150*60)
+        time.sleep(180*60)
 
         # Create the tweet with the media attached
         tweet_url = "https://api.twitter.com/2/tweets"
