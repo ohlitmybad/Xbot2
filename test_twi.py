@@ -298,6 +298,7 @@ class TestUntitled:
         tweet_text = tweet_text.replace("7 Leagues", "7 League")
         tweet_text = tweet_text.replace("5 Leagues", "5 League")
         tweet_text = tweet_text.replace("Wingers", "Wingers & Att Mid")
+        tweet_text = tweet_text.replace("Goals - xG", "Goals minus xG")
         
 
         time.sleep(180*60)
