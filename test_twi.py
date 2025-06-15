@@ -188,18 +188,18 @@ class TestUntitled:
                 age_options = ["Age", "U23"]
             elif selected_league in ["🌍 All Leagues", "🌍 Outside Top 7"]:
                 if selected_position == "All positions":
-                    age_options = ["Age", "U18", "U19", "U21", "U23"]
+                    age_options = ["Age", "U18", "U19", "U20", "U21", "U23"]
                 elif selected_position != "Goalkeeper":
-                    age_options = ["Age", "U19", "U21", "U23"]
+                    age_options = ["Age", "U19", "U20", "U21", "U23"]
                 else:
-                    age_options = ["Age", "U23"]
+                    age_options = ["Age", "U21", "U24"]
             else: 
                 if selected_position == "All positions":
-                    age_options = ["Age", "U19", "U21", "U23"]
+                    age_options = ["Age", "U19", "U20", "U21", "U23"]
                 elif selected_position != "Goalkeeper":
                     age_options = ["Age", "U21", "U23"]
                 else:
-                    age_options = ["Age", "U23"]
+                    age_options = ["Age", "U24"]
         else:
             selected_age = "Age"
 
