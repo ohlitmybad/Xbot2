@@ -74,7 +74,7 @@ class TestUntitled:
         if selected_position == "Goalkeeper":
             metric_options = [
                 "Possessions won per 90", "Sliding tackles per 90", "Sliding tackles (PAdj)",
-                "Interceptions per 90", "Interceptions (PAdj)", "Defensive duels won %",
+                "Interceptions per 90", "Interceptions (PAdj)",
                 "Aerial duels won %", "Defensive duels won per 90", "Progressive passes per 90",
                 "Passes completed per 90", "Short passes completed per 90",
                 "Pass completion %", "Short pass completion %", "Long pass accuracy %",
