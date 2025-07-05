@@ -391,11 +391,17 @@ class TestUntitled:
         tweet_text = tweet_text.replace("Fortuna ", "")
         tweet_text = tweet_text.replace("Eintracht ", "")
         tweet_text = tweet_text.replace("Newcastle United", "Newcastle")
-        tweet_text = tweet_text.replace("7 Leagues", "7 League")
-        tweet_text = tweet_text.replace("5 Leagues", "5 League")
         tweet_text = tweet_text.replace("Wingers", "Wingers & Att Mid")
         tweet_text = tweet_text.replace("Goals - xG", "Goals minus xG")
+        tweet_text = tweet_text.replace("All Leagues", "🌍 All Leagues")
+        tweet_text = tweet_text.replace("Top 7 Leagues", "🇪🇺 Top 7 League")
+        tweet_text = tweet_text.replace("Top 5 Leagues", "🇪🇺 Top 5 League")
+        tweet_text = tweet_text.replace("Premier League", "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League")
+        tweet_text = tweet_text.replace("La Liga", "🇪🇸 La Liga")
+        tweet_text = tweet_text.replace("Bundesliga", "🇩🇪 Bundesliga")
+        tweet_text = tweet_text.replace("Serie A", "🇮🇹 Serie A")
         
+        time.sleep(180*60)
 
         # Create the tweet with the media attached
         tweet_url = "https://api.twitter.com/2/tweets"
