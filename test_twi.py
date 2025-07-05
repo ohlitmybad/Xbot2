@@ -35,7 +35,7 @@ class TestUntitled:
         body_text = body_element.text
     # Split the text into lines and capture the first 5 lines
         lines = body_text.splitlines()
-        specific_lines = "\n".join(lines[200:205])
+        specific_lines = "\n".join(lines[4:9])
     
     # Replace the specified text
         replacements = {
@@ -56,7 +56,7 @@ class TestUntitled:
     def test_untitled(self):
         self.driver.get("https://datamb.football/proindex/")
         time.sleep(1)
-        self.driver.set_window_size(976, 819)
+        self.driver.set_window_size(976, 797)
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.NAME, "eml"))
         ).send_keys("tombolivier@gmail.com")
