@@ -10,6 +10,8 @@ from requests_oauthlib import OAuth1
 from selenium.webdriver.chrome.options import Options
 import os
 import re
+from selenium.webdriver.common.action_chains import ActionChains
+from PIL import Image
 
 
 API_KEY = os.getenv('API_KEY')
@@ -22,6 +24,7 @@ class TestUntitled:
         chrome_options = Options()
         chrome_options.add_argument("--headless")
         chrome_options.add_argument("--disable-gpu")
+        chrome_options.add_argument("--force-device-scale-factor=2")
         self.driver = webdriver.Chrome(options=chrome_options)
 
     def teardown_method(self):
@@ -53,7 +56,7 @@ class TestUntitled:
     def test_untitled(self):
         self.driver.get("https://datamb.football/proindex/")
         time.sleep(1)
-        self.driver.set_window_size(976, 772)
+        self.driver.set_window_size(976, 845)
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.NAME, "eml"))
         ).send_keys("tombolivier@gmail.com")
@@ -171,22 +174,22 @@ class TestUntitled:
         selected_metric = random.choice(metric_options)
 
         league_options = [
-    "🇪🇺 Top 7 Leagues",
-    "🇪🇺 Top 5 Leagues",
-    "🌍 All Leagues",
-    "🌍 Outside Top 7",
-    "🌎 South America",
-    "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League"
+    "Top 7 Leagues",
+    "Top 5 Leagues",
+    "All Leagues",
+    "Outside Top 7",
+    "South America",
+    "Premier League"
 ]
 
         weights = [0.20, 0.40, 0.30, 0.05, 0.02, 0.03] # Adjust league weights
         assert len(weights) == len(league_options), "Weights length must match the league options length"
         selected_league = random.choices(league_options, weights=weights, k=1)[0]
 
-        if selected_league in ["🇪🇺 Top 7 Leagues", "🇪🇺 Top 5 Leagues", "🌍 All Leagues", "🌍 Outside Top 7"]:
-            if selected_league == "🇪🇺 Top 5 Leagues" and selected_position == "Striker":
+        if selected_league in ["Top 7 Leagues", "Top 5 Leagues", "All Leagues", "Outside Top 7"]:
+            if selected_league == "Top 5 Leagues" and selected_position == "Striker":
                 age_options = ["Age", "U23"]
-            elif selected_league in ["🌍 All Leagues", "🌍 Outside Top 7"]:
+            elif selected_league in ["All Leagues", "Outside Top 7"]:
                 if selected_position == "All positions":
                     age_options = ["Age", "U18", "U19", "U20", "U21", "U23"]
                 elif selected_position != "Goalkeeper":
@@ -201,38 +204,78 @@ class TestUntitled:
                 else:
                     age_options = ["Age", "U24"]
         else:
-            selected_age = "Age"
+            age_options = ["Age"]
 
         selected_age = random.choice(age_options)
 
-        # Select metric
-        dropdown = self.driver.find_element(By.ID, "metric")
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, f"//option[. = 'Minutes played']"))).click()
+        # Select metric using custom selector
+        self.driver.execute_script(f"""
+            var metricTrigger = document.getElementById('metric-select-trigger');
+            if (metricTrigger) {{
+                metricTrigger.click();
+            }}
+            setTimeout(function() {{
+                var options = document.querySelectorAll('#metric-select-options .custom-select-option');
+                for (var i = 0; i < options.length; i++) {{
+                    if (options[i].textContent.trim() === '{selected_metric}') {{
+                        options[i].click();
+                        break;
+                    }}
+                }}
+            }}, 100);
+        """)
 
-        # Select position
-        dropdown = self.driver.find_element(By.ID, "position")
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, f"//option[. = '{selected_position}']"))
-        ).click()
+        # Select position using custom selector
+        self.driver.execute_script(f"""
+            var positionTrigger = document.getElementById('position-select-trigger');
+            if (positionTrigger) {{
+                positionTrigger.click();
+            }}
+            setTimeout(function() {{
+                var options = document.querySelectorAll('#position-select-options .custom-select-option');
+                for (var i = 0; i < options.length; i++) {{
+                    if (options[i].textContent.trim() === '{selected_position}') {{
+                        options[i].click();
+                        break;
+                    }}
+                }}
+            }}, 100);
+        """)
 
-        dropdown = self.driver.find_element(By.ID, "metric")
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, f"//option[. = '{selected_metric}']"))
-        ).click()
+        # Select league using custom selector
+        self.driver.execute_script(f"""
+            var leagueTrigger = document.getElementById('league-select-trigger');
+            if (leagueTrigger) {{
+                leagueTrigger.click();
+            }}
+            setTimeout(function() {{
+                var options = document.querySelectorAll('#league-select-options .custom-select-option');
+                for (var i = 0; i < options.length; i++) {{
+                    if (options[i].textContent.trim() === '{selected_league}') {{
+                        options[i].click();
+                        break;
+                    }}
+                }}
+            }}, 100);
+        """)
 
-
-        # Select league
-        dropdown = self.driver.find_element(By.ID, "league")
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, f"//option[. = '{selected_league}']"))
-        ).click()
-
-                # Select age
-        dropdown = self.driver.find_element(By.ID, "age")
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, f"//option[. = '{selected_age}']"))
-        ).click()
+        # Select age using custom selector
+        if selected_age != "Age":
+            self.driver.execute_script(f"""
+                var ageTrigger = document.getElementById('age-select-trigger');
+                if (ageTrigger) {{
+                    ageTrigger.click();
+                }}
+                setTimeout(function() {{
+                    var options = document.querySelectorAll('#age-select-options .custom-select-option');
+                    for (var i = 0; i < options.length; i++) {{
+                        if (options[i].textContent.trim() === '{selected_age}') {{
+                            options[i].click();
+                            break;
+                        }}
+                    }}
+                }}, 100);
+            """)
 
         # Check if we need to handle the toggle sort checkbox
         if selected_metric in ["Goals - xG per 90", "Assists - xA per 90"]:
@@ -246,15 +289,16 @@ class TestUntitled:
                 except Exception as e:
                     print(f"Could not click toggle sort: {e}")
 
-        # Wait for the label to be visible and scroll into view
-        label = WebDriverWait(self.driver, 10).until(
-            EC.visibility_of_element_located((By.CSS_SELECTOR, 'label[for="toggleMetrics"]'))
+        # Wait for the toggle metrics button to be visible and scroll into view
+        toggle_metrics_btn = WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located((By.ID, "toggleMetrics"))
         )
-        self.driver.execute_script("arguments[0].scrollIntoView(true);", label)
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", toggle_metrics_btn)
 
-        # Use JavaScript to click the label
+        # Use JavaScript to click the button
         try:
-            self.driver.execute_script("arguments[0].click();", label)
+            self.driver.execute_script("arguments[0].click();", toggle_metrics_btn)
+            time.sleep(0.5)  # Wait for the toggle state to update visually
         except Exception as e:
             raise e
         
@@ -267,10 +311,39 @@ class TestUntitled:
     }
 """)
 
-      
+        # Inject a dummy div at the top left and move mouse to it to avoid hover effect
+        self.driver.execute_script("""
+            if (!document.getElementById('dummy-mouse-target')) {
+                var d = document.createElement('div');
+                d.id = 'dummy-mouse-target';
+                d.style.position = 'fixed';
+                d.style.left = '0px';
+                d.style.top = '0px';
+                d.style.width = '1px';
+                d.style.height = '1px';
+                d.style.zIndex = '99999';
+                d.style.background = 'transparent';
+                document.body.appendChild(d);
+            }
+        """)
+        dummy = self.driver.find_element(By.ID, "dummy-mouse-target")
+        ActionChains(self.driver).move_to_element(dummy).perform()
+
+        # Hide the dark-mode-toggle before taking the screenshot
+        self.driver.execute_script("""
+            var dmt = document.querySelector('.dark-mode-toggle');
+            if (dmt) dmt.style.display = 'none';
+        """)
+
         # Save screenshot
         self.driver.save_screenshot('screenshot.png')
         specific_text = self.capture_first_five_lines()
+
+        # Crop 5px from top, left, and right
+        img = Image.open('screenshot.png')
+        width, height = img.size
+        cropped = img.crop((11, 0, width - 11, height - 5))
+        cropped.save('screenshot.png')
 
         # Upload the screenshot to Twitter
         upload_url = "https://upload.twitter.com/1.1/media/upload.json"
@@ -324,7 +397,6 @@ class TestUntitled:
         tweet_text = tweet_text.replace("Goals - xG", "Goals minus xG")
         
 
-        time.sleep(180*60)
 
         # Create the tweet with the media attached
         tweet_url = "https://api.twitter.com/2/tweets"
