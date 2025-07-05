@@ -56,7 +56,7 @@ class TestUntitled:
     def test_untitled(self):
         self.driver.get("https://datamb.football/proindex/")
         time.sleep(1)
-        self.driver.set_window_size(976, 839)
+        self.driver.set_window_size(976, 819)
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.NAME, "eml"))
         ).send_keys("tombolivier@gmail.com")
@@ -396,7 +396,6 @@ class TestUntitled:
         tweet_text = tweet_text.replace("Wingers", "Wingers & Att Mid")
         tweet_text = tweet_text.replace("Goals - xG", "Goals minus xG")
         
-        time.sleep(180*60)
 
         # Create the tweet with the media attached
         tweet_url = "https://api.twitter.com/2/tweets"
