@@ -394,6 +394,7 @@ class TestUntitled:
         tweet_text = tweet_text.replace("Wingers", "Wingers & Att Mid")
         tweet_text = tweet_text.replace("Goals - xG", "Goals minus xG")
         tweet_text = tweet_text.replace("All Leagues", "🌍 All Leagues")
+        tweet_text = tweet_text.replace("South America", "🌎 South America")
         tweet_text = tweet_text.replace("Top 7 Leagues", "🇪🇺 Top 7 League")
         tweet_text = tweet_text.replace("Top 5 Leagues", "🇪🇺 Top 5 League")
         tweet_text = tweet_text.replace("Premier League", "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League")
