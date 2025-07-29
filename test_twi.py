@@ -182,7 +182,7 @@ class TestUntitled:
     "Premier League"
 ]
 
-        weights = [0.20, 0.40, 0.30, 0.05, 0.02, 0.03] # Adjust league weights
+        weights = [0.20, 0.40, 0.31, 0.03, 0.03, 0.03] # Adjust league weights
         assert len(weights) == len(league_options), "Weights length must match the league options length"
         selected_league = random.choices(league_options, weights=weights, k=1)[0]
 
@@ -394,6 +394,7 @@ class TestUntitled:
         tweet_text = tweet_text.replace("Wingers", "Wingers & Att Mid")
         tweet_text = tweet_text.replace("Goals - xG", "Goals minus xG")
         tweet_text = tweet_text.replace("All Leagues", "🌍 All Leagues")
+        tweet_text = tweet_text.replace("Outside Top 7", "🌍 Outside Top 7")
         tweet_text = tweet_text.replace("South America", "🌎 South America")
         tweet_text = tweet_text.replace("Top 7 Leagues", "🇪🇺 Top 7 League")
         tweet_text = tweet_text.replace("Top 5 Leagues", "🇪🇺 Top 5 League")
