@@ -225,7 +225,6 @@ class TestUntitled:
             }}, 100);
         """)
 
-        # Select position using custom selector
         self.driver.execute_script(f"""
             var positionTrigger = document.getElementById('position-select-trigger');
             if (positionTrigger) {{
