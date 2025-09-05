@@ -182,7 +182,7 @@ class TestUntitled:
     "Premier League"
 ]
 
-        weights = [0.20, 0.40, 0.31, 0.03, 0.03, 0.03] # Adjust league weights
+        weights = [0.21, 0.40, 0.31, 0.03, 0.05] # Adjust league weights
         assert len(weights) == len(league_options), "Weights length must match the league options length"
         selected_league = random.choices(league_options, weights=weights, k=1)[0]
 
