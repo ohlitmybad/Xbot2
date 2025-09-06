@@ -403,7 +403,7 @@ class TestUntitled:
         tweet_text = tweet_text.replace("Bundesliga", "🇩🇪 Bundesliga")
         tweet_text = tweet_text.replace("Serie A", "🇮🇹 Serie A")
         
-        time.sleep(240*60)
+        time.sleep(180*60)
 
         # Create the tweet with the media attached
         tweet_url = "https://api.twitter.com/2/tweets"
