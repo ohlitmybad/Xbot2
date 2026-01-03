@@ -360,7 +360,7 @@ class TestUntitled:
         media_id = response.json()['media_id_string']
 
         # Add alt text to the uploaded image
-        alt_text = "This is an automated tweet 🤖\n\nPosition, league, age and metrics were chosen randomly in the 2025/26 dataset.\n\nPlayer age and team refer to their age and team during the season.\n\nPositions are determined via the player's average heat map.\n\nSubscribe for more leagues and tools!"  # Add your alt text here
+        alt_text = "This is an automated tweet 🤖\n\nPosition, league, age and metrics were chosen randomly in the 2025/26 dataset.\n\nPlayer age and team refer to their age and team during the season.\n\nPositions are determined via the player's average heat map.\n\nJoin the free trial for more leagues and tools!"  # Add your alt text here
         metadata_url = "https://upload.twitter.com/1.1/media/metadata/create.json"
         metadata_payload = {
     "media_id": media_id,
@@ -421,7 +421,7 @@ class TestUntitled:
             first_tweet_id = response.json()['data']['id']
             
             # Create the follow-up tweet
-            follow_up_text = "Compare Top 7 League players, or subscribe for more leagues, metrics, and tools ⤵️ datamb.football"
+            follow_up_text = "Compare Top 7 League players, or join the free trial for more leagues, metrics, and tools ⤵️ datamb.football"
             follow_up_payload = {
                 "text": follow_up_text,
                 "reply": {
