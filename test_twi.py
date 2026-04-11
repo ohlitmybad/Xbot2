@@ -18,6 +18,8 @@ API_KEY = os.getenv('API_KEY')
 API_KEY_SECRET = os.getenv('API_KEY_SECRET')
 ACCESS_TOKEN = os.getenv('ACCESS_TOKEN')
 ACCESS_TOKEN_SECRET = os.getenv('ACCESS_TOKEN_SECRET')
+DATAMB_EMAIL = os.getenv('DATAMB_EMAIL')
+DATAMB_PASSWORD = os.getenv('DATAMB_PASSWORD')
 
 class TestUntitled:
     def setup_method(self, method):
@@ -57,11 +59,14 @@ class TestUntitled:
         self.driver.get("https://datamb.football/proindex/")
         time.sleep(1)
         self.driver.set_window_size(976, 797)
+        assert DATAMB_EMAIL and DATAMB_PASSWORD, (
+            "Set DATAMB_EMAIL and DATAMB_PASSWORD (e.g. GitHub repo secrets)."
+        )
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.NAME, "eml"))
-        ).send_keys("tombolivier@gmail.com")
-        
-        self.driver.find_element(By.NAME, "pwd").send_keys("password1")
+        ).send_keys(DATAMB_EMAIL)
+
+        self.driver.find_element(By.NAME, "pwd").send_keys(DATAMB_PASSWORD)
         self.driver.find_element(By.CSS_SELECTOR, ".SFfrm button").click()
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.ID, "metric"))
