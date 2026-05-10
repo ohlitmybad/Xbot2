@@ -319,8 +319,42 @@ def _select_twitter_only(driver) -> None:
         raise RuntimeError("Could not select Twitter channel in Buffer") from exc
 
 
-def _copy_text_to_clipboard(text: str) -> bool:
-    """OS clipboard so Cmd/Ctrl+V triggers real paste events (Draft/React editors often require this)."""
+def _copy_text_to_clipboard(text: str, driver=None) -> bool:
+    """
+    Set clipboard contents so Ctrl+V triggers a real paste event.
+    Primary: CDP command (works in headless CI with no OS clipboard).
+    Fallback: OS clipboard tools (pbcopy/xclip/xsel).
+    """
+    if driver is not None:
+        try:
+            driver.execute_cdp_cmd(
+                "Browser.setPermission",
+                {"permission": {"name": "clipboard-read"}, "setting": "granted",
+                 "origin": driver.execute_script("return window.location.origin")},
+            )
+            driver.execute_cdp_cmd(
+                "Browser.setPermission",
+                {"permission": {"name": "clipboard-write"}, "setting": "granted",
+                 "origin": driver.execute_script("return window.location.origin")},
+            )
+        except Exception:
+            pass
+        try:
+            driver.execute_script(
+                "await navigator.clipboard.writeText(arguments[0]);", text
+            )
+            return True
+        except Exception:
+            pass
+        try:
+            driver.execute_cdp_cmd(
+                "Runtime.evaluate",
+                {"expression": f"navigator.clipboard.writeText({repr(text)})",
+                 "awaitPromise": True},
+            )
+            return True
+        except Exception:
+            pass
     try:
         raw = text.encode("utf-8")
         if sys.platform == "darwin":
@@ -455,6 +489,28 @@ def _set_native_textarea_react(driver, el, text: str) -> None:
     )
 
 
+def _js_synthetic_paste(driver, el, text: str) -> bool:
+    """Fire a synthetic paste event with DataTransfer — works in headless without OS clipboard."""
+    try:
+        driver.execute_script(
+            """
+            const el = arguments[0], text = arguments[1];
+            el.focus();
+            const dt = new DataTransfer();
+            dt.setData('text/plain', text);
+            const pe = new ClipboardEvent('paste', {
+                bubbles: true, cancelable: true, clipboardData: dt
+            });
+            el.dispatchEvent(pe);
+            """,
+            el,
+            text,
+        )
+        return True
+    except Exception:
+        return False
+
+
 def _set_composer_text(driver, post_text: str) -> None:
     el = _find_primary_composer(driver)
     driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", el)
@@ -469,50 +525,54 @@ def _set_composer_text(driver, post_text: str) -> None:
 
     focus_clear()
 
-    if _copy_text_to_clipboard(post_text):
+    # Method 1: CDP clipboard + Ctrl/Cmd+V
+    if _copy_text_to_clipboard(post_text, driver=driver):
         driver.execute_script("arguments[0].focus(); arguments[0].click();", el)
         time.sleep(0.15)
         ActionChains(driver).key_down(cmd).send_keys("v").key_up(cmd).perform()
         time.sleep(0.55)
         if _composer_text_looks_ok(driver, el, post_text):
-            time.sleep(0.2)
             return
 
+    # Method 2: synthetic paste event (headless-friendly, no OS clipboard needed)
+    focus_clear()
+    _js_synthetic_paste(driver, el, post_text)
+    time.sleep(0.4)
+    if _composer_text_looks_ok(driver, el, post_text):
+        return
+
+    # Method 3: execCommand insertText (works for contenteditable)
+    focus_clear()
+    driver.execute_script(
+        """
+        const el = arguments[0], t = arguments[1];
+        el.focus();
+        document.execCommand('selectAll', false, null);
+        document.execCommand('insertText', false, t);
+        """,
+        el,
+        post_text,
+    )
+    time.sleep(0.3)
+    if _composer_text_looks_ok(driver, el, post_text):
+        return
+
+    # Method 4: React textarea setter
     tag = (el.tag_name or "").lower()
     if tag == "textarea":
+        focus_clear()
         _set_native_textarea_react(driver, el, post_text)
         time.sleep(0.3)
-        if not _composer_text_looks_ok(driver, el, post_text):
-            try:
-                el.clear()
-            except Exception:
-                focus_clear()
-            el.send_keys(post_text)
-    else:
-        driver.execute_script(
-            """
-            const el = arguments[0], t = arguments[1];
-            el.focus();
-            if (document.queryCommandSupported && document.queryCommandSupported('insertText')) {
-                document.execCommand('selectAll', false, null);
-                document.execCommand('insertText', false, t);
-            } else {
-                el.textContent = t;
-                el.dispatchEvent(new InputEvent('input', {bubbles: true, data: t, inputType: 'insertText'}));
-            }
-            """,
-            el,
-            post_text,
-        )
-        time.sleep(0.25)
-        if not _composer_text_looks_ok(driver, el, post_text):
-            driver.execute_script("arguments[0].focus(); arguments[0].click();", el)
-            ActionChains(driver).send_keys_to_element(el, post_text).perform()
+        if _composer_text_looks_ok(driver, el, post_text):
+            return
 
+    # Method 5: direct send_keys
+    focus_clear()
+    el.send_keys(post_text)
     time.sleep(0.35)
     if not _composer_text_looks_ok(driver, el, post_text):
         raise RuntimeError(
-            "Buffer: main composer text did not stick after paste/React/send_keys; "
+            "Buffer: main composer text did not stick after all methods; "
             "check composer selectors or run with visible Chrome to see focus."
         )
 
@@ -665,13 +725,30 @@ def _add_alt_text(driver, alt_text: str) -> None:
                 alt_input.clear()
             except Exception:
                 pass
-            if _copy_text_to_clipboard(alt_text):
+            typed = False
+            if _copy_text_to_clipboard(alt_text, driver=driver):
                 driver.execute_script("arguments[0].focus(); arguments[0].click();", alt_input)
                 time.sleep(0.1)
                 ActionChains(driver).key_down(cmd).send_keys("v").key_up(cmd).perform()
                 time.sleep(0.4)
-            else:
+                typed = True
+            if not typed:
+                _js_synthetic_paste(driver, alt_input, alt_text)
+                time.sleep(0.3)
+                typed = True
+            got = driver.execute_script(
+                "return (arguments[0].value || arguments[0].textContent || '').trim();",
+                alt_input,
+            )
+            if not got:
                 _set_native_textarea_react(driver, alt_input, alt_text)
+                time.sleep(0.2)
+            got = driver.execute_script(
+                "return (arguments[0].value || arguments[0].textContent || '').trim();",
+                alt_input,
+            )
+            if not got:
+                alt_input.send_keys(alt_text)
         else:
             ActionChains(driver).send_keys(alt_text).perform()
 
