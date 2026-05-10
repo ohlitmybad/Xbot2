@@ -254,7 +254,16 @@ def _login_buffer(driver, email: str, password: str) -> None:
     if not login_button:
         raise RuntimeError("Buffer login button not found")
     login_button.click()
-    WebDriverWait(driver, 45).until(EC.url_contains("publish.buffer.com"))
+    try:
+        WebDriverWait(driver, 60).until(
+            lambda d: "publish.buffer.com" in d.current_url or "buffer.com/app" in d.current_url
+        )
+    except Exception:
+        cur = driver.current_url
+        raise RuntimeError(
+            f"Buffer login redirect timed out. Current URL: {cur}  "
+            f"(page title: {driver.title})"
+        )
 
 
 def _open_composer(driver) -> None:
