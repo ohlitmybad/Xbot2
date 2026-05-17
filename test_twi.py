@@ -1439,7 +1439,7 @@ class TestUntitled:
         selected_position = selected_position.replace("ack", "acks")
         selected_position = selected_position.replace("All positions", "Players")
         selected_age = selected_age.replace("Age", "")
-        tweet_text = f"{selected_league} {selected_age} {selected_position} : {selected_metric}\n\n{specific_text}\n\n📊 Free trial: datamb.football"
+        tweet_text = f"{selected_league} {selected_age} {selected_position} : {selected_metric}\n\n{specific_text}\n\n📊 datamb.football"
         tweet_text = tweet_text.replace("  ", " ")
         tweet_text = tweet_text.replace(" Wanderers", "")
         tweet_text = tweet_text.replace("Borussia ", "")
@@ -1468,9 +1468,9 @@ class TestUntitled:
         alt_text = (
             "This is an automated tweet 🤖\n\nPosition, league, age and metrics were chosen randomly in the 2025/26 dataset.\n\n"
             "Player age and team refer to their age and team during the season.\n\nPositions are determined via the player's average heat map.\n\n"
-            "Join the free trial for more leagues and tools!"
+            "Subscribe for more leagues and tools!"
         )
-        follow_up_text = "Compare Top 7 League players, or join the free trial for more leagues, metrics, and tools ⤵️ datamb.football"
+        follow_up_text = "Compare Top 7 League players, or subscribe for more leagues, metrics, and tools ⤵️ datamb.football"
         screenshot_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "screenshot.png")
         time.sleep(170 * 60)
         schedule_twitter_post_via_buffer(
