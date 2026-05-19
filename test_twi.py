@@ -1472,7 +1472,6 @@ class TestUntitled:
         )
         follow_up_text = "Compare Top 7 League players, or subscribe for more leagues, metrics, and tools ⤵️ datamb.football"
         screenshot_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "screenshot.png")
-        time.sleep(170 * 60)
         schedule_twitter_post_via_buffer(
             self.driver,
             tweet_text,
