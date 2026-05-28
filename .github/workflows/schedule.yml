@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pytest selenium google-api-python-client google-auth-httplib2 google-auth-oauthlib
+          pip install pytest selenium google-api-python-client google-auth-httplib2 google-auth-oauthlib Pillow requests
       - name: Run script
         env:
           DATAMB_EMAIL: ${{ secrets.DATAMB_EMAIL }}
