@@ -231,6 +231,7 @@ def _buffer_gmail_search_query() -> str:
     ).strip()
 
 
+# Desktop OAuth client (Gmail API) — same as client_secret_111773946468-....json in Downloads.
 _BUFFER_GMAIL_INSTALLED_CLIENT: Dict[str, Any] = {
     "installed": {
         "client_id": os.getenv("CLIENT_ID"),
@@ -242,7 +243,6 @@ _BUFFER_GMAIL_INSTALLED_CLIENT: Dict[str, Any] = {
         "redirect_uris": ["http://localhost"],
     }
 }
-
 
 def _gmail_service_for_buffer():
     from google.auth.transport.requests import Request
@@ -385,33 +385,25 @@ def _login_buffer(driver, email: str, password: str) -> None:
         )
     except Exception:
         pass
-
-    def _dismiss_cookie_banner():
-        for sel in ("[data-cky-tag='accept-button']", ".cky-btn-accept", "button.cky-btn"):
-            try:
-                btn = WebDriverWait(driver, 3).until(EC.element_to_be_clickable((By.CSS_SELECTOR, sel)))
-                btn.click()
-                time.sleep(0.3)
-                return
-            except Exception:
-                pass
-
-    _dismiss_cookie_banner()
+    try:
+        accept = WebDriverWait(driver, 3).until(
+            EC.element_to_be_clickable(
+                (By.XPATH, "//button[contains(text(), 'Accept All') or contains(text(), 'Accept')]")
+            )
+        )
+        accept.click()
+        time.sleep(0.3)
+    except Exception:
+        pass
 
     email_field = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.NAME, "email")))
     email_field.clear()
     email_field.click()
     email_field.send_keys(email)
 
-    _dismiss_cookie_banner()  # dismiss again in case it appeared late
-
     password_field = WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.NAME, "password")))
     password_field.clear()
-    driver.execute_script("arguments[0].scrollIntoView({block:'center'});", password_field)
-    try:
-        password_field.click()
-    except Exception:
-        driver.execute_script("arguments[0].click();", password_field)
+    password_field.click()
     password_field.send_keys(password)
 
     login_button = None
@@ -1089,32 +1081,131 @@ def _publish_now(driver) -> None:
     time.sleep(1)
 
 
+def _resolve_twitter_channel_id(api_key: str) -> str:
+    """Fetch the Twitter channel ID from the Buffer API."""
+    import requests as _requests
+
+    org_q = "query { account { organizations { id } } }"
+    resp = _requests.post(
+        "https://api.buffer.com",
+        headers={"Content-Type": "application/json", "Authorization": f"Bearer {api_key}"},
+        json={"query": org_q},
+        timeout=30,
+    )
+    org_id = resp.json()["data"]["account"]["organizations"][0]["id"]
+
+    ch_q = """query GetChannels($orgId: OrganizationId!) {
+      channels(input: { organizationId: $orgId }) { id service }
+    }"""
+    resp = _requests.post(
+        "https://api.buffer.com",
+        headers={"Content-Type": "application/json", "Authorization": f"Bearer {api_key}"},
+        json={"query": ch_q, "variables": {"orgId": org_id}},
+        timeout=30,
+    )
+    for ch in resp.json()["data"]["channels"]:
+        if ch["service"] == "twitter":
+            return ch["id"]
+    raise RuntimeError("No Twitter channel found in Buffer account")
+
+
 def schedule_twitter_post_via_buffer(
     driver,
     post_text: str,
     image_path: str,
     alt_text: Optional[str] = None,
     reply_text: Optional[str] = None,
+    schedule_minutes: int = 180,
 ) -> None:
-    email = os.environ.get("BUFFER_EMAIL", "").strip()
-    password = os.environ.get("BUFFER_PASSWORD", "").strip()
-    if not email or not password:
-        raise RuntimeError("Set BUFFER_EMAIL and BUFFER_PASSWORD for Buffer posting")
+    """Post to Twitter via Buffer GraphQL API (scheduled N minutes from now)."""
+    import requests as _requests
+    from datetime import timezone
 
-    _login_buffer(driver, email, password)
-    _open_composer(driver)
-    _select_twitter_only(driver)
-    _upload_single_image(driver, image_path)
-    _set_composer_text(driver, post_text)
+    api_key = os.environ.get("BUFFER_API_KEY", "").strip()
+    if not api_key:
+        raise RuntimeError("Set BUFFER_API_KEY env var")
+
+    # Auto-discover Twitter channel ID
+    channel_id = _resolve_twitter_channel_id(api_key)
+
+    # Upload image to public host
+    abs_path = os.path.abspath(image_path)
+    if not os.path.isfile(abs_path):
+        raise FileNotFoundError(f"Image not found: {abs_path}")
+    with open(abs_path, 'rb') as f:
+        resp = _requests.post(
+            "https://litterbox.catbox.moe/resources/internals/api.php",
+            data={"reqtype": "fileupload", "time": "72h"},
+            files={"fileToUpload": (os.path.basename(abs_path), f)},
+            timeout=120,
+        )
+    resp.raise_for_status()
+    image_url = resp.text.strip()
+    if not image_url.startswith("http"):
+        raise RuntimeError(f"Image upload failed: {image_url}")
+    print(f"Image uploaded: {image_url}")
+
+    # Build assets
+    image_asset = {"image": {"url": image_url}}
     if alt_text:
-        _add_alt_text(driver, alt_text)
-    if reply_text:
-        _add_thread_reply(driver, reply_text)
-    _publish_now(driver)
+        image_asset["image"]["metadata"] = {"altText": alt_text}
+    assets = [image_asset]
 
-    ok, _url = check_post_scheduled_success(driver, timeout=90)
-    if not ok:
-        raise RuntimeError("Buffer: success confirmation not detected after scheduling")
+    # Build metadata with thread (main tweet first, then reply)
+    metadata = {}
+    if reply_text:
+        metadata["twitter"] = {
+            "thread": [
+                {"text": post_text, "assets": assets},
+                {"text": reply_text, "assets": []},
+            ]
+        }
+
+    # Schedule N minutes from now
+    due_at = (datetime.now(tz=timezone.utc) + timedelta(minutes=schedule_minutes)).strftime(
+        "%Y-%m-%dT%H:%M:%S.000Z"
+    )
+
+    query = """
+    mutation CreatePost($input: CreatePostInput!) {
+      createPost(input: $input) {
+        ... on PostActionSuccess { post { id text dueAt } }
+        ... on MutationError { message }
+      }
+    }
+    """
+    input_var = {
+        "text": post_text,
+        "channelId": channel_id,
+        "schedulingType": "automatic",
+        "mode": "customScheduled",
+        "dueAt": due_at,
+        "assets": assets,
+    }
+    if metadata:
+        input_var["metadata"] = metadata
+
+    resp = _requests.post(
+        "https://api.buffer.com",
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {api_key}",
+        },
+        json={"query": query, "variables": {"input": input_var}},
+        timeout=30,
+    )
+    result = resp.json()
+    if result.get("errors"):
+        err = result["errors"][0]
+        raise RuntimeError(f"Buffer API error: {err.get('message', 'Unknown')}")
+
+    cp = result.get("data", {}).get("createPost", {})
+    if cp.get("post"):
+        print(f"Buffer API: post created (id={cp['post']['id']}, dueAt={cp['post'].get('dueAt')})")
+    elif cp.get("message"):
+        raise RuntimeError(f"Buffer API error: {cp['message']}")
+    else:
+        raise RuntimeError(f"Buffer API: unexpected response: {result}")
 
 
 class TestUntitled:
@@ -1447,7 +1538,7 @@ class TestUntitled:
         selected_position = selected_position.replace("ack", "acks")
         selected_position = selected_position.replace("All positions", "Players")
         selected_age = selected_age.replace("Age", "")
-        tweet_text = f"{selected_league} {selected_age} {selected_position} : {selected_metric}\n\n{specific_text}\n\n📊 datamb.football"
+        tweet_text = f"{selected_league} {selected_age} {selected_position} : {selected_metric}\n\n{specific_text}\n\n📊 Free trial: datamb.football"
         tweet_text = tweet_text.replace("  ", " ")
         tweet_text = tweet_text.replace(" Wanderers", "")
         tweet_text = tweet_text.replace("Borussia ", "")
@@ -1476,19 +1567,19 @@ class TestUntitled:
         alt_text = (
             "This is an automated tweet 🤖\n\nPosition, league, age and metrics were chosen randomly in the 2025/26 dataset.\n\n"
             "Player age and team refer to their age and team during the season.\n\nPositions are determined via the player's average heat map.\n\n"
-            "Subscribe for more leagues and tools!"
+            "Join the free trial for more leagues and tools!"
         )
-        follow_up_text = "Compare Top 7 League players, or subscribe for more leagues, metrics, and tools ⤵️ datamb.football"
+        follow_up_text = "Compare Top 7 League players, or join the free trial for more leagues, metrics, and tools ⤵️ datamb.football"
         screenshot_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "screenshot.png")
-        time.sleep(170 * 60)
         schedule_twitter_post_via_buffer(
-            self.driver,
+            None,
             tweet_text,
             screenshot_path,
             alt_text=alt_text,
             reply_text=follow_up_text,
+            schedule_minutes=180,
         )
-        print("Post scheduled in Buffer (~2 minutes).")
+        print("Post scheduled via Buffer API (~3 hours from now).")
 
         
 
