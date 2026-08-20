@@ -27,5 +27,6 @@ jobs:
           BUFFER_EMAIL: ${{ secrets.BUFFER_EMAIL }}
           BUFFER_PASSWORD: ${{ secrets.BUFFER_PASSWORD }}
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
         run: |
           python test_twi.py
