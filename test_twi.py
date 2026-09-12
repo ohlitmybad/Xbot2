@@ -1179,6 +1179,11 @@ def schedule_twitter_post_via_buffer(
     schedule_minutes: int = 180,
 ) -> None:
     """Post to Twitter via Buffer GraphQL API (scheduled N minutes from now)."""
+    if os.environ.get("XBOT_LOCAL", "").strip().lower() in ("1", "true", "yes"):
+        raise RuntimeError(
+            "XBOT_LOCAL is set — refusing Buffer upload. Use INDEX/run_local.py instead."
+        )
+
     import requests as _requests
     from datetime import timezone
 
@@ -1255,6 +1260,106 @@ def schedule_twitter_post_via_buffer(
         raise RuntimeError(f"Buffer API: unexpected response: {result}")
 
 
+def _select_index_dropdown(
+    driver,
+    trigger_id,
+    options_id,
+    label,
+    extra_matches=None,
+    search_input_id=None,
+    timeout=10,
+):
+    """Pick one option in the Index custom-select UI (multi-select + search).
+
+    Clicks the option label, not the combine checkbox. Matches data-value or
+    the option's span text. Raises if the trigger does not show the choice.
+    """
+    candidates = [label, *(extra_matches or [])]
+    script = """
+        const triggerId = arguments[0];
+        const optionsId = arguments[1];
+        const candidates = arguments[2];
+        const searchInputId = arguments[3];
+
+        function norm(s) {
+            return (s || '').replace(/\\s+/g, ' ').trim();
+        }
+        function optionLabel(option) {
+            const span = option.querySelector('span:not(.option-check)');
+            return span || option;
+        }
+        function optionText(option) {
+            return norm(optionLabel(option).textContent);
+        }
+        function matches(option) {
+            const value = option.getAttribute('data-value') || '';
+            const text = optionText(option);
+            return candidates.some(function (c) {
+                return c === value || c === text;
+            });
+        }
+
+        const trigger = document.getElementById(triggerId);
+        const options = document.getElementById(optionsId);
+        if (!trigger || !options) return { ok: false, reason: 'missing-ui' };
+
+        document.querySelectorAll('.custom-select-trigger.open').forEach(function (openTrigger) {
+            if (openTrigger !== trigger) {
+                openTrigger.classList.remove('open');
+                if (openTrigger.nextElementSibling) openTrigger.nextElementSibling.style.display = 'none';
+            }
+        });
+        if (!trigger.classList.contains('open')) trigger.click();
+
+        if (searchInputId) {
+            const search = document.getElementById(searchInputId);
+            if (search) {
+                const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+                setter.call(search, candidates[0]);
+                search.dispatchEvent(new Event('input', { bubbles: true }));
+            }
+        }
+
+        let found = null;
+        options.querySelectorAll('.custom-select-option').forEach(function (option) {
+            if (found || option.hidden) return;
+            if (matches(option)) found = option;
+        });
+        if (!found) {
+            return {
+                ok: false,
+                reason: 'not-found',
+                open: trigger.classList.contains('open'),
+                count: options.querySelectorAll('.custom-select-option').length
+            };
+        }
+
+        optionLabel(found).click();
+        trigger.classList.remove('open');
+        options.style.display = 'none';
+
+        const triggerSpan = trigger.querySelector('span');
+        return {
+            ok: true,
+            shown: norm(triggerSpan ? triggerSpan.textContent : trigger.textContent)
+        };
+    """
+
+    deadline = time.time() + timeout
+    last = None
+    while time.time() < deadline:
+        last = driver.execute_script(script, trigger_id, options_id, candidates, search_input_id)
+        shown = (last or {}).get("shown") or ""
+        if last and last.get("ok") and any(c == shown or c in shown for c in candidates):
+            return shown
+        time.sleep(0.2)
+
+    raise RuntimeError(
+        f"Could not select {label!r} in #{options_id} "
+        f"(candidates={candidates}, last={last})"
+    )
+
+
 class TestUntitled:
     def setup_method(self, method):
         self.driver = _make_fresh_driver(headless=True)
@@ -1263,22 +1368,58 @@ class TestUntitled:
         _quit_driver(self.driver)
         
     def capture_first_five_lines(self):
-        body_element = self.driver.find_element(By.TAG_NAME, "body")
-        body_text = body_element.text
-    # Split the text into lines and capture the first 5 lines
-        lines = body_text.splitlines()
-        specific_lines = "\n".join(lines[4:9])
-    
-    # Replace the specified text
+        """Top 5 Index rows from the DOM (not body text — threshold UI shifted line offsets)."""
+        rows = self.driver.execute_script(
+            """
+            const out = [];
+            document.querySelectorAll('#playerTable .player-row').forEach(function (row) {
+                if (out.length >= 5) return;
+                const nameEl = row.querySelector('.player-name');
+                const valueEl = row.querySelector('.player-value');
+                if (!nameEl) return;
+                out.push({
+                    name: (nameEl.textContent || '').replace(/\\s+/g, ' ').trim(),
+                    value: valueEl ? (valueEl.textContent || '').replace(/\\s+/g, ' ').trim() : ''
+                });
+            });
+            return out;
+            """
+        )
+        if not rows:
+            # Fallback: find first ranked player line in body text
+            body_text = self.driver.find_element(By.TAG_NAME, "body").text
+            lines = [ln.strip() for ln in body_text.splitlines() if ln.strip()]
+            start = 0
+            for i, line in enumerate(lines):
+                if line.startswith("1.") or line.startswith("1 "):
+                    start = i
+                    break
+            lines = lines[start : start + 5]
+            specific_lines = "\n".join(lines)
+        else:
+            formatted = []
+            for row in rows:
+                name = row.get("name") or ""
+                # Strip leading "1. " / "2. " etc. — medals added below
+                name = re.sub(r"^\d+\.\s*", "", name).strip()
+                value = row.get("value") or ""
+                if value:
+                    formatted.append(f"{name} — {value}")
+                else:
+                    formatted.append(name)
+            # Re-add rank prefixes so medal replacements work
+            ranked = []
+            for i, line in enumerate(formatted, start=1):
+                ranked.append(f"{i}. {line}")
+            specific_lines = "\n".join(ranked)
+
         replacements = {
-        "1. ": "🥇 ",
-        "2. ": "🥈 ",
-        "3. ": "🥉 ",
-        "4. ": "🏅 ",
-        "5. ": "🏅 ",
-        ") ": ") — "
-    }
-    
+            "1. ": "🥇 ",
+            "2. ": "🥈 ",
+            "3. ": "🥉 ",
+            "4. ": "🏅 ",
+            "5. ": "🏅 ",
+        }
         for old, new in replacements.items():
             specific_lines = specific_lines.replace(old, new)
 
@@ -1298,7 +1439,7 @@ class TestUntitled:
                 else:
                     raise
         time.sleep(1)
-        self.driver.set_window_size(976, 797)
+        self.driver.set_window_size(976, 860)
         assert DATAMB_EMAIL and DATAMB_PASSWORD, (
             "Set DATAMB_EMAIL and DATAMB_PASSWORD (e.g. GitHub repo secrets)."
         )
@@ -1308,8 +1449,34 @@ class TestUntitled:
 
         self.driver.find_element(By.NAME, "pwd").send_keys(DATAMB_PASSWORD)
         self.driver.find_element(By.CSS_SELECTOR, ".SFfrm button").click()
-        WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.ID, "metric"))
+        # Index HTML exists behind MembershipWorks login — wait until overlay is gone
+        WebDriverWait(self.driver, 45).until(
+            lambda d: d.execute_script(
+                """
+                const body = document.body;
+                if (!body) return false;
+                const bodyStyle = window.getComputedStyle(body);
+                if (body.style.visibility === 'hidden' || bodyStyle.visibility === 'hidden') return false;
+                function isVisible(el) {
+                    if (!el) return false;
+                    const style = window.getComputedStyle(el);
+                    if (style.display === 'none' || style.visibility === 'hidden' || parseFloat(style.opacity || '1') === 0) return false;
+                    const rect = el.getBoundingClientRect();
+                    return rect.width > 0 && rect.height > 0;
+                }
+                if (isVisible(document.querySelector('input[name="eml"]'))) return false;
+                if (isVisible(document.querySelector('.SFfrm button'))) return false;
+                return isVisible(document.getElementById('metric-select-trigger'));
+                """
+            )
+        )
+        WebDriverWait(self.driver, 15).until(
+            lambda d: d.execute_script(
+                "return document.querySelectorAll('#metric-select-list .custom-select-option, "
+                "#metric-select-options .custom-select-option').length > 0"
+                " && document.querySelectorAll('#position-select-options .custom-select-option').length > 0"
+                " && document.querySelectorAll('#league-select-options .custom-select-option').length > 0"
+            )
         )
 
 
@@ -1454,73 +1621,37 @@ class TestUntitled:
 
         selected_age = random.choice(age_options)
 
-        # Select metric using custom selector
-        self.driver.execute_script(f"""
-            var metricTrigger = document.getElementById('metric-select-trigger');
-            if (metricTrigger) {{
-                metricTrigger.click();
-            }}
-            setTimeout(function() {{
-                var options = document.querySelectorAll('#metric-select-options .custom-select-option');
-                for (var i = 0; i < options.length; i++) {{
-                    if (options[i].textContent.trim() === '{selected_metric}') {{
-                        options[i].click();
-                        break;
-                    }}
-                }}
-            }}, 100);
-        """)
-
-        self.driver.execute_script(f"""
-            var positionTrigger = document.getElementById('position-select-trigger');
-            if (positionTrigger) {{
-                positionTrigger.click();
-            }}
-            setTimeout(function() {{
-                var options = document.querySelectorAll('#position-select-options .custom-select-option');
-                for (var i = 0; i < options.length; i++) {{
-                    if (options[i].textContent.trim() === '{selected_position}') {{
-                        options[i].click();
-                        break;
-                    }}
-                }}
-            }}, 100);
-        """)
-
-        # Select league using custom selector
-        self.driver.execute_script(f"""
-            var leagueTrigger = document.getElementById('league-select-trigger');
-            if (leagueTrigger) {{
-                leagueTrigger.click();
-            }}
-            setTimeout(function() {{
-                var options = document.querySelectorAll('#league-select-options .custom-select-option');
-                for (var i = 0; i < options.length; i++) {{
-                    if (options[i].textContent.trim() === '{selected_league}') {{
-                        options[i].click();
-                        break;
-                    }}
-                }}
-            }}, 100);
-        """)
-
-        # Select age using custom selector
+        _select_index_dropdown(
+            self.driver,
+            "metric-select-trigger",
+            "metric-select-options",
+            selected_metric,
+            search_input_id="metricSearch",
+        )
+        _select_index_dropdown(
+            self.driver,
+            "position-select-trigger",
+            "position-select-options",
+            selected_position,
+            extra_matches=["All"] if selected_position == "All positions" else None,
+        )
+        league_aliases = ["No Top 7"] if selected_league == "Outside Top 7" else None
+        _select_index_dropdown(
+            self.driver,
+            "league-select-trigger",
+            "league-select-options",
+            selected_league,
+            extra_matches=league_aliases,
+        )
         if selected_age != "Age":
-            self.driver.execute_script(f"""
-                var ageTrigger = document.getElementById('age-select-trigger');
-                if (ageTrigger) {{
-                    ageTrigger.click();
-                }}
-                setTimeout(function() {{
-                    var options = document.querySelectorAll('#age-select-options .custom-select-option');
-                    for (var i = 0; i < options.length; i++) {{
-                        if (options[i].textContent.trim() === '{selected_age}') {{
-                            options[i].click();
-                            break;
-                        }}
-                    }}
-                }}, 100);
-            """)
+            age_value = selected_age[1:] if selected_age.startswith("U") else selected_age
+            _select_index_dropdown(
+                self.driver,
+                "age-select-trigger",
+                "age-select-options",
+                selected_age,
+                extra_matches=[age_value],
+            )
 
         # Check if we need to handle the toggle sort checkbox
         if selected_metric in ["Goals - xG per 90", "Assists - xA per 90"]:
@@ -1580,6 +1711,23 @@ class TestUntitled:
             if (dmt) dmt.style.display = 'none';
         """)
 
+        # Ensure login overlay is gone and ranked rows are painted before capture
+        WebDriverWait(self.driver, 20).until(
+            lambda d: d.execute_script(
+                """
+                function isVisible(el) {
+                    if (!el) return false;
+                    const style = window.getComputedStyle(el);
+                    if (style.display === 'none' || style.visibility === 'hidden') return false;
+                    const rect = el.getBoundingClientRect();
+                    return rect.width > 0 && rect.height > 0;
+                }
+                if (isVisible(document.querySelector('input[name="eml"]'))) return false;
+                return document.querySelectorAll('#playerTable .player-row').length > 0;
+                """
+            )
+        )
+
         # Save screenshot
         self.driver.save_screenshot('screenshot.png')
         specific_text = self.capture_first_five_lines()
@@ -1595,7 +1743,7 @@ class TestUntitled:
         selected_position = selected_position.replace("ack", "acks")
         selected_position = selected_position.replace("All positions", "Players")
         selected_age = selected_age.replace("Age", "")
-        tweet_text = f"{selected_league} {selected_age} {selected_position} : {selected_metric}\n\n{specific_text}\n\n📊 datamb.football"
+        tweet_text = f"{selected_league} {selected_age} {selected_position} : {selected_metric}\n\n{specific_text}\n\n📊 Free trial: datamb.football"
         tweet_text = tweet_text.replace("  ", " ")
         tweet_text = tweet_text.replace(" Wanderers", "")
         tweet_text = tweet_text.replace("Borussia ", "")
@@ -1624,9 +1772,9 @@ class TestUntitled:
         alt_text = (
             "This is an automated tweet 🤖\n\nPosition, league, age and metrics were chosen randomly in the 2025/26 dataset.\n\n"
             "Player age and team refer to their age and team during the season.\n\nPositions are determined via the player's average heat map.\n\n"
-            "Subscribe for more leagues and tools!"
+            "Join the free trial for more leagues and tools!"
         )
-        follow_up_text = "Compare Top 7 League players, or subscribe for more leagues, metrics, and tools ⤵️ datamb.football"
+        follow_up_text = "Compare Top 7 League players, or join the free trial for more leagues, metrics, and tools ⤵️ datamb.football"
         screenshot_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "screenshot.png")
         schedule_twitter_post_via_buffer(
             None,
