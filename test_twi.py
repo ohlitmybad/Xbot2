@@ -1770,7 +1770,7 @@ class TestUntitled:
         tweet_text = tweet_text.replace("Serie A", "🇮🇹 Serie A")
         
         alt_text = (
-            "This is an automated tweet 🤖\n\nPosition, league, age and metrics were chosen randomly in the 2025/26 dataset.\n\n"
+            "This is an automated tweet 🤖\n\nPosition, league, age and metrics were chosen randomly in the 2026/27 dataset.\n\n"
             "Player age and team refer to their age and team during the season.\n\nPositions are determined via the player's average heat map.\n\n"
             "Join the free trial for more leagues and tools!"
         )
