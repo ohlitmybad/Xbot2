@@ -19,6 +19,7 @@ os.environ.setdefault("DATAMB_EMAIL", "tombolivier@gmail.com")
 os.environ.setdefault("DATAMB_PASSWORD", "mbpassword1")
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
+os.chdir(_HERE)
 sys.path.insert(0, _HERE)
 
 import test_twi as bot  # noqa: E402
@@ -49,6 +50,7 @@ def main() -> None:
         out_dir = os.path.join(_HERE, out_dir)
     os.makedirs(out_dir, exist_ok=True)
     all_tweets_path = os.path.join(out_dir, "all_tweets.txt")
+    scratch = os.path.join(_HERE, "screenshot.png")
 
     saved = 0
     failures = 0
@@ -63,16 +65,14 @@ def main() -> None:
                 t.test_untitled()
                 _, prefix = next_prefix(out_dir)
                 png = os.path.join(out_dir, f"{prefix}_index.png")
-                shutil.copy2(t._buffer_image_path, png)
+                shutil.move(scratch, png)
                 tweet = t._buffer_post_text
                 alt = t._buffer_alt_text
                 reply = t._buffer_reply_text
                 sel = getattr(t, "_selection", {})
-                tweet_path = os.path.join(out_dir, f"{prefix}_tweet.txt")
-                sel_path = os.path.join(out_dir, f"{prefix}_selection.json")
-                with open(tweet_path, "w", encoding="utf-8") as fh:
+                with open(os.path.join(out_dir, f"{prefix}_tweet.txt"), "w", encoding="utf-8") as fh:
                     fh.write(f"{tweet}\n\n--- ALT ---\n{alt}\n\n--- REPLY ---\n{reply}\n")
-                with open(sel_path, "w", encoding="utf-8") as fh:
+                with open(os.path.join(out_dir, f"{prefix}_selection.json"), "w", encoding="utf-8") as fh:
                     json.dump(sel, fh, indent=2, ensure_ascii=False)
                 with open(all_tweets_path, "a", encoding="utf-8") as fh:
                     fh.write(f"===== {prefix} =====\n{tweet}\n\n")
@@ -91,12 +91,23 @@ def main() -> None:
                 except Exception:
                     pass
                 t.setup_method(None)
+            finally:
+                if os.path.exists(scratch):
+                    try:
+                        os.remove(scratch)
+                    except OSError:
+                        pass
             time.sleep(0.2)
     finally:
         try:
             t.teardown_method(None)
         except Exception:
             pass
+        if os.path.exists(scratch):
+            try:
+                os.remove(scratch)
+            except OSError:
+                pass
 
     print(f"\nDone: {saved} saved, {failures} failed -> {out_dir}", flush=True)
 
