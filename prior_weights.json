@@ -1,0 +1,25 @@
+{
+  "_comment": "Optional hand dials for position / league / age. Each section sums to 1. Not trained.",
+  "position": {
+    "Midfielder": 0.2134,
+    "Winger": 0.194,
+    "Centre-back": 0.1358,
+    "Striker": 0.1261,
+    "Teams": 0.1649,
+    "Goalkeeper": 0.0679,
+    "Full-back": 0.0679,
+    "All positions": 0.03
+  },
+  "league": {
+    "Top 5 Leagues": 0.4616,
+    "Top 7 Leagues": 0.2734,
+    "Premier League": 0.0697,
+    "All Leagues": 0.1654,
+    "La Liga": 0.0299
+  },
+  "age": {
+    "Age": 0.7,
+    "U23": 0.1733,
+    "U21": 0.1267
+  }
+}

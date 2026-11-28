@@ -1,0 +1,8425 @@
+{
+  "_comment": "Per-bot position metric lists. Removals are position-scoped only. exclude_groups.plot and exclude_groups.venn are separate pair-exclude lists (kept identical for now; may diverge later). INDEX: Performance Index only for PL/La Liga + specific position.",
+  "index": {
+    "Goalkeeper": [
+      "Performance Index",
+      "Possessions won per 90",
+      "Interceptions per 90",
+      "Interceptions (PAdj)",
+      "Progressive passes per 90",
+      "Shots conceded per 90",
+      "xG conceded per 90",
+      "Prevented goals per 90",
+      "Exits per 90",
+      "Pass completion %",
+      "Save percentage %",
+      "Defensive duels won per 90",
+      "Short pass completion %",
+      "Long pass accuracy %",
+      "Passes completed per 90",
+      "Short passes completed per 90",
+      "Long passes completed per 90",
+      "Saves per 90"
+    ],
+    "Centre-back": [
+      "Performance Index",
+      "Possessions won per 90",
+      "Sliding tackles per 90",
+      "Sliding tackles (PAdj)",
+      "Shots blocked per 90",
+      "Interceptions per 90",
+      "Interceptions (PAdj)",
+      "Headed goals per 90",
+      "Progressive carries per 90",
+      "Through passes per 90",
+      "Key passes per 90",
+      "Passes to final third per 90",
+      "Passes to penalty box per 90",
+      "Defensive duels won %",
+      "Aerial duels won %",
+      "Forward pass ratio",
+      "Pass completion %",
+      "Forward pass completion %",
+      "Short pass completion %",
+      "Progressive pass accuracy %",
+      "Possession +/-",
+      "Defensive duels won per 90",
+      "Aerial duels won per 90",
+      "Passes completed per 90",
+      "Forward passes completed per 90",
+      "Short passes completed per 90",
+      "Long passes completed per 90",
+      "Progressive passes completed per 90",
+      "Possessions lost per 90",
+      "Possessions won - lost per 90",
+      "Progressive actions per 90",
+      "Touches per 90",
+      "Progressive action rate",
+      "Progressive passes (PAdj)",
+      "Ball-carrying frequency"
+    ],
+    "Full-back": [
+      "Performance Index",
+      "Possessions won per 90",
+      "Sliding tackles per 90",
+      "Sliding tackles (PAdj)",
+      "Interceptions per 90",
+      "Interceptions (PAdj)",
+      "Successful attacking actions per 90",
+      "Crosses per 90",
+      "Touches in box per 90",
+      "Progressive carries per 90",
+      "Accelerations per 90",
+      "xA per 90",
+      "Shot assists per 90",
+      "Key passes per 90",
+      "Deep completions per 90",
+      "Defensive duels won %",
+      "Aerial duels won %",
+      "Assists per 90",
+      "Goals + Assists per 90",
+      "NPG+A per 90",
+      "Duels won %",
+      "Possession +/-",
+      "Forward pass ratio",
+      "xA per 100 passes",
+      "Chance creation ratio",
+      "xG+xA per 90",
+      "Successful dribbles per 90",
+      "Accurate crosses per 90",
+      "Offensive duels won per 90",
+      "Defensive duels won per 90",
+      "Aerial duels won per 90",
+      "Possessions lost per 90",
+      "Possessions won - lost per 90",
+      "Progressive actions per 90",
+      "Duels won per 90",
+      "npxG+xA per 90",
+      "Touches per 90",
+      "Progressive action rate",
+      "Progressive passes (PAdj)",
+      "Ball-carrying frequency",
+      "Dribbles per 100 touches",
+      "Pass completion %",
+      "Forward pass completion %",
+      "Progressive pass accuracy %",
+      "Passes to final third per 90",
+      "Passes to penalty box per 90",
+      "Through passes per 90",
+      "Progressive passes per 90",
+      "Passes completed per 90",
+      "Forward passes completed per 90",
+      "Short passes completed per 90",
+      "Long passes completed per 90",
+      "Progressive passes completed per 90"
+    ],
+    "Midfielder": [
+      "Performance Index",
+      "Possessions won per 90",
+      "Sliding tackles per 90",
+      "Sliding tackles (PAdj)",
+      "Interceptions per 90",
+      "Interceptions (PAdj)",
+      "Successful attacking actions per 90",
+      "Goals per 90",
+      "Non-penalty goals per 90",
+      "xG per 90",
+      "Assists per 90",
+      "Crosses per 90",
+      "Touches in box per 90",
+      "Progressive carries per 90",
+      "Accelerations per 90",
+      "xA per 90",
+      "Shot assists per 90",
+      "Key passes per 90",
+      "Deep completions per 90",
+      "Defensive duels won %",
+      "Aerial duels won %",
+      "Duels won %",
+      "Possession +/-",
+      "Forward pass ratio",
+      "xA per 100 passes",
+      "Chance creation ratio",
+      "Goals + Assists per 90",
+      "NPG+A per 90",
+      "xG+xA per 90",
+      "Assists - xA per 90",
+      "Assists per xA",
+      "Successful dribbles per 90",
+      "Shots on target per 90",
+      "Accurate crosses per 90",
+      "Offensive duels won per 90",
+      "Defensive duels won per 90",
+      "Aerial duels won per 90",
+      "Possessions lost per 90",
+      "Possessions won - lost per 90",
+      "Progressive actions per 90",
+      "Duels won per 90",
+      "npxG+xA per 90",
+      "Touches per 90",
+      "Progressive action rate",
+      "Progressive passes (PAdj)",
+      "Ball-carrying frequency",
+      "Dribbles per 100 touches",
+      "Goals per 100 touches",
+      "Passes to final third per 90",
+      "Passes to penalty box per 90",
+      "Through passes per 90",
+      "Progressive passes per 90",
+      "Pass completion %",
+      "Forward pass completion %",
+      "Short pass completion %",
+      "Progressive pass accuracy %",
+      "Passes per 90",
+      "Pre-assists per 90",
+      "Passes completed per 90",
+      "Forward passes completed per 90",
+      "Short passes completed per 90",
+      "Long passes completed per 90",
+      "Accurate passes to final third per 90",
+      "Through passes completed per 90",
+      "Fouls suffered per 90",
+      "Progressive passes completed per 90"
+    ],
+    "Winger": [
+      "Performance Index",
+      "Successful attacking actions per 90",
+      "Goals per 90",
+      "Non-penalty goals per 90",
+      "xG per 90",
+      "Shots per 90",
+      "Assists per 90",
+      "Crosses per 90",
+      "Touches in box per 90",
+      "Progressive carries per 90",
+      "Accelerations per 90",
+      "Fouls suffered per 90",
+      "Shots on target %",
+      "Goal conversion %",
+      "Cross accuracy %",
+      "Dribble success rate %",
+      "Offensive duels won %",
+      "Passes completed per 90",
+      "Progressive passes per 90",
+      "Through passes completed per 90",
+      "Passes to final third per 90",
+      "Passes to penalty box per 90",
+      "Through passes per 90",
+      "Deep completions per 90",
+      "Pass completion %",
+      "Progressive pass accuracy %",
+      "xA per 90",
+      "Shot assists per 90",
+      "Key passes per 90",
+      "Duels won %",
+      "xA per 100 passes",
+      "Chance creation ratio",
+      "Goals + Assists per 90",
+      "NPG+A per 90",
+      "xG+xA per 90",
+      "xG/Shot",
+      "Goals - xG per 90",
+      "Goals per xG",
+      "Assists - xA per 90",
+      "Successful dribbles per 90",
+      "Shots on target per 90",
+      "Accurate crosses per 90",
+      "Offensive duels won per 90",
+      "Possessions lost per 90",
+      "Progressive actions per 90",
+      "Duels won per 90",
+      "npxG per 90",
+      "npxG/Shot",
+      "npxG+xA per 90",
+      "Touches per 90",
+      "Progressive action rate",
+      "Ball-carrying frequency",
+      "xG per 100 touches",
+      "Shot frequency",
+      "Dribbles per 100 touches",
+      "Goals per 100 touches"
+    ],
+    "Striker": [
+      "Performance Index",
+      "Successful attacking actions per 90",
+      "Goals per 90",
+      "Non-penalty goals per 90",
+      "xG per 90",
+      "Headed goals per 90",
+      "Shots per 90",
+      "Assists per 90",
+      "Touches in box per 90",
+      "Progressive carries per 90",
+      "Accelerations per 90",
+      "Fouls suffered per 90",
+      "xA per 90",
+      "Shot assists per 90",
+      "Key passes per 90",
+      "Accurate crosses per 90",
+      "Aerial duels won %",
+      "Shots on target %",
+      "Goal conversion %",
+      "Pass completion %",
+      "Duels won %",
+      "xA per 100 passes",
+      "Chance creation ratio",
+      "Goals + Assists per 90",
+      "NPG+A per 90",
+      "xG+xA per 90",
+      "xG/Shot",
+      "Goals - xG per 90",
+      "Goals per xG",
+      "Successful dribbles per 90",
+      "Shots on target per 90",
+      "Offensive duels won per 90",
+      "Aerial duels won per 90",
+      "Possessions lost per 90",
+      "Progressive actions per 90",
+      "Duels won per 90",
+      "npxG per 90",
+      "npxG/Shot",
+      "npxG+xA per 90",
+      "Progressive action rate",
+      "xG per 100 touches",
+      "Shot frequency",
+      "Dribbles per 100 touches",
+      "Goals per 100 touches"
+    ],
+    "All positions": [
+      "Possessions won per 90",
+      "Sliding tackles per 90",
+      "Sliding tackles (PAdj)",
+      "Shots blocked per 90",
+      "Interceptions per 90",
+      "Interceptions (PAdj)",
+      "Headed goals per 90",
+      "Progressive carries per 90",
+      "Through passes per 90",
+      "Key passes per 90",
+      "Passes to final third per 90",
+      "Passes to penalty box per 90",
+      "Pass completion %",
+      "Forward pass completion %",
+      "Short pass completion %",
+      "Progressive pass accuracy %",
+      "Possession +/-",
+      "Defensive duels won per 90",
+      "Aerial duels won per 90",
+      "Passes completed per 90",
+      "Forward passes completed per 90",
+      "Short passes completed per 90",
+      "Long passes completed per 90",
+      "Progressive passes completed per 90",
+      "Possessions lost per 90",
+      "Possessions won - lost per 90",
+      "Progressive actions per 90",
+      "Touches per 90",
+      "Progressive action rate",
+      "Progressive passes (PAdj)",
+      "Ball-carrying frequency",
+      "Successful attacking actions per 90",
+      "Crosses per 90",
+      "Touches in box per 90",
+      "Accelerations per 90",
+      "xA per 90",
+      "Shot assists per 90",
+      "Deep completions per 90",
+      "Assists per 90",
+      "Goals + Assists per 90",
+      "NPG+A per 90",
+      "xA per 100 passes",
+      "Chance creation ratio",
+      "xG+xA per 90",
+      "Assists - xA per 90",
+      "Assists per xA",
+      "Successful dribbles per 90",
+      "Accurate crosses per 90",
+      "Offensive duels won per 90",
+      "Duels won per 90",
+      "npxG+xA per 90",
+      "Dribbles per 100 touches",
+      "Progressive passes per 90",
+      "Goals per 90",
+      "Non-penalty goals per 90",
+      "xG per 90",
+      "Shots on target per 90",
+      "Goals per 100 touches",
+      "Passes per 90",
+      "Pre-assists per 90",
+      "Accurate passes to final third per 90",
+      "Through passes completed per 90",
+      "Fouls suffered per 90",
+      "Shots per 90",
+      "Goals - xG per 90",
+      "npxG per 90",
+      "xG per 100 touches",
+      "Shot frequency"
+    ]
+  },
+  "plot": {
+    "Goalkeeper": [
+      "Shots conceded per 90",
+      "Clean sheets",
+      "xG conceded per 90",
+      "Prevented goals per 90",
+      "Save percentage %",
+      "Saves per 90",
+      "Passes per 90",
+      "Short passes per 90",
+      "Long passes per 90",
+      "Progressive passes per 90",
+      "Pass completion %",
+      "Short pass completion %",
+      "Long pass accuracy %",
+      "Progressive pass accuracy %"
+    ],
+    "Centre-back": [
+      "Possessions won per 90",
+      "Defensive duels per 90",
+      "Aerial duels per 90",
+      "Sliding tackles per 90",
+      "Sliding tackles (PAdj)",
+      "Interceptions per 90",
+      "Interceptions (PAdj)",
+      "Progressive carries per 90",
+      "Defensive duels won %",
+      "Aerial duels won %",
+      "Possession +/-",
+      "Forward pass ratio",
+      "Defensive duels won per 90",
+      "Aerial duels won per 90",
+      "Key passes per 90",
+      "Possessions won - lost per 90",
+      "Progressive actions per 90",
+      "Touches per 90",
+      "Progressive action rate",
+      "Progressive passes (PAdj)",
+      "Ball-carrying frequency",
+      "Passes completed per 90",
+      "Forward passes completed per 90",
+      "Short passes completed per 90",
+      "Long passes completed per 90",
+      "Passes per 90",
+      "Forward passes per 90",
+      "Short passes per 90",
+      "Long passes per 90",
+      "Through passes completed per 90",
+      "Progressive passes completed per 90",
+      "Passes to final third per 90",
+      "Passes to penalty box per 90",
+      "Through passes per 90",
+      "Progressive passes per 90",
+      "Pass completion %",
+      "Forward pass completion %",
+      "Short pass completion %",
+      "Long pass accuracy %",
+      "Progressive pass accuracy %"
+    ],
+    "Full-back": [
+      "Possessions won per 90",
+      "Defensive duels per 90",
+      "Aerial duels per 90",
+      "Sliding tackles per 90",
+      "Sliding tackles (PAdj)",
+      "Interceptions per 90",
+      "Interceptions (PAdj)",
+      "Possessions won - lost per 90",
+      "Defensive duels won per 90",
+      "Aerial duels won per 90",
+      "Defensive duels won %",
+      "Aerial duels won %",
+      "Successful attacking actions per 90",
+      "Assists per 90",
+      "Crosses per 90",
+      "Touches in box per 90",
+      "Progressive carries per 90",
+      "xA per 90",
+      "Shot assists per 90",
+      "Key passes per 90",
+      "Through passes per 90",
+      "Duels won %",
+      "Duels won per 90",
+      "Successful dribbles per 90",
+      "Accurate crosses per 90",
+      "Offensive duels won per 90",
+      "Progressive actions per 90",
+      "Touches per 90",
+      "xA per 100 passes",
+      "Chance creation ratio",
+      "Progressive action rate",
+      "Progressive passes (PAdj)",
+      "Ball-carrying frequency",
+      "Dribbles per 100 touches",
+      "Cross accuracy %",
+      "Dribble success rate %",
+      "Offensive duels won %",
+      "Goals + Assists per 90",
+      "NPG+A per 90",
+      "xG+xA per 90",
+      "npxG+xA per 90",
+      "Passes per 90",
+      "Forward passes per 90",
+      "Long passes per 90",
+      "Passes to final third per 90",
+      "Passes to penalty box per 90",
+      "Progressive passes per 90",
+      "Passes completed per 90",
+      "Pass completion %",
+      "Forward pass completion %",
+      "Progressive pass accuracy %",
+      "Deep completions per 90"
+    ],
+    "Midfielder": [
+      "Possessions won per 90",
+      "Defensive duels per 90",
+      "Sliding tackles per 90",
+      "Sliding tackles (PAdj)",
+      "Interceptions per 90",
+      "Interceptions (PAdj)",
+      "Successful attacking actions per 90",
+      "Goals per 90",
+      "Non-penalty goals per 90",
+      "xG per 90",
+      "Shots per 90",
+      "Assists per 90",
+      "Crosses per 90",
+      "Touches in box per 90",
+      "Progressive carries per 90",
+      "xA per 90",
+      "Shot assists per 90",
+      "Key passes per 90",
+      "Through passes per 90",
+      "Deep completions per 90",
+      "Defensive duels won %",
+      "Aerial duels won %",
+      "Shots on target %",
+      "Cross accuracy %",
+      "Dribble success rate %",
+      "Offensive duels won %",
+      "Duels won %",
+      "Possession +/-",
+      "Forward pass ratio",
+      "xA per 100 passes",
+      "Chance creation ratio",
+      "Goals + Assists per 90",
+      "NPG+A per 90",
+      "xG+xA per 90",
+      "Successful dribbles per 90",
+      "Shots on target per 90",
+      "Accurate crosses per 90",
+      "Offensive duels won per 90",
+      "Defensive duels won per 90",
+      "Aerial duels won per 90",
+      "Passes per 90",
+      "Forward passes per 90",
+      "Short passes per 90",
+      "Long passes per 90",
+      "Passes to final third per 90",
+      "Passes to penalty box per 90",
+      "Progressive passes per 90",
+      "Pass completion %",
+      "Forward pass completion %",
+      "Short pass completion %",
+      "Long pass accuracy %",
+      "Pass completion (to final third) %",
+      "Pass completion (to penalty box) %",
+      "Progressive pass accuracy %",
+      "Passes completed per 90",
+      "Forward passes completed per 90",
+      "Short passes completed per 90",
+      "Long passes completed per 90",
+      "Through passes completed per 90",
+      "Progressive passes completed per 90",
+      "Possessions won - lost per 90",
+      "Progressive actions per 90",
+      "Duels won per 90",
+      "npxG per 90",
+      "npxG+xA per 90",
+      "Touches per 90",
+      "Progressive action rate",
+      "Progressive passes (PAdj)",
+      "Ball-carrying frequency",
+      "xG per 100 touches",
+      "Shot frequency",
+      "Dribbles per 100 touches",
+      "Goals per 100 touches"
+    ],
+    "Winger": [
+      "Interceptions per 90",
+      "Interceptions (PAdj)",
+      "Successful attacking actions per 90",
+      "Goals per 90",
+      "Non-penalty goals per 90",
+      "xG per 90",
+      "Shots per 90",
+      "Assists per 90",
+      "Crosses per 90",
+      "Offensive duels per 90",
+      "Touches in box per 90",
+      "Progressive carries per 90",
+      "Accelerations per 90",
+      "xA per 90",
+      "Shot assists per 90",
+      "Key passes per 90",
+      "Deep completions per 90",
+      "Shots on target %",
+      "Goal conversion %",
+      "Cross accuracy %",
+      "Dribble success rate %",
+      "Offensive duels won %",
+      "Duels per 90",
+      "Duels won %",
+      "xA per 100 passes",
+      "Chance creation ratio",
+      "Goals + Assists per 90",
+      "NPG+A per 90",
+      "xG+xA per 90",
+      "Goals - xG per 90",
+      "Successful dribbles per 90",
+      "Shots on target per 90",
+      "Accurate crosses per 90",
+      "Offensive duels won per 90",
+      "Progressive actions per 90",
+      "Duels won per 90",
+      "npxG per 90",
+      "npxG+xA per 90",
+      "Touches per 90",
+      "Progressive action rate",
+      "Progressive passes (PAdj)",
+      "Ball-carrying frequency",
+      "xG per 100 touches",
+      "Shot frequency",
+      "Dribbles per 100 touches",
+      "Goals per 100 touches",
+      "Passes to final third per 90",
+      "Passes to penalty box per 90",
+      "Through passes per 90",
+      "Progressive passes per 90",
+      "Pass completion %",
+      "Progressive pass accuracy %",
+      "Through passes completed per 90"
+    ],
+    "Striker": [
+      "Successful attacking actions per 90",
+      "Touches in box per 90",
+      "Progressive carries per 90",
+      "xA per 90",
+      "Shot assists per 90",
+      "Key passes per 90",
+      "Aerial duels won %",
+      "Shots on target %",
+      "Goal conversion %",
+      "Pass completion %",
+      "Duels won %",
+      "Goals + Assists per 90",
+      "NPG+A per 90",
+      "xG+xA per 90",
+      "Successful dribbles per 90",
+      "Aerial duels won per 90",
+      "Duels won per 90",
+      "Assists per 90",
+      "Goals per 90",
+      "Non-penalty goals per 90",
+      "xG per 90",
+      "Shots per 90",
+      "Shots on target per 90",
+      "xG/Shot",
+      "Goals - xG per 90",
+      "npxG per 90",
+      "npxG/Shot",
+      "npxG+xA per 90",
+      "xG per 100 touches",
+      "Shot frequency",
+      "Dribbles per 100 touches",
+      "Goals per 100 touches"
+    ],
+    "All positions": [
+      "Possessions won per 90",
+      "Defensive duels per 90",
+      "Aerial duels per 90",
+      "Sliding tackles per 90",
+      "Sliding tackles (PAdj)",
+      "Interceptions per 90",
+      "Interceptions (PAdj)",
+      "Progressive carries per 90",
+      "Defensive duels won %",
+      "Aerial duels won %",
+      "Defensive duels won per 90",
+      "Aerial duels won per 90",
+      "Progressive actions per 90",
+      "Touches per 90",
+      "Progressive action rate",
+      "Progressive passes (PAdj)",
+      "Ball-carrying frequency",
+      "Passes completed per 90",
+      "Forward passes completed per 90",
+      "Short passes completed per 90",
+      "Long passes completed per 90",
+      "Passes per 90",
+      "Forward passes per 90",
+      "Short passes per 90",
+      "Long passes per 90",
+      "Through passes completed per 90",
+      "Progressive passes completed per 90",
+      "Passes to final third per 90",
+      "Passes to penalty box per 90",
+      "Through passes per 90",
+      "Progressive passes per 90",
+      "Pass completion %",
+      "Forward pass completion %",
+      "Short pass completion %",
+      "Progressive pass accuracy %",
+      "Successful attacking actions per 90",
+      "Assists per 90",
+      "Crosses per 90",
+      "Touches in box per 90",
+      "xA per 90",
+      "Shot assists per 90",
+      "Key passes per 90",
+      "Duels won per 90",
+      "Successful dribbles per 90",
+      "Accurate crosses per 90",
+      "Offensive duels won per 90",
+      "xA per 100 passes",
+      "Chance creation ratio",
+      "Dribbles per 100 touches",
+      "Goals + Assists per 90",
+      "NPG+A per 90",
+      "xG+xA per 90",
+      "npxG+xA per 90",
+      "Deep completions per 90",
+      "Goals per 90",
+      "Non-penalty goals per 90",
+      "xG per 90",
+      "Shots per 90",
+      "Shots on target per 90",
+      "npxG per 90",
+      "xG per 100 touches",
+      "Shot frequency",
+      "Goals per 100 touches",
+      "Offensive duels per 90",
+      "Accelerations per 90",
+      "Duels per 90",
+      "Goals - xG per 90"
+    ],
+    "Teams": [
+      "Goals per 90",
+      "xG per 90",
+      "Shots on target per 90",
+      "Shots on target %",
+      "Passes completed",
+      "Pass accuracy %",
+      "Possession %",
+      "Positional attacks per 90",
+      "Counter attacks per 90",
+      "Touches in the box per 90",
+      "Goals conceded per 90",
+      "SoT against per 90",
+      "Defensive duels per 90",
+      "Defensive duel %",
+      "Aerial duels per 90",
+      "Aerial duels %",
+      "Passes per possession",
+      "PPDA"
+    ]
+  },
+  "venn": {
+    "Goalkeeper": [
+      "Clean sheets",
+      "Prevented goals per 90",
+      "Save percentage %",
+      "Saves per 90",
+      "Passes per 90",
+      "Short passes per 90",
+      "Long passes per 90",
+      "Progressive passes per 90",
+      "Pass completion %",
+      "Short pass completion %",
+      "Long pass accuracy %",
+      "Progressive pass accuracy %",
+      "Defensive duels won per 90",
+      "Exits per 90",
+      "Interceptions per 90"
+    ],
+    "Centre-back": [
+      "Possessions won per 90",
+      "Defensive duels per 90",
+      "Possessions won - lost per 90",
+      "Aerial duels per 90",
+      "Interceptions per 90",
+      "Interceptions (PAdj)",
+      "Progressive carries per 90",
+      "Defensive duels won %",
+      "Possession +/-",
+      "Aerial duels won %",
+      "Defensive duels won per 90",
+      "Aerial duels won per 90",
+      "Key passes per 90",
+      "Progressive actions per 90",
+      "Passes completed per 90",
+      "Forward passes per 90",
+      "Short passes per 90",
+      "Passes per 90",
+      "Long passes per 90",
+      "Passes to final third per 90",
+      "Passes to penalty box per 90",
+      "Through passes per 90",
+      "Progressive passes per 90",
+      "Pass completion %",
+      "Forward pass completion %",
+      "Short pass completion %",
+      "Long pass accuracy %",
+      "Progressive pass accuracy %"
+    ],
+    "Full-back": [
+      "Possessions won per 90",
+      "Defensive duels per 90",
+      "Aerial duels per 90",
+      "Interceptions per 90",
+      "Interceptions (PAdj)",
+      "Defensive duels won per 90",
+      "Aerial duels won per 90",
+      "Defensive duels won %",
+      "Aerial duels won %",
+      "Assists per 90",
+      "Crosses per 90",
+      "Progressive carries per 90",
+      "xA per 90",
+      "Shot assists per 90",
+      "Key passes per 90",
+      "Duels won %",
+      "Duels won per 90",
+      "Successful dribbles per 90",
+      "Accurate crosses per 90",
+      "Offensive duels won per 90",
+      "Progressive actions per 90",
+      "Touches per 90",
+      "Goals + Assists per 90",
+      "NPG+A per 90",
+      "xG+xA per 90",
+      "npxG+xA per 90",
+      "Passes per 90",
+      "Forward passes per 90",
+      "Long passes per 90",
+      "Passes to final third per 90",
+      "Passes to penalty box per 90",
+      "Progressive passes per 90",
+      "Passes completed per 90",
+      "Pass completion %",
+      "Progressive pass accuracy %"
+    ],
+    "Midfielder": [
+      "Possessions won per 90",
+      "Defensive duels per 90",
+      "Interceptions per 90",
+      "Interceptions (PAdj)",
+      "Goals per 90",
+      "Non-penalty goals per 90",
+      "xG per 90",
+      "Shots per 90",
+      "Assists per 90",
+      "Crosses per 90",
+      "Touches in box per 90",
+      "Progressive carries per 90",
+      "xA per 90",
+      "Shot assists per 90",
+      "Key passes per 90",
+      "Through passes per 90",
+      "Defensive duels won %",
+      "Aerial duels won %",
+      "Duels won %",
+      "Possession +/-",
+      "Forward pass ratio",
+      "Goals + Assists per 90",
+      "NPG+A per 90",
+      "xG+xA per 90",
+      "Successful dribbles per 90",
+      "Shots on target per 90",
+      "Accurate crosses per 90",
+      "Offensive duels won per 90",
+      "Defensive duels won per 90",
+      "Aerial duels won per 90",
+      "Passes per 90",
+      "Forward passes per 90",
+      "Short passes per 90",
+      "Long passes per 90",
+      "Passes to final third per 90",
+      "Passes to penalty box per 90",
+      "Progressive passes per 90",
+      "Pass completion %",
+      "Forward pass completion %",
+      "Short pass completion %",
+      "Progressive pass accuracy %",
+      "Passes completed per 90",
+      "Forward passes completed per 90",
+      "Short passes completed per 90",
+      "Long passes completed per 90",
+      "Through passes completed per 90",
+      "Progressive passes completed per 90",
+      "Possessions won - lost per 90",
+      "Progressive actions per 90",
+      "Duels won per 90",
+      "npxG per 90",
+      "npxG+xA per 90",
+      "Touches per 90"
+    ],
+    "Winger": [
+      "Interceptions per 90",
+      "Successful attacking actions per 90",
+      "Goals per 90",
+      "Non-penalty goals per 90",
+      "xG per 90",
+      "Shots per 90",
+      "Assists per 90",
+      "Crosses per 90",
+      "Offensive duels per 90",
+      "Touches in box per 90",
+      "Progressive carries per 90",
+      "Accelerations per 90",
+      "xA per 90",
+      "Shot assists per 90",
+      "Key passes per 90",
+      "Shots on target %",
+      "Goal conversion %",
+      "Dribble success rate %",
+      "Duels per 90",
+      "Duels won %",
+      "Goals + Assists per 90",
+      "NPG+A per 90",
+      "xG+xA per 90",
+      "Goals - xG per 90",
+      "Successful dribbles per 90",
+      "Shots on target per 90",
+      "Accurate crosses per 90",
+      "Offensive duels won per 90",
+      "Progressive actions per 90",
+      "Duels won per 90",
+      "npxG per 90",
+      "npxG+xA per 90",
+      "Touches per 90",
+      "Ball-carrying frequency",
+      "xG per 100 touches",
+      "Shot frequency",
+      "Dribbles per 100 touches",
+      "Goals per 100 touches",
+      "Passes to final third per 90",
+      "Passes to penalty box per 90",
+      "Pass completion %"
+    ],
+    "Striker": [
+      "Touches in box per 90",
+      "Progressive carries per 90",
+      "xA per 90",
+      "Shot assists per 90",
+      "Key passes per 90",
+      "Aerial duels won %",
+      "Shots on target %",
+      "Goal conversion %",
+      "Pass completion %",
+      "Duels won %",
+      "Goals + Assists per 90",
+      "NPG+A per 90",
+      "xG+xA per 90",
+      "Successful dribbles per 90",
+      "Aerial duels won per 90",
+      "Duels won per 90",
+      "Assists per 90",
+      "Goals per 90",
+      "Non-penalty goals per 90",
+      "xG per 90",
+      "Shots per 90",
+      "Shots on target per 90",
+      "xG/Shot",
+      "Goals - xG per 90",
+      "npxG per 90",
+      "npxG/Shot",
+      "npxG+xA per 90",
+      "xG per 100 touches",
+      "Shot frequency",
+      "Goals per 100 touches"
+    ],
+    "All positions": [
+      "Clean sheets",
+      "Prevented goals per 90",
+      "Save percentage %",
+      "Saves per 90",
+      "Passes per 90",
+      "Short passes per 90",
+      "Long passes per 90",
+      "Progressive passes per 90",
+      "Pass completion %",
+      "Short pass completion %",
+      "Long pass accuracy %",
+      "Progressive pass accuracy %",
+      "Defensive duels won per 90",
+      "Exits per 90",
+      "Interceptions per 90",
+      "Possessions won per 90",
+      "Defensive duels per 90",
+      "Possessions won - lost per 90",
+      "Aerial duels per 90",
+      "Interceptions (PAdj)",
+      "Progressive carries per 90",
+      "Defensive duels won %",
+      "Possession +/-",
+      "Aerial duels won %",
+      "Aerial duels won per 90",
+      "Key passes per 90",
+      "Progressive actions per 90",
+      "Passes completed per 90",
+      "Forward passes per 90",
+      "Passes to final third per 90",
+      "Passes to penalty box per 90",
+      "Through passes per 90",
+      "Forward pass completion %",
+      "Assists per 90",
+      "Crosses per 90",
+      "xA per 90",
+      "Shot assists per 90",
+      "Duels won %",
+      "Duels won per 90",
+      "Successful dribbles per 90",
+      "Accurate crosses per 90",
+      "Offensive duels won per 90",
+      "Touches per 90",
+      "Goals + Assists per 90",
+      "NPG+A per 90",
+      "xG+xA per 90",
+      "npxG+xA per 90",
+      "Goals per 90",
+      "Non-penalty goals per 90",
+      "xG per 90",
+      "Shots per 90",
+      "Touches in box per 90",
+      "Forward pass ratio",
+      "Shots on target per 90",
+      "Forward passes completed per 90",
+      "Short passes completed per 90",
+      "Long passes completed per 90",
+      "Through passes completed per 90",
+      "Progressive passes completed per 90",
+      "npxG per 90",
+      "Successful attacking actions per 90",
+      "Offensive duels per 90",
+      "Accelerations per 90",
+      "Shots on target %",
+      "Goal conversion %",
+      "Dribble success rate %",
+      "Duels per 90",
+      "Goals - xG per 90",
+      "Ball-carrying frequency",
+      "xG per 100 touches",
+      "Shot frequency",
+      "Dribbles per 100 touches",
+      "Goals per 100 touches",
+      "xG/Shot",
+      "npxG/Shot"
+    ]
+  },
+  "exclude_groups": {
+    "plot": [
+      [
+        "npxG/Shot",
+        "xG/Shot"
+      ],
+      [
+        "Goal conversion %",
+        "Shots on target %"
+      ],
+      [
+        "npxG per 90",
+        "xG per 90"
+      ],
+      [
+        "xG per 100 touches",
+        "xG per 90"
+      ],
+      [
+        "xG per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "xA per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "npxG per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Dribble success rate %",
+        "Offensive duels won %"
+      ],
+      [
+        "xA per 100 passes",
+        "xA per 90"
+      ],
+      [
+        "Forward passes per 90",
+        "Passes per 90"
+      ],
+      [
+        "Passes completed per 90",
+        "Passes per 90"
+      ],
+      [
+        "Forward pass ratio",
+        "Forward passes per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "Long passes per 90"
+      ],
+      [
+        "Through passes completed per 90",
+        "Through passes per 90"
+      ],
+      [
+        "Progressive passes (PAdj)",
+        "Progressive passes per 90"
+      ],
+      [
+        "Progressive actions per 90",
+        "Progressive carries per 90"
+      ],
+      [
+        "Progressive actions per 90",
+        "Progressive passes per 90"
+      ],
+      [
+        "Possessions won - lost per 90",
+        "Possessions won per 90"
+      ],
+      [
+        "Possession +/-",
+        "Possessions won - lost per 90"
+      ],
+      [
+        "Duels won %",
+        "Offensive duels won %"
+      ],
+      [
+        "Defensive duels won %",
+        "Duels won %"
+      ],
+      [
+        "Aerial duels won %",
+        "Duels won %"
+      ],
+      [
+        "Progressive action rate",
+        "Progressive actions per 90"
+      ],
+      [
+        "Progressive action rate",
+        "Progressive carries per 90"
+      ],
+      [
+        "Progressive action rate",
+        "Progressive passes per 90"
+      ],
+      [
+        "Ball-carrying frequency",
+        "Progressive carries per 90"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Defensive duels won per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Aerial duels won per 90"
+      ],
+      [
+        "Sliding tackles (PAdj)",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "Interceptions per 90"
+      ],
+      [
+        "Shots on target %",
+        "SoT against per 90"
+      ],
+      [
+        "Passes completed",
+        "Passes per possession"
+      ],
+      [
+        "Passes per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Long pass accuracy %",
+        "Pass completion %"
+      ],
+      [
+        "Pass completion %",
+        "Short pass completion %"
+      ],
+      [
+        "Long pass accuracy %",
+        "Short passes per 90"
+      ],
+      [
+        "Long passes per 90",
+        "Passes per 90"
+      ],
+      [
+        "Long passes per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Pass completion %",
+        "Short passes per 90"
+      ],
+      [
+        "Passes per 90",
+        "Progressive passes per 90"
+      ],
+      [
+        "Clean sheets",
+        "Long pass accuracy %"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Crosses per 90"
+      ],
+      [
+        "Aerial duels %",
+        "Aerial duels won %"
+      ],
+      [
+        "Aerial duels per 90",
+        "Duels per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Duels per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Duels won %"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Duels won per 90"
+      ],
+      [
+        "Assists per 90",
+        "Goals + Assists per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Duels per 90"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Duels per 90"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Duels won %"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Duels won per 90"
+      ],
+      [
+        "Duels per 90",
+        "Duels won per 90"
+      ],
+      [
+        "Duels per 90",
+        "Offensive duels per 90"
+      ],
+      [
+        "Duels per 90",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Duels won %",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Duels won per 90",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Forward passes per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Passes completed"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Passes completed per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Passes per 90"
+      ],
+      [
+        "Goals + Assists per 90",
+        "Goals per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Goals per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "xG per 90"
+      ],
+      [
+        "Goals per 90",
+        "Non-penalty goals per 90"
+      ],
+      [
+        "Goals per 90",
+        "Prevented goals per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Pass accuracy %"
+      ],
+      [
+        "Long passes completed per 90",
+        "Passes completed"
+      ],
+      [
+        "Long passes completed per 90",
+        "Passes completed per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "Passes per 90"
+      ],
+      [
+        "Offensive duels per 90",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Pass accuracy %",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Pass completion %",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Pass completion %",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Passes completed",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Passes completed",
+        "Short passes completed per 90"
+      ],
+      [
+        "Passes completed",
+        "Through passes completed per 90"
+      ],
+      [
+        "Passes completed per 90",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Passes completed per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Passes completed per 90",
+        "Through passes completed per 90"
+      ],
+      [
+        "Passes per 90",
+        "Passes to final third per 90"
+      ],
+      [
+        "Passes per 90",
+        "Passes to penalty box per 90"
+      ],
+      [
+        "Passes per 90",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Passes per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Passes per 90",
+        "Through passes completed per 90"
+      ],
+      [
+        "Progressive passes completed per 90",
+        "Progressive passes per 90"
+      ],
+      [
+        "Short passes completed per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Shots on target per 90",
+        "Shots per 90"
+      ],
+      [
+        "Touches in box per 90",
+        "Touches per 90"
+      ],
+      [
+        "Touches in the box per 90",
+        "Touches per 90"
+      ],
+      [
+        "npxG per 90",
+        "npxG+xA per 90"
+      ],
+      [
+        "npxG+xA per 90",
+        "xA per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "npxG per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "npxG+xA per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "npxG/Shot"
+      ],
+      [
+        "Goals - xG per 90",
+        "xG conceded per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Goals - xG per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "xG/Shot"
+      ],
+      [
+        "npxG per 90",
+        "npxG/Shot"
+      ],
+      [
+        "npxG per 90",
+        "xG conceded per 90"
+      ],
+      [
+        "npxG per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "npxG per 90",
+        "xG/Shot"
+      ],
+      [
+        "npxG+xA per 90",
+        "npxG/Shot"
+      ],
+      [
+        "npxG+xA per 90",
+        "xG conceded per 90"
+      ],
+      [
+        "npxG+xA per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "npxG+xA per 90",
+        "xG per 90"
+      ],
+      [
+        "npxG+xA per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "npxG+xA per 90",
+        "xG/Shot"
+      ],
+      [
+        "npxG/Shot",
+        "xG conceded per 90"
+      ],
+      [
+        "npxG/Shot",
+        "xG per 100 touches"
+      ],
+      [
+        "npxG/Shot",
+        "xG per 90"
+      ],
+      [
+        "npxG/Shot",
+        "xG+xA per 90"
+      ],
+      [
+        "xG per 100 touches",
+        "xG+xA per 90"
+      ],
+      [
+        "xG per 100 touches",
+        "xG/Shot"
+      ],
+      [
+        "xG per 90",
+        "xG/Shot"
+      ],
+      [
+        "xG+xA per 90",
+        "xG/Shot"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Offensive duels per 90",
+        "Progressive carries per 90",
+        "Successful attacking actions per 90",
+        "Successful dribbles per 90",
+        "Ball-carrying frequency",
+        "Dribbles per 100 touches"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Long passes completed per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "Through passes completed per 90"
+      ],
+      [
+        "Progressive passes completed per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Short passes completed per 90",
+        "Through passes completed per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Duels won per 90"
+      ],
+      [
+        "Goals per 100 touches",
+        "Goals per 90"
+      ],
+      [
+        "Defensive duels won %",
+        "Duels won per 90"
+      ],
+      [
+        "Duels won per 90",
+        "Offensive duels won %"
+      ],
+      [
+        "Aerial duels won %",
+        "Duels per 90"
+      ],
+      [
+        "Defensive duels won %",
+        "Duels per 90"
+      ],
+      [
+        "Duels per 90",
+        "Offensive duels won %"
+      ],
+      [
+        "Long passes per 90",
+        "Progressive passes per 90"
+      ],
+      [
+        "Forward passes per 90",
+        "Passes completed per 90"
+      ],
+      [
+        "Long passes per 90",
+        "Passes completed per 90"
+      ],
+      [
+        "Progressive passes per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Duels won per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "Short pass completion %"
+      ],
+      [
+        "Forward passes per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Goals + Assists per 90",
+        "Goals - xG per 90"
+      ],
+      [
+        "Key passes per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Passes completed per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Short passes per 90",
+        "Through passes per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Duels won per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Offensive duels won %"
+      ],
+      [
+        "Defensive duels won %",
+        "Offensive duels won %"
+      ],
+      [
+        "Duels won per 90",
+        "Offensive duels per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Offensive duels per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Offensive duels per 90"
+      ],
+      [
+        "Shots conceded per 90",
+        "xG conceded per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Defensive duels per 90"
+      ],
+      [
+        "Goals + Assists per 90",
+        "Non-penalty goals per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Defensive duels won per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Defensive duels won %",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Long passes per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Progressive passes per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Through passes per 90"
+      ],
+      [
+        "Passes to final third per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Passes to penalty box per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Progressive actions per 90",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Progressive passes (PAdj)",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Progressive passes completed per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Progressive passes per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Short passes completed per 90",
+        "Through passes per 90"
+      ],
+      [
+        "Short passes per 90",
+        "Through passes completed per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Offensive duels won %"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Offensive duels won %"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Offensive duels per 90"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Offensive duels per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Forward pass completion %",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Short pass completion %"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Short pass completion %"
+      ],
+      [
+        "Assists per 90",
+        "NPG+A per 90"
+      ],
+      [
+        "Goals per 90",
+        "NPG+A per 90"
+      ],
+      [
+        "Goals + Assists per 90",
+        "NPG+A per 90"
+      ],
+      [
+        "Goals + Assists per 90",
+        "Goals per 100 touches"
+      ],
+      [
+        "NPG+A per 90",
+        "Non-penalty goals per 90"
+      ],
+      [
+        "Goals per 100 touches",
+        "NPG+A per 90"
+      ],
+      [
+        "Possession +/-",
+        "Shots on target per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Defensive duels won per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Defensive duels won %"
+      ],
+      [
+        "Passes to penalty box per 90",
+        "Touches in box per 90"
+      ],
+      [
+        "Progressive passes per 90",
+        "Through passes completed per 90"
+      ],
+      [
+        "Forward passes per 90",
+        "Long passes completed per 90"
+      ],
+      [
+        "Forward passes per 90",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Forward passes per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Forward passes per 90",
+        "Through passes completed per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Non-penalty goals per 90"
+      ],
+      [
+        "Key passes per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "Progressive passes per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "Through passes per 90"
+      ],
+      [
+        "Long passes per 90",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Long passes per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Long passes per 90",
+        "Through passes completed per 90"
+      ],
+      [
+        "Offensive duels won per 90",
+        "Possessions won per 90"
+      ],
+      [
+        "Progressive passes completed per 90",
+        "Through passes per 90"
+      ],
+      [
+        "Assists per 90",
+        "Interceptions per 90"
+      ],
+      [
+        "Crosses per 90",
+        "Interceptions per 90"
+      ],
+      [
+        "Crosses per 90",
+        "Touches per 90"
+      ],
+      [
+        "Goals per 90",
+        "npxG per 90"
+      ],
+      [
+        "Interceptions per 90",
+        "NPG+A per 90"
+      ],
+      [
+        "Interceptions per 90",
+        "xA per 90"
+      ],
+      [
+        "NPG+A per 90",
+        "xG per 90"
+      ],
+      [
+        "Passes per 90",
+        "Touches per 90"
+      ],
+      [
+        "Shots per 90",
+        "npxG per 90"
+      ],
+      [
+        "Shots per 90",
+        "xG per 90"
+      ],
+      [
+        "Crosses per 90",
+        "npxG per 90"
+      ],
+      [
+        "Crosses per 90",
+        "xG per 90"
+      ],
+      [
+        "Goals per 90",
+        "Interceptions per 90"
+      ],
+      [
+        "Interceptions per 90",
+        "Shots per 90"
+      ],
+      [
+        "Interceptions per 90",
+        "npxG per 90"
+      ],
+      [
+        "Interceptions per 90",
+        "xG per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "Passes to final third per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "Passes to penalty box per 90"
+      ],
+      [
+        "NPG+A per 90",
+        "Passes per 90"
+      ],
+      [
+        "Non-penalty goals per 90",
+        "Passes to penalty box per 90"
+      ],
+      [
+        "Passes to final third per 90",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Passes to final third per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Passes to penalty box per 90",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Passes to penalty box per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Assists per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Crosses per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Duels per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Goals per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Interceptions per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "NPG+A per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Shots per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Touches per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "npxG per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "xA per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "xG per 90"
+      ],
+      [
+        "Duels per 90",
+        "Goals per 90"
+      ],
+      [
+        "Assists per 90",
+        "Duels per 90"
+      ],
+      [
+        "Duels per 90",
+        "NPG+A per 90"
+      ],
+      [
+        "Duels per 90",
+        "Shots per 90"
+      ],
+      [
+        "Duels per 90",
+        "npxG per 90"
+      ],
+      [
+        "Offensive duels won per 90",
+        "Possessions won - lost per 90"
+      ],
+      [
+        "Passes per 90",
+        "Shots per 90"
+      ],
+      [
+        "Passes per 90",
+        "npxG per 90"
+      ],
+      [
+        "Passes per 90",
+        "xG per 90"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "NPG+A per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "Deep completions per 90",
+        "Interceptions per 90"
+      ],
+      [
+        "Duels won per 90",
+        "npxG per 90"
+      ],
+      [
+        "Duels won per 90",
+        "xG per 90"
+      ],
+      [
+        "Forward passes per 90",
+        "Touches per 90"
+      ],
+      [
+        "Goals + Assists per 90",
+        "Interceptions per 90"
+      ],
+      [
+        "Interceptions per 90",
+        "Shot assists per 90"
+      ],
+      [
+        "Interceptions per 90",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Interceptions per 90",
+        "Touches in box per 90"
+      ],
+      [
+        "Interceptions per 90",
+        "npxG+xA per 90"
+      ],
+      [
+        "Interceptions per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "Passes completed per 90",
+        "Touches per 90"
+      ],
+      [
+        "Sliding tackles per 90",
+        "Touches per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Touches per 90"
+      ],
+      [
+        "Assists per 90",
+        "Defensive duels per 90"
+      ],
+      [
+        "Assists per 90",
+        "Goals - xG per 90"
+      ],
+      [
+        "Assists per 90",
+        "Possessions won per 90"
+      ],
+      [
+        "Assists per 90",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Crosses per 90",
+        "Defensive duels per 90"
+      ],
+      [
+        "Crosses per 90",
+        "Possessions won per 90"
+      ],
+      [
+        "Crosses per 90",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Goals per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "NPG+A per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "xA per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "xG per 90"
+      ],
+      [
+        "Long passes per 90",
+        "NPG+A per 90"
+      ],
+      [
+        "NPG+A per 90",
+        "Possessions won per 90"
+      ],
+      [
+        "NPG+A per 90",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Possessions won per 90",
+        "xA per 90"
+      ],
+      [
+        "Progressive passes per 90",
+        "npxG per 90"
+      ],
+      [
+        "Progressive passes per 90",
+        "xG per 90"
+      ],
+      [
+        "Short passes per 90",
+        "Touches per 90"
+      ],
+      [
+        "Sliding tackles per 90",
+        "xA per 90"
+      ],
+      [
+        "Through passes per 90",
+        "npxG per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Deep completions per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Goals + Assists per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Goals - xG per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Progressive actions per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Progressive passes per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Through passes per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "npxG+xA per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Assists per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Crosses per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "NPG+A per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "xA per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "xG per 90"
+      ],
+      [
+        "Assists per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Crosses per 90",
+        "Goals - xG per 90"
+      ],
+      [
+        "Crosses per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Duels won %"
+      ],
+      [
+        "Deep completions per 90",
+        "Duels per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Shots per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "npxG per 90"
+      ],
+      [
+        "Duels per 90",
+        "Goals - xG per 90"
+      ],
+      [
+        "Duels per 90",
+        "Progressive carries per 90"
+      ],
+      [
+        "Duels per 90",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Duels won %",
+        "Possessions won per 90"
+      ],
+      [
+        "Forward passes per 90",
+        "Shots per 90"
+      ],
+      [
+        "Forward passes per 90",
+        "npxG per 90"
+      ],
+      [
+        "Forward passes per 90",
+        "xG per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Interceptions per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Touches per 90"
+      ],
+      [
+        "Goals per 90",
+        "Long passes per 90"
+      ],
+      [
+        "Goals per 90",
+        "Possessions won per 90"
+      ],
+      [
+        "Goals per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Goals per 90",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Interceptions per 90",
+        "Offensive duels per 90"
+      ],
+      [
+        "Long passes per 90",
+        "Shots per 90"
+      ],
+      [
+        "Long passes per 90",
+        "npxG per 90"
+      ],
+      [
+        "Long passes per 90",
+        "xG per 90"
+      ],
+      [
+        "NPG+A per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Passes completed per 90",
+        "npxG per 90"
+      ],
+      [
+        "Passes completed per 90",
+        "xG per 90"
+      ],
+      [
+        "Possessions won per 90",
+        "Shots per 90"
+      ],
+      [
+        "Possessions won per 90",
+        "npxG per 90"
+      ],
+      [
+        "Possessions won per 90",
+        "xG per 90"
+      ],
+      [
+        "Short passes per 90",
+        "Shots per 90"
+      ],
+      [
+        "Short passes per 90",
+        "xA per 90"
+      ],
+      [
+        "Short passes per 90",
+        "npxG per 90"
+      ],
+      [
+        "Short passes per 90",
+        "xG per 90"
+      ],
+      [
+        "Shots per 90",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Sliding tackles per 90",
+        "npxG per 90"
+      ],
+      [
+        "Sliding tackles per 90",
+        "xG per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Aerial duels per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Defensive duels per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Forward passes per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Long passes per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Passes completed per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Possessions won per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Aerial duels %",
+        "Defensive duels per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Duels won %"
+      ],
+      [
+        "Aerial duels per 90",
+        "Shots per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "npxG per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Long pass accuracy %"
+      ],
+      [
+        "Duels per 90",
+        "Forward passes per 90"
+      ],
+      [
+        "Duels per 90",
+        "Long passes per 90"
+      ],
+      [
+        "Duels per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Duels won %",
+        "Offensive duels per 90"
+      ],
+      [
+        "Duels per 90",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Duels per 90",
+        "Possessions won per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Passes per 90"
+      ],
+      [
+        "Offensive duels per 90",
+        "Passes per 90"
+      ],
+      [
+        "Shot assists per 90",
+        "xG/Shot"
+      ],
+      [
+        "Shot assists per 90",
+        "npxG/Shot"
+      ],
+      [
+        "Duels won per 90",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Goals + Assists per 90",
+        "npxG+xA per 90"
+      ],
+      [
+        "Progressive action rate",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Progressive actions per 90",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Progressive carries per 90",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Shots on target per 90",
+        "xG per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Defensive duels per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Possessions won per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Assists per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "NPG+A per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Passes per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Touches per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "xA per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Key passes per 90"
+      ],
+      [
+        "Shots on target per 90",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Shots per 90",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Sliding tackles (PAdj)",
+        "npxG per 90"
+      ],
+      [
+        "Sliding tackles (PAdj)",
+        "xG per 100 touches"
+      ],
+      [
+        "Sliding tackles (PAdj)",
+        "xG per 90"
+      ],
+      [
+        "Sliding tackles per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Accelerations per 90",
+        "Aerial duels won %"
+      ],
+      [
+        "Accelerations per 90",
+        "Cross accuracy %"
+      ],
+      [
+        "Accelerations per 90",
+        "Defensive duels won %"
+      ],
+      [
+        "Interceptions per 90",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Interceptions per 90",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Key passes per 90",
+        "Possessions won per 90"
+      ],
+      [
+        "Key passes per 90",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Long passes per 90",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Non-penalty goals per 90",
+        "xG per 90"
+      ],
+      [
+        "Possessions won per 90",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Progressive pass accuracy %",
+        "Short pass completion %"
+      ],
+      [
+        "Shots on target per 90",
+        "npxG per 90"
+      ],
+      [
+        "Shots per 90",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "npxG+xA per 90",
+        "xA per 100 passes"
+      ],
+      [
+        "xA per 100 passes",
+        "xG+xA per 90"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Defensive duels per 90"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Long passes per 90"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Possessions won per 90"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Defensive duels won %"
+      ],
+      [
+        "Crosses per 90",
+        "Defensive duels won per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Key passes per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Long passes per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Progressive carries per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Through passes per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Crosses per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "npxG per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Shots per 90"
+      ],
+      [
+        "Assists per 90",
+        "Defensive duels won per 90"
+      ],
+      [
+        "Deep completions per 90",
+        "Defensive duels per 90"
+      ],
+      [
+        "Deep completions per 90",
+        "Long passes per 90"
+      ],
+      [
+        "Deep completions per 90",
+        "Possessions won per 90"
+      ],
+      [
+        "Deep completions per 90",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Goals + Assists per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Shot assists per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Touches in box per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "npxG+xA per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "Defensive duels won per 90",
+        "NPG+A per 90"
+      ],
+      [
+        "Defensive duels won per 90",
+        "xA per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Progressive action rate"
+      ],
+      [
+        "Duels won per 90",
+        "Goals - xG per 90"
+      ],
+      [
+        "Possessions won per 90",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Touches per 90"
+      ],
+      [
+        "Goals + Assists per 90",
+        "Long passes per 90"
+      ],
+      [
+        "Goals + Assists per 90",
+        "Possessions won per 90"
+      ],
+      [
+        "Goals + Assists per 90",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Goals per 100 touches"
+      ],
+      [
+        "Goals - xG per 90",
+        "Key passes per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Progressive carries per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Shot assists per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Interceptions per 90",
+        "Non-penalty goals per 90"
+      ],
+      [
+        "Interceptions per 90",
+        "Shots on target per 90"
+      ],
+      [
+        "Long passes per 90",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Long passes per 90",
+        "Touches in box per 90"
+      ],
+      [
+        "Long passes per 90",
+        "npxG+xA per 90"
+      ],
+      [
+        "Long passes per 90",
+        "xA per 100 passes"
+      ],
+      [
+        "Long passes per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "Possessions won per 90",
+        "Touches in box per 90"
+      ],
+      [
+        "Possessions won per 90",
+        "npxG+xA per 90"
+      ],
+      [
+        "Possessions won per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "Progressive actions per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Progressive carries per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Progressive passes (PAdj)",
+        "Short passes per 90"
+      ],
+      [
+        "Short passes completed per 90",
+        "Touches per 90"
+      ],
+      [
+        "Short passes per 90",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Shot assists per 90",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Shots on target per 90",
+        "Touches per 90"
+      ],
+      [
+        "Shots per 90",
+        "Through passes completed per 90"
+      ],
+      [
+        "Sliding tackles per 90",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Sliding tackles per 90",
+        "Touches in box per 90"
+      ],
+      [
+        "Sliding tackles per 90",
+        "npxG+xA per 90"
+      ],
+      [
+        "Sliding tackles per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "Through passes completed per 90",
+        "npxG per 90"
+      ],
+      [
+        "Through passes completed per 90",
+        "xG per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Through passes completed per 90"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Aerial duels per 90"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Goals - xG per 90"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Deep completions per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Goals + Assists per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Shot assists per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Touches in box per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "npxG+xA per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "Assists per 90",
+        "Possessions won - lost per 90"
+      ],
+      [
+        "Assists per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Crosses per 90",
+        "Forward passes completed per 90"
+      ],
+      [
+        "Crosses per 90",
+        "Long passes completed per 90"
+      ],
+      [
+        "Crosses per 90",
+        "Possessions won - lost per 90"
+      ],
+      [
+        "Crosses per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Deep completions per 90",
+        "Goals - xG per 90"
+      ],
+      [
+        "Deep completions per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Offensive duels won %"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Goals per 90"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Shots per 90"
+      ],
+      [
+        "Defensive duels won per 90",
+        "npxG per 90"
+      ],
+      [
+        "Defensive duels won per 90",
+        "xG per 90"
+      ],
+      [
+        "Duels won %",
+        "Possessions won - lost per 90"
+      ],
+      [
+        "Duels won per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "Long pass accuracy %"
+      ],
+      [
+        "Forward pass ratio",
+        "Long pass accuracy %"
+      ],
+      [
+        "Forward pass ratio",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Forward pass ratio",
+        "Short pass completion %"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Shots per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "npxG per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "xG per 90"
+      ],
+      [
+        "Goals + Assists per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Offensive duels per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Progressive actions per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Progressive passes per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Through passes per 90"
+      ],
+      [
+        "Goals per 90",
+        "Long passes completed per 90"
+      ],
+      [
+        "Goals per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "NPG+A per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "Shots per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "npxG per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "xA per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "xG per 90"
+      ],
+      [
+        "NPG+A per 90",
+        "Possessions won - lost per 90"
+      ],
+      [
+        "NPG+A per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Offensive duels won %",
+        "Possessions won per 90"
+      ],
+      [
+        "Possessions won - lost per 90",
+        "xA per 90"
+      ],
+      [
+        "Short passes completed per 90",
+        "Shots per 90"
+      ],
+      [
+        "Short passes completed per 90",
+        "npxG per 90"
+      ],
+      [
+        "Short passes completed per 90",
+        "xA per 90"
+      ],
+      [
+        "Short passes completed per 90",
+        "xG per 90"
+      ],
+      [
+        "Short passes per 90",
+        "Shot assists per 90"
+      ],
+      [
+        "Short passes per 90",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Short passes per 90",
+        "Touches in box per 90"
+      ],
+      [
+        "Short passes per 90",
+        "npxG+xA per 90"
+      ],
+      [
+        "Short passes per 90",
+        "xA per 100 passes"
+      ],
+      [
+        "Short passes per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Aerial duels won per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Defensive duels won per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Forward passes completed per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Long passes completed per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Goals - xG per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Offensive duels per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Goals - xG per 90"
+      ],
+      [
+        "Defensive duels won %",
+        "Offensive duels per 90"
+      ],
+      [
+        "Duels per 90",
+        "Forward passes completed per 90"
+      ],
+      [
+        "Duels per 90",
+        "Long passes completed per 90"
+      ],
+      [
+        "Duels per 90",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Duels per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Forward passes per 90",
+        "Goals - xG per 90"
+      ],
+      [
+        "Forward passes per 90",
+        "Offensive duels per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Long passes per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Passes completed per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Possessions won per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Long passes per 90",
+        "Offensive duels per 90"
+      ],
+      [
+        "Offensive duels per 90",
+        "Passes completed per 90"
+      ],
+      [
+        "Offensive duels per 90",
+        "Possessions won per 90"
+      ],
+      [
+        "Offensive duels per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Offensive duels per 90",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Non-penalty goals per 90"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Goals - xG per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Goals - xG per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Offensive duels per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Long passes completed per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "Offensive duels per 90"
+      ],
+      [
+        "Offensive duels per 90",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Offensive duels per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Forward pass completion %"
+      ],
+      [
+        "Accelerations per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Accelerations per 90",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Aerial duels per 90",
+        "Goals per 100 touches"
+      ],
+      [
+        "Aerial duels per 90",
+        "Shot frequency"
+      ],
+      [
+        "Aerial duels per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Defensive duels won %",
+        "Goals - xG per 90"
+      ],
+      [
+        "Duels per 90",
+        "Forward pass completion %"
+      ],
+      [
+        "Duels per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Duels per 90",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Forward pass completion %",
+        "Goals - xG per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "Offensive duels per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Goals - xG per 90",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Offensive duels per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Offensive duels per 90",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Defensive duels per 90",
+        "Shots on target %"
+      ],
+      [
+        "Defensive duels per 90",
+        "Shots on target per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Positional attacks per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Touches in the box per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Positional attacks per 90"
+      ],
+      [
+        "Goals conceded per 90",
+        "Touches in the box per 90"
+      ],
+      [
+        "SoT against per 90",
+        "Touches in the box per 90"
+      ],
+      [
+        "Goals conceded per 90",
+        "Shots on target per 90"
+      ],
+      [
+        "Aerial duels %",
+        "Counter attacks per 90"
+      ],
+      [
+        "Aerial duels %",
+        "PPDA"
+      ],
+      [
+        "Aerial duels %",
+        "Passes completed"
+      ],
+      [
+        "Aerial duels %",
+        "Passes per possession"
+      ],
+      [
+        "Aerial duels %",
+        "Shots on target per 90"
+      ],
+      [
+        "Aerial duels %",
+        "Touches in the box per 90"
+      ],
+      [
+        "Aerial duels %",
+        "xG per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Pass accuracy %"
+      ],
+      [
+        "Aerial duels per 90",
+        "Shots on target %"
+      ],
+      [
+        "Defensive duel %",
+        "Shots on target %"
+      ],
+      [
+        "Defensive duel %",
+        "Touches in the box per 90"
+      ],
+      [
+        "Defensive duel %",
+        "xG per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Passes per possession"
+      ],
+      [
+        "Goals conceded per 90",
+        "Pass accuracy %"
+      ],
+      [
+        "Goals conceded per 90",
+        "Passes per possession"
+      ],
+      [
+        "Goals conceded per 90",
+        "Shots on target %"
+      ],
+      [
+        "Passes completed",
+        "Shots on target %"
+      ],
+      [
+        "Passes per possession",
+        "Shots on target %"
+      ],
+      [
+        "Long passes per 90",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Passes per 90",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Passes per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Progressive pass accuracy %",
+        "Short passes per 90"
+      ],
+      [
+        "Progressive passes per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Long pass accuracy %",
+        "Passes per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Progressive passes per 90"
+      ],
+      [
+        "Long passes per 90",
+        "Shots conceded per 90"
+      ],
+      [
+        "Long passes per 90",
+        "xG conceded per 90"
+      ],
+      [
+        "Progressive passes per 90",
+        "Shots conceded per 90"
+      ],
+      [
+        "Progressive passes per 90",
+        "xG conceded per 90"
+      ],
+      [
+        "Short passes per 90",
+        "Shots conceded per 90"
+      ],
+      [
+        "Short passes per 90",
+        "xG conceded per 90"
+      ],
+      [
+        "Clean sheets",
+        "Long passes per 90"
+      ],
+      [
+        "Clean sheets",
+        "Pass completion %"
+      ],
+      [
+        "Clean sheets",
+        "Passes per 90"
+      ],
+      [
+        "Clean sheets",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Clean sheets",
+        "Progressive passes per 90"
+      ],
+      [
+        "Clean sheets",
+        "Short pass completion %"
+      ],
+      [
+        "Clean sheets",
+        "Short passes per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Prevented goals per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Saves per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Shots conceded per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "xG conceded per 90"
+      ],
+      [
+        "Pass completion %",
+        "Shots conceded per 90"
+      ],
+      [
+        "Pass completion %",
+        "xG conceded per 90"
+      ],
+      [
+        "Progressive pass accuracy %",
+        "Shots conceded per 90"
+      ],
+      [
+        "Progressive pass accuracy %",
+        "xG conceded per 90"
+      ],
+      [
+        "Short pass completion %",
+        "Shots conceded per 90"
+      ],
+      [
+        "Short pass completion %",
+        "xG conceded per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Forward pass ratio"
+      ],
+      [
+        "Aerial duels per 90",
+        "Long pass accuracy %"
+      ],
+      [
+        "Aerial duels per 90",
+        "Possession +/-"
+      ],
+      [
+        "Aerial duels per 90",
+        "Offensive duels won %"
+      ],
+      [
+        "Aerial duels per 90",
+        "Cross accuracy %"
+      ],
+      [
+        "Aerial duels per 90",
+        "Dribble success rate %"
+      ],
+      [
+        "Accelerations per 90",
+        "Dribble success rate %"
+      ],
+      [
+        "Dribble success rate %",
+        "Duels per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Goals - xG per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Offensive duels per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Goal conversion %"
+      ],
+      [
+        "Accelerations per 90",
+        "Shots on target %"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Goal conversion %"
+      ],
+      [
+        "Ball-carrying frequency",
+        "Goal conversion %"
+      ],
+      [
+        "Cross accuracy %",
+        "Duels per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Goals - xG per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Offensive duels per 90"
+      ],
+      [
+        "Crosses per 90",
+        "Goal conversion %"
+      ],
+      [
+        "Deep completions per 90",
+        "Goal conversion %"
+      ],
+      [
+        "Duels per 90",
+        "Goal conversion %"
+      ],
+      [
+        "Duels per 90",
+        "Shots on target %"
+      ],
+      [
+        "Goal conversion %",
+        "Interceptions (PAdj)"
+      ],
+      [
+        "Goal conversion %",
+        "Interceptions per 90"
+      ],
+      [
+        "Goal conversion %",
+        "Offensive duels per 90"
+      ],
+      [
+        "Goal conversion %",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Goal conversion %",
+        "Passes to final third per 90"
+      ],
+      [
+        "Goal conversion %",
+        "Passes to penalty box per 90"
+      ],
+      [
+        "Goal conversion %",
+        "Progressive action rate"
+      ],
+      [
+        "Goal conversion %",
+        "Progressive actions per 90"
+      ],
+      [
+        "Goal conversion %",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Goal conversion %",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Goal conversion %",
+        "Progressive passes per 90"
+      ],
+      [
+        "Goal conversion %",
+        "Through passes completed per 90"
+      ],
+      [
+        "Goal conversion %",
+        "Through passes per 90"
+      ],
+      [
+        "Goal conversion %",
+        "Touches per 90"
+      ],
+      [
+        "Goal conversion %",
+        "xA per 100 passes"
+      ],
+      [
+        "Goals - xG per 90",
+        "Offensive duels won %"
+      ],
+      [
+        "Offensive duels per 90",
+        "Shots on target %"
+      ],
+      [
+        "Aerial duels won %",
+        "npxG/Shot"
+      ],
+      [
+        "Aerial duels won %",
+        "xG/Shot"
+      ],
+      [
+        "Aerial duels won per 90",
+        "npxG/Shot"
+      ],
+      [
+        "Aerial duels won per 90",
+        "xG/Shot"
+      ],
+      [
+        "Assists per 90",
+        "npxG/Shot"
+      ],
+      [
+        "Assists per 90",
+        "xG/Shot"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "npxG/Shot"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "xG/Shot"
+      ],
+      [
+        "Duels won %",
+        "npxG/Shot"
+      ],
+      [
+        "Duels won %",
+        "xG/Shot"
+      ],
+      [
+        "Duels won per 90",
+        "npxG/Shot"
+      ],
+      [
+        "Duels won per 90",
+        "xG/Shot"
+      ],
+      [
+        "Key passes per 90",
+        "npxG/Shot"
+      ],
+      [
+        "Key passes per 90",
+        "xG/Shot"
+      ],
+      [
+        "Pass completion %",
+        "npxG/Shot"
+      ],
+      [
+        "Pass completion %",
+        "xG/Shot"
+      ],
+      [
+        "Progressive carries per 90",
+        "npxG/Shot"
+      ],
+      [
+        "Progressive carries per 90",
+        "xG/Shot"
+      ],
+      [
+        "Successful attacking actions per 90",
+        "npxG/Shot"
+      ],
+      [
+        "Successful attacking actions per 90",
+        "xG/Shot"
+      ],
+      [
+        "Successful dribbles per 90",
+        "npxG/Shot"
+      ],
+      [
+        "Successful dribbles per 90",
+        "xG/Shot"
+      ],
+      [
+        "Touches in box per 90",
+        "npxG/Shot"
+      ],
+      [
+        "npxG/Shot",
+        "xA per 90"
+      ],
+      [
+        "xA per 90",
+        "xG/Shot"
+      ],
+      [
+        "Goals per 90",
+        "Possessions won - lost per 90"
+      ],
+      [
+        "Possessions won - lost per 90",
+        "Shots per 90"
+      ],
+      [
+        "Possessions won - lost per 90",
+        "npxG per 90"
+      ],
+      [
+        "Possessions won - lost per 90",
+        "xG per 90"
+      ],
+      [
+        "Forward pass ratio",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Forward pass ratio",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Long pass accuracy %",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Long pass accuracy %",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Touches in box per 90"
+      ],
+      [
+        "Non-penalty goals per 90",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Non-penalty goals per 90",
+        "Possessions won - lost per 90"
+      ],
+      [
+        "Possessions won - lost per 90",
+        "Shots on target per 90"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Forward pass ratio"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Long pass accuracy %"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Possession +/-"
+      ],
+      [
+        "Aerial duels won %",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Aerial duels won %",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Assists per 90",
+        "Long pass accuracy %"
+      ],
+      [
+        "Assists per 90",
+        "Possession +/-"
+      ],
+      [
+        "Assists per 90",
+        "Forward pass ratio"
+      ],
+      [
+        "Ball-carrying frequency",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Ball-carrying frequency",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Chance creation ratio",
+        "Long pass accuracy %"
+      ],
+      [
+        "Cross accuracy %",
+        "Forward pass ratio"
+      ],
+      [
+        "Cross accuracy %",
+        "Forward passes completed per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Long passes completed per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Cross accuracy %",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Cross accuracy %",
+        "Possession +/-"
+      ],
+      [
+        "Cross accuracy %",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Short pass completion %"
+      ],
+      [
+        "Cross accuracy %",
+        "Short passes completed per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Short passes per 90"
+      ],
+      [
+        "Crosses per 90",
+        "Forward pass ratio"
+      ],
+      [
+        "Crosses per 90",
+        "Long pass accuracy %"
+      ],
+      [
+        "Crosses per 90",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Crosses per 90",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Crosses per 90",
+        "Possession +/-"
+      ],
+      [
+        "Deep completions per 90",
+        "Forward pass ratio"
+      ],
+      [
+        "Deep completions per 90",
+        "Long pass accuracy %"
+      ],
+      [
+        "Deep completions per 90",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Deep completions per 90",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Deep completions per 90",
+        "Possession +/-"
+      ],
+      [
+        "Defensive duels per 90",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Defensive duels per 90",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Defensive duels won %",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Defensive duels won %",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Defensive duels won %",
+        "Shots on target %"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Shots on target %"
+      ],
+      [
+        "Dribble success rate %",
+        "Forward pass ratio"
+      ],
+      [
+        "Dribble success rate %",
+        "Forward passes completed per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Long pass accuracy %"
+      ],
+      [
+        "Dribble success rate %",
+        "Long passes completed per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Possession +/-"
+      ],
+      [
+        "Dribble success rate %",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Short pass completion %"
+      ],
+      [
+        "Dribble success rate %",
+        "Short passes completed per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Short passes per 90"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Forward pass ratio"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Long pass accuracy %"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Possession +/-"
+      ],
+      [
+        "Duels won %",
+        "Forward pass ratio"
+      ],
+      [
+        "Duels won %",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Duels won %",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Duels won %",
+        "Short pass completion %"
+      ],
+      [
+        "Duels won per 90",
+        "Long pass accuracy %"
+      ],
+      [
+        "Duels won per 90",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Duels won per 90",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Forward pass completion %",
+        "Shots on target %"
+      ],
+      [
+        "Forward pass ratio",
+        "Goals + Assists per 90"
+      ],
+      [
+        "Forward pass ratio",
+        "Goals per 100 touches"
+      ],
+      [
+        "Forward pass ratio",
+        "Goals per 90"
+      ],
+      [
+        "Forward pass ratio",
+        "NPG+A per 90"
+      ],
+      [
+        "Forward pass ratio",
+        "Non-penalty goals per 90"
+      ],
+      [
+        "Forward pass ratio",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Forward pass ratio",
+        "Shot frequency"
+      ],
+      [
+        "Forward pass ratio",
+        "Shots on target %"
+      ],
+      [
+        "Forward pass ratio",
+        "Shots on target per 90"
+      ],
+      [
+        "Forward pass ratio",
+        "Shots per 90"
+      ],
+      [
+        "Forward pass ratio",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Forward pass ratio",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Forward pass ratio",
+        "Touches in box per 90"
+      ],
+      [
+        "Forward pass ratio",
+        "npxG per 90"
+      ],
+      [
+        "Forward pass ratio",
+        "npxG+xA per 90"
+      ],
+      [
+        "Forward pass ratio",
+        "xG per 100 touches"
+      ],
+      [
+        "Forward pass ratio",
+        "xG per 90"
+      ],
+      [
+        "Forward pass ratio",
+        "xG+xA per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Offensive duels won %"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Shots on target %"
+      ],
+      [
+        "Forward passes per 90",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Forward passes per 90",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Forward passes per 90",
+        "Shots on target %"
+      ],
+      [
+        "Goals + Assists per 90",
+        "Long pass accuracy %"
+      ],
+      [
+        "Goals + Assists per 90",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Goals + Assists per 90",
+        "Possession +/-"
+      ],
+      [
+        "Goals per 100 touches",
+        "Long pass accuracy %"
+      ],
+      [
+        "Goals per 100 touches",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Goals per 100 touches",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Goals per 100 touches",
+        "Possession +/-"
+      ],
+      [
+        "Goals per 100 touches",
+        "Possessions won - lost per 90"
+      ],
+      [
+        "Goals per 90",
+        "Long pass accuracy %"
+      ],
+      [
+        "Goals per 90",
+        "Possession +/-"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Interceptions per 90",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Long pass accuracy %",
+        "NPG+A per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Non-penalty goals per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Offensive duels won %"
+      ],
+      [
+        "Long pass accuracy %",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Shot assists per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Shot frequency"
+      ],
+      [
+        "Long pass accuracy %",
+        "Shots on target %"
+      ],
+      [
+        "Long pass accuracy %",
+        "Shots on target per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Shots per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Touches in box per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "npxG per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "npxG+xA per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "xA per 100 passes"
+      ],
+      [
+        "Long pass accuracy %",
+        "xA per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "xG per 100 touches"
+      ],
+      [
+        "Long pass accuracy %",
+        "xG per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "xG+xA per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "Offensive duels won %"
+      ],
+      [
+        "Long passes completed per 90",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Long passes completed per 90",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Long passes completed per 90",
+        "Shots on target %"
+      ],
+      [
+        "Long passes per 90",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Long passes per 90",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Long passes per 90",
+        "Shots on target %"
+      ],
+      [
+        "NPG+A per 90",
+        "Possession +/-"
+      ],
+      [
+        "Non-penalty goals per 90",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Non-penalty goals per 90",
+        "Possession +/-"
+      ],
+      [
+        "Offensive duels won %",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Offensive duels won %",
+        "Short pass completion %"
+      ],
+      [
+        "Offensive duels won %",
+        "Short passes completed per 90"
+      ],
+      [
+        "Offensive duels won %",
+        "Short passes per 90"
+      ],
+      [
+        "Offensive duels won per 90",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Offensive duels won per 90",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Offensive duels won per 90",
+        "Possession +/-"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Passes completed per 90"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Passes per 90"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Passes to penalty box per 90"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Possession +/-"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Possessions won - lost per 90"
+      ],
+      [
+        "Passes completed per 90",
+        "Shots on target %"
+      ],
+      [
+        "Passes per 90",
+        "Shots on target %"
+      ],
+      [
+        "Possession +/-",
+        "Shot frequency"
+      ],
+      [
+        "Possession +/-",
+        "Shots on target %"
+      ],
+      [
+        "Possession +/-",
+        "Shots per 90"
+      ],
+      [
+        "Possession +/-",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Possession +/-",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Possession +/-",
+        "Touches in box per 90"
+      ],
+      [
+        "Possession +/-",
+        "npxG per 90"
+      ],
+      [
+        "Possession +/-",
+        "npxG+xA per 90"
+      ],
+      [
+        "Possession +/-",
+        "xG per 100 touches"
+      ],
+      [
+        "Possession +/-",
+        "xG per 90"
+      ],
+      [
+        "Possession +/-",
+        "xG+xA per 90"
+      ],
+      [
+        "Possessions won - lost per 90",
+        "Shot frequency"
+      ],
+      [
+        "Possessions won - lost per 90",
+        "Shots on target %"
+      ],
+      [
+        "Possessions won - lost per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Possessions won per 90",
+        "Shots on target %"
+      ],
+      [
+        "Progressive passes completed per 90",
+        "Shots on target %"
+      ],
+      [
+        "Short pass completion %",
+        "Shots on target %"
+      ],
+      [
+        "Short passes completed per 90",
+        "Shots on target %"
+      ],
+      [
+        "Short passes per 90",
+        "Shots on target %"
+      ],
+      [
+        "Shots on target %",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Shots on target %",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Possessions won per 90"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Progressive action rate"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Progressive actions per 90"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Progressive carries per 90"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Progressive passes per 90"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Short passes completed per 90"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Short passes per 90"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Shot frequency"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Shots on target %"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Shots on target per 90"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Shots per 90"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Through passes completed per 90"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Through passes per 90"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Touches in box per 90"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Touches per 90"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "npxG per 90"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "npxG+xA per 90"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "xA per 100 passes"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "xG per 100 touches"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "xG per 90"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "xG+xA per 90"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Passes completed per 90"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Passes per 90"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Passes to final third per 90"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Possession +/-"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Possessions won - lost per 90"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Possessions won per 90"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Progressive action rate"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Progressive actions per 90"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Progressive carries per 90"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Progressive passes per 90"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Short passes completed per 90"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Short passes per 90"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Shot assists per 90"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Shot frequency"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Shots on target %"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Shots on target per 90"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Shots per 90"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Through passes completed per 90"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Through passes per 90"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Touches per 90"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "npxG per 90"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "npxG+xA per 90"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "xA per 100 passes"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "xG per 100 touches"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "xG per 90"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "xG+xA per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Key passes per 90"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Goals + Assists per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Shot assists per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Through passes per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Touches in box per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "npxG+xA per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "Deep completions per 90",
+        "Passes to final third per 90"
+      ],
+      [
+        "Deep completions per 90",
+        "Passes to penalty box per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Passes to penalty box per 90"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Key passes per 90"
+      ],
+      [
+        "Goals per 100 touches",
+        "Non-penalty goals per 90"
+      ],
+      [
+        "Non-penalty goals per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Defensive duels won per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Deep completions per 90"
+      ],
+      [
+        "Deep completions per 90",
+        "Defensive duels won per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Through passes completed per 90"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Goals + Assists per 90"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Shot assists per 90"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Touches in box per 90"
+      ],
+      [
+        "Defensive duels won per 90",
+        "npxG+xA per 90"
+      ],
+      [
+        "Defensive duels won per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "Key passes per 90",
+        "Possessions won - lost per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Long passes per 90",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Long passes per 90",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Possessions won per 90",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Progressive action rate",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Progressive passes (PAdj)",
+        "Short passes completed per 90"
+      ],
+      [
+        "Progressive passes per 90",
+        "Shots on target per 90"
+      ],
+      [
+        "Sliding tackles per 90",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Sliding tackles per 90",
+        "Through passes completed per 90"
+      ],
+      [
+        "Shots on target %",
+        "xA per 100 passes"
+      ],
+      [
+        "Shots on target %",
+        "Touches per 90"
+      ],
+      [
+        "Shots on target %",
+        "Through passes per 90"
+      ],
+      [
+        "Shots on target %",
+        "Through passes completed per 90"
+      ],
+      [
+        "Shot frequency",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Shot frequency",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Short passes per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Short passes per 90",
+        "Shot frequency"
+      ],
+      [
+        "Short passes completed per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Short passes completed per 90",
+        "Shot frequency"
+      ],
+      [
+        "Short pass completion %",
+        "xG+xA per 90"
+      ],
+      [
+        "Short pass completion %",
+        "xG per 90"
+      ],
+      [
+        "Short pass completion %",
+        "xG per 100 touches"
+      ],
+      [
+        "Short pass completion %",
+        "xA per 90"
+      ],
+      [
+        "Short pass completion %",
+        "xA per 100 passes"
+      ],
+      [
+        "Short pass completion %",
+        "npxG+xA per 90"
+      ],
+      [
+        "Short pass completion %",
+        "npxG per 90"
+      ],
+      [
+        "Short pass completion %",
+        "Touches in box per 90"
+      ],
+      [
+        "Short pass completion %",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Short pass completion %",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Short pass completion %",
+        "Shots per 90"
+      ],
+      [
+        "Short pass completion %",
+        "Shots on target per 90"
+      ],
+      [
+        "Short pass completion %",
+        "Shot frequency"
+      ],
+      [
+        "Short pass completion %",
+        "Shot assists per 90"
+      ],
+      [
+        "Progressive passes per 90",
+        "Shots on target %"
+      ],
+      [
+        "Progressive passes completed per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Progressive passes completed per 90",
+        "Shot frequency"
+      ],
+      [
+        "Progressive passes (PAdj)",
+        "Shots on target %"
+      ],
+      [
+        "Progressive pass accuracy %",
+        "Shots on target %"
+      ],
+      [
+        "Progressive actions per 90",
+        "Shots on target %"
+      ],
+      [
+        "Progressive action rate",
+        "Shots on target %"
+      ],
+      [
+        "Possessions won per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Possessions won per 90",
+        "Shot frequency"
+      ],
+      [
+        "Possessions won - lost per 90",
+        "xA per 100 passes"
+      ],
+      [
+        "Possession +/-",
+        "Touches per 90"
+      ],
+      [
+        "Possession +/-",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Possession +/-",
+        "Short passes per 90"
+      ],
+      [
+        "Possession +/-",
+        "Short passes completed per 90"
+      ],
+      [
+        "Possession +/-",
+        "Short pass completion %"
+      ],
+      [
+        "Possession +/-",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Passes to penalty box per 90",
+        "Shots on target %"
+      ],
+      [
+        "Passes per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Passes to final third per 90",
+        "Shots on target %"
+      ],
+      [
+        "Passes per 90",
+        "Shot frequency"
+      ],
+      [
+        "Passes per 90",
+        "Possession +/-"
+      ],
+      [
+        "Passes completed per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Passes completed per 90",
+        "Shot frequency"
+      ],
+      [
+        "Passes completed per 90",
+        "Possession +/-"
+      ],
+      [
+        "Pass completion %",
+        "Possession +/-"
+      ],
+      [
+        "Offensive duels won %",
+        "Shots on target per 90"
+      ],
+      [
+        "Offensive duels won %",
+        "Shots per 90"
+      ],
+      [
+        "Offensive duels won %",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Offensive duels won %",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Offensive duels won %",
+        "Through passes completed per 90"
+      ],
+      [
+        "Offensive duels won %",
+        "npxG per 90"
+      ],
+      [
+        "Offensive duels won %",
+        "xG per 100 touches"
+      ],
+      [
+        "Offensive duels won %",
+        "xG per 90"
+      ],
+      [
+        "Offensive duels won per 90",
+        "Shots on target %"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Forward passes completed per 90"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Long passes completed per 90"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Deep completions per 90",
+        "Long passes completed per 90"
+      ],
+      [
+        "Deep completions per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Non-penalty goals per 90"
+      ],
+      [
+        "Duels won per 90",
+        "Forward passes completed per 90"
+      ],
+      [
+        "Duels won per 90",
+        "Long passes completed per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Touches in box per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "xA per 100 passes"
+      ],
+      [
+        "Forward passes per 90",
+        "Non-penalty goals per 90"
+      ],
+      [
+        "Forward passes per 90",
+        "Shots on target per 90"
+      ],
+      [
+        "Goals + Assists per 90",
+        "Long passes completed per 90"
+      ],
+      [
+        "Goals + Assists per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "Touches in box per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "npxG+xA per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "xA per 100 passes"
+      ],
+      [
+        "Long passes completed per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "Long passes per 90",
+        "Non-penalty goals per 90"
+      ],
+      [
+        "Long passes per 90",
+        "Shots on target per 90"
+      ],
+      [
+        "Non-penalty goals per 90",
+        "Possessions won per 90"
+      ],
+      [
+        "Non-penalty goals per 90",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Offensive duels won per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Possessions won per 90",
+        "Shots on target per 90"
+      ],
+      [
+        "Short passes completed per 90",
+        "Shot assists per 90"
+      ],
+      [
+        "Short passes completed per 90",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Short passes completed per 90",
+        "Touches in box per 90"
+      ],
+      [
+        "Short passes completed per 90",
+        "npxG+xA per 90"
+      ],
+      [
+        "Short passes completed per 90",
+        "xA per 100 passes"
+      ],
+      [
+        "Short passes completed per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "Short passes per 90",
+        "Shots on target per 90"
+      ],
+      [
+        "Short passes per 90",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Non-penalty goals per 90"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Shots on target per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "Non-penalty goals per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "Shots on target per 90"
+      ],
+      [
+        "Non-penalty goals per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Offensive duels won per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Progressive passes completed per 90",
+        "Shots on target per 90"
+      ],
+      [
+        "Short passes completed per 90",
+        "Shots on target per 90"
+      ],
+      [
+        "Short passes completed per 90",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Assists per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Chance creation ratio",
+        "Long passes completed per 90"
+      ],
+      [
+        "Chance creation ratio",
+        "Short pass completion %"
+      ],
+      [
+        "Chance creation ratio",
+        "Short passes completed per 90"
+      ],
+      [
+        "Crosses per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Deep completions per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Defensive duels per 90",
+        "Goals per 100 touches"
+      ],
+      [
+        "Defensive duels per 90",
+        "Shot frequency"
+      ],
+      [
+        "Defensive duels per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Defensive duels won %",
+        "Goals per 100 touches"
+      ],
+      [
+        "Defensive duels won %",
+        "Goals per 90"
+      ],
+      [
+        "Defensive duels won %",
+        "Non-penalty goals per 90"
+      ],
+      [
+        "Defensive duels won %",
+        "Shot frequency"
+      ],
+      [
+        "Defensive duels won %",
+        "Shots on target per 90"
+      ],
+      [
+        "Defensive duels won %",
+        "Shots per 90"
+      ],
+      [
+        "Defensive duels won %",
+        "npxG per 90"
+      ],
+      [
+        "Defensive duels won %",
+        "xG per 100 touches"
+      ],
+      [
+        "Defensive duels won %",
+        "xG per 90"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Goals per 100 touches"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Shot frequency"
+      ],
+      [
+        "Defensive duels won per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Forward passes completed per 90"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Long passes completed per 90"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Short passes completed per 90"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Short passes per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "Goals per 100 touches"
+      ],
+      [
+        "Forward pass completion %",
+        "Shot frequency"
+      ],
+      [
+        "Forward pass completion %",
+        "Shots on target per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "Shots per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "npxG per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "xG per 100 touches"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Goals per 100 touches"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Shot frequency"
+      ],
+      [
+        "Forward passes completed per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Forward passes per 90",
+        "Goals per 100 touches"
+      ],
+      [
+        "Forward passes per 90",
+        "Shot frequency"
+      ],
+      [
+        "Forward passes per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Goals + Assists per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Goals per 100 touches",
+        "Long passes completed per 90"
+      ],
+      [
+        "Goals per 100 touches",
+        "Long passes per 90"
+      ],
+      [
+        "Goals per 100 touches",
+        "Passes completed per 90"
+      ],
+      [
+        "Goals per 100 touches",
+        "Passes per 90"
+      ],
+      [
+        "Goals per 100 touches",
+        "Possessions won per 90"
+      ],
+      [
+        "Goals per 100 touches",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Goals per 100 touches",
+        "Short passes completed per 90"
+      ],
+      [
+        "Goals per 100 touches",
+        "Short passes per 90"
+      ],
+      [
+        "Goals per 100 touches",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Goals per 100 touches",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Goals per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Goals per 90",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Long passes completed per 90",
+        "Shot frequency"
+      ],
+      [
+        "Long passes completed per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Long passes per 90",
+        "Shot frequency"
+      ],
+      [
+        "Long passes per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "NPG+A per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Non-penalty goals per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Non-penalty goals per 90",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Aerial duels per 90",
+        "Through passes completed per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Aerial duels per 90",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Chance creation ratio"
+      ],
+      [
+        "Aerial duels per 90",
+        "Dribbles per 100 touches"
+      ],
+      [
+        "Aerial duels per 90",
+        "xA per 100 passes"
+      ],
+      [
+        "Goals - xG per 90",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Passes to final third per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Passes to penalty box per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "Through passes completed per 90"
+      ],
+      [
+        "Accelerations per 90",
+        "Interceptions (PAdj)"
+      ],
+      [
+        "Accelerations per 90",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Accelerations per 90",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Accelerations per 90",
+        "Shot frequency"
+      ],
+      [
+        "Ball-carrying frequency",
+        "Goals - xG per 90"
+      ],
+      [
+        "Chance creation ratio",
+        "Goals - xG per 90"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Duels per 90"
+      ],
+      [
+        "Duels per 90",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Duels per 90",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Goals - xG per 90",
+        "Interceptions (PAdj)"
+      ],
+      [
+        "Goals - xG per 90",
+        "Progressive action rate"
+      ],
+      [
+        "Goals - xG per 90",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Goals - xG per 90",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Goals - xG per 90",
+        "xA per 100 passes"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "Offensive duels per 90"
+      ],
+      [
+        "Offensive duels per 90",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Offensive duels per 90",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Goals - xG per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Goals - xG per 90"
+      ],
+      [
+        "Through passes completed per 90",
+        "Touches in box per 90"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Possessions won - lost per 90"
+      ],
+      [
+        "Deep completions per 90",
+        "Possessions won - lost per 90"
+      ],
+      [
+        "Goals + Assists per 90",
+        "Possessions won - lost per 90"
+      ],
+      [
+        "Offensive duels won %",
+        "Possessions won - lost per 90"
+      ],
+      [
+        "Possessions won - lost per 90",
+        "Shot assists per 90"
+      ],
+      [
+        "Possessions won - lost per 90",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Possessions won - lost per 90",
+        "Touches in box per 90"
+      ],
+      [
+        "Possessions won - lost per 90",
+        "npxG+xA per 90"
+      ],
+      [
+        "Possessions won - lost per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Offensive duels won per 90",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Shots on target per 90",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Through passes completed per 90"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Passes to penalty box per 90",
+        "Possessions won - lost per 90"
+      ],
+      [
+        "Possessions won - lost per 90",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Possessions won - lost per 90",
+        "Through passes completed per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Key passes per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Progressive carries per 90"
+      ],
+      [
+        "Ball-carrying frequency",
+        "Interceptions (PAdj)"
+      ],
+      [
+        "Ball-carrying frequency",
+        "Interceptions per 90"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Duels won per 90"
+      ],
+      [
+        "Goals + Assists per 90",
+        "Pass completion %"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "Key passes per 90"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "Passes to penalty box per 90"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "Through passes per 90"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "Touches per 90"
+      ],
+      [
+        "NPG+A per 90",
+        "Pass completion %"
+      ],
+      [
+        "Pass completion %",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Pass completion %",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Pass completion %",
+        "Touches in box per 90"
+      ],
+      [
+        "Pass completion %",
+        "npxG+xA per 90"
+      ],
+      [
+        "Pass completion %",
+        "xG+xA per 90"
+      ],
+      [
+        "Progressive passes (PAdj)",
+        "Touches per 90"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Interceptions (PAdj)"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Aerial duels won %",
+        "Assists per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Ball-carrying frequency"
+      ],
+      [
+        "Aerial duels won %",
+        "Dribbles per 100 touches"
+      ],
+      [
+        "Aerial duels won %",
+        "Forward passes per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Goals + Assists per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Long passes per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "NPG+A per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Passes to final third per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Passes to penalty box per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Progressive action rate"
+      ],
+      [
+        "Aerial duels won %",
+        "Progressive actions per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Aerial duels won %",
+        "Progressive passes per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Shot assists per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Through passes per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Touches in box per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Touches per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "npxG+xA per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "xA per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "xG+xA per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Ball-carrying frequency"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Dribbles per 100 touches"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Progressive action rate"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Assists per 90",
+        "Interceptions (PAdj)"
+      ],
+      [
+        "Assists per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Ball-carrying frequency",
+        "Defensive duels per 90"
+      ],
+      [
+        "Ball-carrying frequency",
+        "Long passes per 90"
+      ],
+      [
+        "Ball-carrying frequency",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Ball-carrying frequency",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Chance creation ratio",
+        "Interceptions (PAdj)"
+      ],
+      [
+        "Chance creation ratio",
+        "Interceptions per 90"
+      ],
+      [
+        "Chance creation ratio",
+        "Key passes per 90"
+      ],
+      [
+        "Crosses per 90",
+        "Interceptions (PAdj)"
+      ],
+      [
+        "Crosses per 90",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Deep completions per 90",
+        "Interceptions (PAdj)"
+      ],
+      [
+        "Deep completions per 90",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Deep completions per 90",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Deep completions per 90",
+        "xA per 100 passes"
+      ],
+      [
+        "Defensive duels per 90",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Defensive duels won %",
+        "Long passes per 90"
+      ],
+      [
+        "Defensive duels won %",
+        "Passes to penalty box per 90"
+      ],
+      [
+        "Defensive duels won %",
+        "Through passes per 90"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Interceptions (PAdj)"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Interceptions per 90"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Progressive passes per 90"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Through passes per 90"
+      ],
+      [
+        "Duels won %",
+        "Shot assists per 90"
+      ],
+      [
+        "Duels won per 90",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Forward pass completion %",
+        "Long passes per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "Passes completed per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "Passes per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "Passes to final third per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "Passes to penalty box per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Forward pass completion %",
+        "Progressive passes per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "Through passes per 90"
+      ],
+      [
+        "Forward passes per 90",
+        "Pass completion %"
+      ],
+      [
+        "Forward passes per 90",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Goals + Assists per 90",
+        "Interceptions (PAdj)"
+      ],
+      [
+        "Goals + Assists per 90",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Goals + Assists per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Goals per 100 touches",
+        "xG+xA per 90"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "NPG+A per 90"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "Shot assists per 90"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "Touches in box per 90"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "npxG+xA per 90"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "xA per 100 passes"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "xA per 90"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "xG+xA per 90"
+      ],
+      [
+        "Interceptions per 90",
+        "xA per 100 passes"
+      ],
+      [
+        "Key passes per 90",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "NPG+A per 90",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "NPG+A per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "npxG per 90"
+      ],
+      [
+        "Progressive passes (PAdj)",
+        "npxG per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "npxG per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "npxG per 90"
+      ],
+      [
+        "Non-penalty goals per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Offensive duels won per 90",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Pass completion %",
+        "Shots on target per 90"
+      ],
+      [
+        "Passes to penalty box per 90",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Possessions won per 90",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Progressive carries per 90",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Progressive pass accuracy %",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Sliding tackles (PAdj)",
+        "Through passes per 90"
+      ],
+      [
+        "Sliding tackles (PAdj)",
+        "Touches per 90"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Assists per 90",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Chance creation ratio",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Crosses per 90",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Deep completions per 90",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Goals + Assists per 90",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "NPG+A per 90",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Offensive duels won per 90",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Shot assists per 90",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Sliding tackles (PAdj)",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Sliding tackles (PAdj)",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Sliding tackles (PAdj)",
+        "Through passes completed per 90"
+      ],
+      [
+        "Sliding tackles (PAdj)",
+        "Touches in box per 90"
+      ],
+      [
+        "Sliding tackles (PAdj)",
+        "npxG+xA per 90"
+      ],
+      [
+        "Sliding tackles (PAdj)",
+        "xA per 100 passes"
+      ],
+      [
+        "Sliding tackles (PAdj)",
+        "xA per 90"
+      ],
+      [
+        "Sliding tackles (PAdj)",
+        "xG+xA per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Dribble success rate %",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Long pass accuracy %",
+        "Sliding tackles (PAdj)"
+      ],
+      [
+        "Progressive pass accuracy %",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Progressive passes (PAdj)",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Chance creation ratio",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Sliding tackles per 90",
+        "xA per 100 passes"
+      ],
+      [
+        "Cross accuracy %",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Progressive pass accuracy %",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Progressive pass accuracy %",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Progressive pass accuracy %",
+        "Touches in box per 90"
+      ],
+      [
+        "Progressive pass accuracy %",
+        "npxG+xA per 90"
+      ],
+      [
+        "Progressive pass accuracy %",
+        "xG+xA per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Progressive pass accuracy %",
+        "xG per 90"
+      ],
+      [
+        "Progressive pass accuracy %",
+        "xG per 100 touches"
+      ],
+      [
+        "Progressive pass accuracy %",
+        "Shots per 90"
+      ],
+      [
+        "Progressive pass accuracy %",
+        "Shots on target per 90"
+      ],
+      [
+        "Progressive pass accuracy %",
+        "Shot frequency"
+      ],
+      [
+        "Progressive pass accuracy %",
+        "Short passes completed per 90"
+      ],
+      [
+        "Possessions won - lost per 90",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Non-penalty goals per 90",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Long passes completed per 90",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Goals per 90",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Goals per 100 touches",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Progressive passes (PAdj)",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Progressive passes (PAdj)",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Progressive passes (PAdj)",
+        "Touches in box per 90"
+      ],
+      [
+        "Progressive passes (PAdj)",
+        "npxG+xA per 90"
+      ],
+      [
+        "Progressive passes (PAdj)",
+        "xG+xA per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Cross accuracy %",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Dribble success rate %",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Goals per 100 touches",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Goals per 90",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Non-penalty goals per 90",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Offensive duels won %",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Possessions won - lost per 90",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Progressive passes (PAdj)",
+        "Short pass completion %"
+      ],
+      [
+        "Progressive passes (PAdj)",
+        "Shot frequency"
+      ],
+      [
+        "Progressive passes (PAdj)",
+        "Shots on target per 90"
+      ],
+      [
+        "Progressive passes (PAdj)",
+        "Shots per 90"
+      ],
+      [
+        "Progressive passes (PAdj)",
+        "xG per 100 touches"
+      ],
+      [
+        "Progressive passes (PAdj)",
+        "xG per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Progressive passes (PAdj)"
+      ],
+      [
+        "Shot frequency",
+        "Shots on target per 90"
+      ],
+      [
+        "Shot frequency",
+        "Shots per 90"
+      ],
+      [
+        "Shot frequency",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Shot frequency",
+        "xG per 100 touches"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Aerial duels won %"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Defensive duels won %"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Dribble success rate %"
+      ],
+      [
+        "Aerial duels won %",
+        "Chance creation ratio"
+      ],
+      [
+        "Aerial duels won %",
+        "Crosses per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Deep completions per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Goals per 100 touches"
+      ],
+      [
+        "Aerial duels won %",
+        "Long passes completed per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Through passes completed per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "xA per 100 passes"
+      ],
+      [
+        "Aerial duels won %",
+        "xG per 100 touches"
+      ],
+      [
+        "Aerial duels won %",
+        "Cross accuracy %"
+      ],
+      [
+        "Aerial duels won %",
+        "Dribble success rate %"
+      ],
+      [
+        "Aerial duels won %",
+        "Shots on target %"
+      ],
+      [
+        "Aerial duels per 90",
+        "Ball-carrying frequency"
+      ],
+      [
+        "Aerial duels per 90",
+        "Progressive action rate"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Chance creation ratio"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Shot frequency"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Long pass accuracy %"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Forward pass ratio"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Dribble success rate %"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Cross accuracy %"
+      ],
+      [
+        "Aerial duels won per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Aerial duels won per 90",
+        "xA per 100 passes"
+      ],
+      [
+        "Assists per 90",
+        "Defensive duels won %"
+      ],
+      [
+        "Assists per 90",
+        "Shots on target %"
+      ],
+      [
+        "Cross accuracy %",
+        "xG per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "xG per 100 touches"
+      ],
+      [
+        "Cross accuracy %",
+        "Through passes completed per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Shots per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Shots on target per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Shot frequency"
+      ],
+      [
+        "Cross accuracy %",
+        "Possessions won per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Possessions won - lost per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Passes per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Passes completed per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Non-penalty goals per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Long passes per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Goals per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Goals per 100 touches"
+      ],
+      [
+        "Cross accuracy %",
+        "Forward passes per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Defensive duels won per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Defensive duels won %"
+      ],
+      [
+        "Cross accuracy %",
+        "Defensive duels per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "xG+xA per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "npxG+xA per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Touches per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Touches in box per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Through passes per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Progressive passes per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Progressive carries per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Progressive actions per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Progressive action rate"
+      ],
+      [
+        "Cross accuracy %",
+        "Passes to penalty box per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Passes to final third per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Dribbles per 100 touches"
+      ],
+      [
+        "Cross accuracy %",
+        "Duels won per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Goals + Assists per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Interceptions (PAdj)"
+      ],
+      [
+        "Cross accuracy %",
+        "Interceptions per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "NPG+A per 90"
+      ],
+      [
+        "Cross accuracy %",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Ball-carrying frequency",
+        "Cross accuracy %"
+      ],
+      [
+        "Chance creation ratio",
+        "Dribble success rate %"
+      ],
+      [
+        "Crosses per 90",
+        "Dribble success rate %"
+      ],
+      [
+        "Deep completions per 90",
+        "Dribble success rate %"
+      ],
+      [
+        "Dribble success rate %",
+        "Duels won per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Goals + Assists per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Interceptions (PAdj)"
+      ],
+      [
+        "Dribble success rate %",
+        "Interceptions per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Key passes per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "NPG+A per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Passes to final third per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Passes to penalty box per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Progressive actions per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Shot assists per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Progressive passes per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Through passes per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Touches in box per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Touches per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "npxG+xA per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "xA per 100 passes"
+      ],
+      [
+        "Dribble success rate %",
+        "xA per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "xG+xA per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Dribble success rate %"
+      ],
+      [
+        "Defensive duels won %",
+        "Dribble success rate %"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Dribble success rate %"
+      ],
+      [
+        "Dribble success rate %",
+        "Forward pass completion %"
+      ],
+      [
+        "Dribble success rate %",
+        "Forward passes per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Goals per 100 touches"
+      ],
+      [
+        "Dribble success rate %",
+        "Goals per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Long passes per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Non-penalty goals per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Passes completed per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Passes per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Possessions won - lost per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Possessions won per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Shot frequency"
+      ],
+      [
+        "Dribble success rate %",
+        "Shots on target per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Shots per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "Through passes completed per 90"
+      ],
+      [
+        "Dribble success rate %",
+        "xG per 100 touches"
+      ],
+      [
+        "Dribble success rate %",
+        "xG per 90"
+      ],
+      [
+        "Duels won per 90",
+        "Shots on target %"
+      ],
+      [
+        "Forward pass completion %",
+        "Long passes completed per 90"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "Offensive duels won %"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "Non-penalty goals per 90"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "Shot frequency"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "Shots on target per 90"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "Shots per 90"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "xG per 100 touches"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "xG per 90"
+      ],
+      [
+        "Interceptions per 90",
+        "Offensive duels won %"
+      ],
+      [
+        "Interceptions per 90",
+        "Shot frequency"
+      ],
+      [
+        "Interceptions per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Goals per 100 touches",
+        "Interceptions (PAdj)"
+      ],
+      [
+        "Goals per 90",
+        "Interceptions (PAdj)"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "Shots on target %"
+      ],
+      [
+        "Goals - xG per 90",
+        "Pass completion %"
+      ],
+      [
+        "Goals per 100 touches",
+        "Interceptions per 90"
+      ],
+      [
+        "Goals per 100 touches",
+        "Through passes completed per 90"
+      ],
+      [
+        "Goals per 100 touches",
+        "Through passes per 90"
+      ],
+      [
+        "Key passes per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Key passes per 90",
+        "Shots on target %"
+      ],
+      [
+        "Long passes completed per 90",
+        "Progressive action rate"
+      ],
+      [
+        "Long passes completed per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Pass completion %",
+        "Short passes completed per 90"
+      ],
+      [
+        "Ball-carrying frequency",
+        "Short pass completion %"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Forward passes per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Passes completed per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Passes to final third per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Passes to penalty box per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Progressive action rate",
+        "Short pass completion %"
+      ],
+      [
+        "Progressive actions per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Progressive carries per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Progressive passes completed per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Short pass completion %",
+        "Through passes completed per 90"
+      ],
+      [
+        "Short pass completion %",
+        "Through passes per 90"
+      ],
+      [
+        "Ball-carrying frequency",
+        "Possession +/-"
+      ],
+      [
+        "Ball-carrying frequency",
+        "Long pass accuracy %"
+      ],
+      [
+        "Ball-carrying frequency",
+        "Short passes per 90"
+      ],
+      [
+        "Ball-carrying frequency",
+        "Short passes completed per 90"
+      ],
+      [
+        "Ball-carrying frequency",
+        "Possessions won - lost per 90"
+      ],
+      [
+        "Deep completions per 90",
+        "Defensive duels won %"
+      ],
+      [
+        "Deep completions per 90",
+        "Duels won %"
+      ],
+      [
+        "Defensive duels per 90",
+        "Long pass accuracy %"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Long pass accuracy %"
+      ],
+      [
+        "Forward passes per 90",
+        "Long pass accuracy %"
+      ],
+      [
+        "Interceptions per 90",
+        "Long pass accuracy %"
+      ],
+      [
+        "Key passes per 90",
+        "Long pass accuracy %"
+      ],
+      [
+        "Long pass accuracy %",
+        "Passes completed per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Passes to final third per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Passes to penalty box per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Possession +/-"
+      ],
+      [
+        "Long pass accuracy %",
+        "Possessions won - lost per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Progressive action rate"
+      ],
+      [
+        "Long pass accuracy %",
+        "Progressive actions per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Progressive carries per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Short passes completed per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Through passes per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Touches per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Through passes completed per 90"
+      ],
+      [
+        "Deep completions per 90",
+        "Forward pass completion %"
+      ],
+      [
+        "Deep completions per 90",
+        "Offensive duels won %"
+      ],
+      [
+        "Deep completions per 90",
+        "Shot frequency"
+      ],
+      [
+        "Deep completions per 90",
+        "Shots on target %"
+      ],
+      [
+        "Chance creation ratio",
+        "Defensive duels per 90"
+      ],
+      [
+        "Chance creation ratio",
+        "Defensive duels won %"
+      ],
+      [
+        "Chance creation ratio",
+        "Defensive duels won per 90"
+      ],
+      [
+        "Chance creation ratio",
+        "Long passes per 90"
+      ],
+      [
+        "Chance creation ratio",
+        "Possessions won per 90"
+      ],
+      [
+        "Chance creation ratio",
+        "xG per 100 touches"
+      ],
+      [
+        "Crosses per 90",
+        "Defensive duels won %"
+      ],
+      [
+        "Crosses per 90",
+        "Forward pass completion %"
+      ],
+      [
+        "Defensive duels won %",
+        "xG+xA per 90"
+      ],
+      [
+        "Defensive duels won %",
+        "xA per 90"
+      ],
+      [
+        "Defensive duels won %",
+        "xA per 100 passes"
+      ],
+      [
+        "Defensive duels won %",
+        "npxG+xA per 90"
+      ],
+      [
+        "Defensive duels won %",
+        "Touches in box per 90"
+      ],
+      [
+        "Defensive duels won %",
+        "Through passes completed per 90"
+      ],
+      [
+        "Defensive duels won %",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Defensive duels won %",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Defensive duels won %",
+        "Shot assists per 90"
+      ],
+      [
+        "Defensive duels won %",
+        "NPG+A per 90"
+      ],
+      [
+        "Defensive duels won %",
+        "Dribbles per 100 touches"
+      ],
+      [
+        "Defensive duels won %",
+        "Goals + Assists per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Dribbles per 100 touches"
+      ],
+      [
+        "Defensive duels per 90",
+        "xA per 100 passes"
+      ],
+      [
+        "Forward pass completion %",
+        "Possession +/-"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Forward pass completion %"
+      ],
+      [
+        "Forward pass completion %",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "Short passes completed per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "Short passes per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "Shot assists per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "Successful attacking actions per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "Touches in box per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "npxG+xA per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "xG+xA per 90"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Shots on target %"
+      ],
+      [
+        "Through passes completed per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Through passes per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Assists per 90",
+        "Goal conversion %"
+      ],
+      [
+        "Chance creation ratio",
+        "Possessions won - lost per 90"
+      ],
+      [
+        "Chance creation ratio",
+        "Shots on target %"
+      ],
+      [
+        "Crosses per 90",
+        "Shots on target %"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Possessions won - lost per 90"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Dribbles per 100 touches"
+      ],
+      [
+        "Defensive duels won per 90",
+        "xA per 100 passes"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Goals - xG per 90"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Forward passes per 90"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Long passes per 90"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Offensive duels won %"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Passes completed per 90"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Passes per 90"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Possessions won per 90"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Shots on target %"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Pass completion %"
+      ],
+      [
+        "Progressive action rate",
+        "Shot frequency"
+      ],
+      [
+        "Progressive action rate",
+        "Shots on target per 90"
+      ],
+      [
+        "Progressive action rate",
+        "Shots per 90"
+      ],
+      [
+        "Progressive action rate",
+        "xG per 100 touches"
+      ],
+      [
+        "Progressive action rate",
+        "xG per 90"
+      ],
+      [
+        "Shot frequency",
+        "Through passes completed per 90"
+      ],
+      [
+        "Progressive passes per 90",
+        "Shot frequency"
+      ],
+      [
+        "Shot frequency",
+        "Through passes per 90"
+      ],
+      [
+        "Duels won %",
+        "Through passes completed per 90"
+      ],
+      [
+        "Forward pass ratio",
+        "Long passes completed per 90"
+      ],
+      [
+        "Forward pass ratio",
+        "Long passes per 90"
+      ],
+      [
+        "Forward pass ratio",
+        "Passes to penalty box per 90"
+      ],
+      [
+        "Forward pass ratio",
+        "Short passes completed per 90"
+      ],
+      [
+        "Forward pass ratio",
+        "Short passes per 90"
+      ],
+      [
+        "Forward pass ratio",
+        "Through passes completed per 90"
+      ],
+      [
+        "Forward pass ratio",
+        "Through passes per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Possession +/-"
+      ],
+      [
+        "Forward passes per 90",
+        "Possession +/-"
+      ],
+      [
+        "Goal conversion %",
+        "Goals - xG per 90"
+      ],
+      [
+        "Key passes per 90",
+        "Possession +/-"
+      ],
+      [
+        "Long passes completed per 90",
+        "Possession +/-"
+      ],
+      [
+        "Possessions won per 90",
+        "xA per 100 passes"
+      ],
+      [
+        "Progressive actions per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Progressive passes per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Interceptions per 90",
+        "Shots on target %"
+      ],
+      [
+        "Long passes per 90",
+        "Offensive duels won %"
+      ],
+      [
+        "Forward pass completion %",
+        "Pass completion %"
+      ],
+      [
+        "Forward pass completion %",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Pass completion %",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Passes to final third per 90",
+        "Passes to penalty box per 90"
+      ],
+      [
+        "Passes to final third per 90",
+        "Progressive passes per 90"
+      ],
+      [
+        "Passes to penalty box per 90",
+        "Progressive passes per 90"
+      ],
+      [
+        "Saves per 90",
+        "Shots conceded per 90"
+      ],
+      [
+        "Offensive duels won per 90",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Interceptions per 90",
+        "Possessions won per 90"
+      ],
+      [
+        "Crosses per 90",
+        "Passes to penalty box per 90"
+      ],
+      [
+        "Interceptions per 90",
+        "Key passes per 90"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Short pass completion %"
+      ],
+      [
+        "Ball-carrying frequency",
+        "Pass completion %"
+      ],
+      [
+        "Possession +/-",
+        "xA per 100 passes"
+      ],
+      [
+        "Passes to penalty box per 90",
+        "Possession +/-"
+      ],
+      [
+        "Chance creation ratio",
+        "Possession +/-"
+      ],
+      [
+        "Pass completion %",
+        "Shot frequency"
+      ],
+      [
+        "Possessions won - lost per 90",
+        "Progressive carries per 90"
+      ]
+    ],
+    "venn": [
+      [
+        "npxG/Shot",
+        "xG/Shot"
+      ],
+      [
+        "Goal conversion %",
+        "Shots on target %"
+      ],
+      [
+        "npxG per 90",
+        "xG per 90"
+      ],
+      [
+        "xG per 100 touches",
+        "xG per 90"
+      ],
+      [
+        "xG per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "xA per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "npxG per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Dribble success rate %",
+        "Offensive duels won %"
+      ],
+      [
+        "xA per 100 passes",
+        "xA per 90"
+      ],
+      [
+        "Forward passes per 90",
+        "Passes per 90"
+      ],
+      [
+        "Passes completed per 90",
+        "Passes per 90"
+      ],
+      [
+        "Forward pass ratio",
+        "Forward passes per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "Long passes per 90"
+      ],
+      [
+        "Through passes completed per 90",
+        "Through passes per 90"
+      ],
+      [
+        "Progressive passes (PAdj)",
+        "Progressive passes per 90"
+      ],
+      [
+        "Progressive actions per 90",
+        "Progressive carries per 90"
+      ],
+      [
+        "Progressive actions per 90",
+        "Progressive passes per 90"
+      ],
+      [
+        "Possessions won - lost per 90",
+        "Possessions won per 90"
+      ],
+      [
+        "Possession +/-",
+        "Possessions won - lost per 90"
+      ],
+      [
+        "Duels won %",
+        "Offensive duels won %"
+      ],
+      [
+        "Defensive duels won %",
+        "Duels won %"
+      ],
+      [
+        "Aerial duels won %",
+        "Duels won %"
+      ],
+      [
+        "Progressive action rate",
+        "Progressive actions per 90"
+      ],
+      [
+        "Progressive action rate",
+        "Progressive carries per 90"
+      ],
+      [
+        "Progressive action rate",
+        "Progressive passes per 90"
+      ],
+      [
+        "Ball-carrying frequency",
+        "Progressive carries per 90"
+      ],
+      [
+        "Dribbles per 100 touches",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Defensive duels won per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Aerial duels won per 90"
+      ],
+      [
+        "Sliding tackles (PAdj)",
+        "Sliding tackles per 90"
+      ],
+      [
+        "Interceptions (PAdj)",
+        "Interceptions per 90"
+      ],
+      [
+        "Shots on target %",
+        "SoT against per 90"
+      ],
+      [
+        "Passes completed",
+        "Passes per possession"
+      ],
+      [
+        "Passes per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Long pass accuracy %",
+        "Pass completion %"
+      ],
+      [
+        "Pass completion %",
+        "Short pass completion %"
+      ],
+      [
+        "Long pass accuracy %",
+        "Short passes per 90"
+      ],
+      [
+        "Long passes per 90",
+        "Passes per 90"
+      ],
+      [
+        "Long passes per 90",
+        "Short pass completion %"
+      ],
+      [
+        "Pass completion %",
+        "Short passes per 90"
+      ],
+      [
+        "Passes per 90",
+        "Progressive passes per 90"
+      ],
+      [
+        "Accurate crosses per 90",
+        "Crosses per 90"
+      ],
+      [
+        "Aerial duels %",
+        "Aerial duels won %"
+      ],
+      [
+        "Aerial duels per 90",
+        "Duels per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Duels per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Duels won per 90"
+      ],
+      [
+        "Assists per 90",
+        "Goals + Assists per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Duels per 90"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Duels per 90"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Duels won %"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Duels won per 90"
+      ],
+      [
+        "Duels per 90",
+        "Duels won per 90"
+      ],
+      [
+        "Duels per 90",
+        "Offensive duels per 90"
+      ],
+      [
+        "Duels per 90",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Duels won %",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Duels won per 90",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Forward passes per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Passes completed"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Passes completed per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Passes per 90"
+      ],
+      [
+        "Goals + Assists per 90",
+        "Goals per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "xG per 90"
+      ],
+      [
+        "Goals per 90",
+        "Non-penalty goals per 90"
+      ],
+      [
+        "Goals per 90",
+        "Prevented goals per 90"
+      ],
+      [
+        "Long pass accuracy %",
+        "Pass accuracy %"
+      ],
+      [
+        "Long passes completed per 90",
+        "Passes completed"
+      ],
+      [
+        "Long passes completed per 90",
+        "Passes completed per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "Passes per 90"
+      ],
+      [
+        "Offensive duels per 90",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Pass accuracy %",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Pass completion %",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Pass completion %",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Passes completed",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Passes completed",
+        "Short passes completed per 90"
+      ],
+      [
+        "Passes completed",
+        "Through passes completed per 90"
+      ],
+      [
+        "Passes completed per 90",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Passes completed per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Passes completed per 90",
+        "Through passes completed per 90"
+      ],
+      [
+        "Passes per 90",
+        "Passes to final third per 90"
+      ],
+      [
+        "Passes per 90",
+        "Passes to penalty box per 90"
+      ],
+      [
+        "Passes per 90",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Passes per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Passes per 90",
+        "Through passes completed per 90"
+      ],
+      [
+        "Progressive passes completed per 90",
+        "Progressive passes per 90"
+      ],
+      [
+        "Short passes completed per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Shots on target per 90",
+        "Shots per 90"
+      ],
+      [
+        "Touches in box per 90",
+        "Touches per 90"
+      ],
+      [
+        "Touches in the box per 90",
+        "Touches per 90"
+      ],
+      [
+        "npxG per 90",
+        "npxG+xA per 90"
+      ],
+      [
+        "npxG+xA per 90",
+        "xA per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "npxG per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "npxG+xA per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "xG conceded per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "Goals - xG per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "Goals - xG per 90",
+        "xG/Shot"
+      ],
+      [
+        "npxG per 90",
+        "npxG/Shot"
+      ],
+      [
+        "npxG per 90",
+        "xG conceded per 90"
+      ],
+      [
+        "npxG per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "npxG per 90",
+        "xG/Shot"
+      ],
+      [
+        "npxG+xA per 90",
+        "npxG/Shot"
+      ],
+      [
+        "npxG+xA per 90",
+        "xG conceded per 90"
+      ],
+      [
+        "npxG+xA per 90",
+        "xG per 100 touches"
+      ],
+      [
+        "npxG+xA per 90",
+        "xG per 90"
+      ],
+      [
+        "npxG+xA per 90",
+        "xG+xA per 90"
+      ],
+      [
+        "npxG+xA per 90",
+        "xG/Shot"
+      ],
+      [
+        "npxG/Shot",
+        "xG conceded per 90"
+      ],
+      [
+        "npxG/Shot",
+        "xG per 100 touches"
+      ],
+      [
+        "npxG/Shot",
+        "xG per 90"
+      ],
+      [
+        "npxG/Shot",
+        "xG+xA per 90"
+      ],
+      [
+        "xG per 100 touches",
+        "xG+xA per 90"
+      ],
+      [
+        "xG per 100 touches",
+        "xG/Shot"
+      ],
+      [
+        "xG per 90",
+        "xG/Shot"
+      ],
+      [
+        "xG+xA per 90",
+        "xG/Shot"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Long passes completed per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Long passes completed per 90",
+        "Through passes completed per 90"
+      ],
+      [
+        "Progressive passes completed per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Short passes completed per 90",
+        "Through passes completed per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Duels won per 90"
+      ],
+      [
+        "Goals per 100 touches",
+        "Goals per 90"
+      ],
+      [
+        "Defensive duels won %",
+        "Duels won per 90"
+      ],
+      [
+        "Duels won per 90",
+        "Offensive duels won %"
+      ],
+      [
+        "Aerial duels won %",
+        "Duels per 90"
+      ],
+      [
+        "Defensive duels won %",
+        "Duels per 90"
+      ],
+      [
+        "Duels per 90",
+        "Offensive duels won %"
+      ],
+      [
+        "Long passes per 90",
+        "Progressive passes per 90"
+      ],
+      [
+        "Forward passes per 90",
+        "Passes completed per 90"
+      ],
+      [
+        "Long passes per 90",
+        "Passes completed per 90"
+      ],
+      [
+        "Progressive passes per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Duels won per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "Short pass completion %"
+      ],
+      [
+        "Forward passes per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Goals + Assists per 90",
+        "Goals - xG per 90"
+      ],
+      [
+        "Key passes per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Passes completed per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Short passes per 90",
+        "Through passes per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Duels won per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Offensive duels won %"
+      ],
+      [
+        "Defensive duels won %",
+        "Offensive duels won %"
+      ],
+      [
+        "Duels won per 90",
+        "Offensive duels per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Offensive duels per 90"
+      ],
+      [
+        "Shots conceded per 90",
+        "xG conceded per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Defensive duels per 90"
+      ],
+      [
+        "Goals + Assists per 90",
+        "Non-penalty goals per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Defensive duels won per 90"
+      ],
+      [
+        "Aerial duels won %",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Defensive duels per 90",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Defensive duels won %",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Long passes per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Progressive passes per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Through passes per 90"
+      ],
+      [
+        "Passes to final third per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Passes to penalty box per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Progressive actions per 90",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Progressive passes (PAdj)",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Progressive passes completed per 90",
+        "Short passes per 90"
+      ],
+      [
+        "Progressive passes per 90",
+        "Short passes completed per 90"
+      ],
+      [
+        "Short passes completed per 90",
+        "Through passes per 90"
+      ],
+      [
+        "Short passes per 90",
+        "Through passes completed per 90"
+      ],
+      [
+        "Aerial duels per 90",
+        "Offensive duels won per 90"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Offensive duels won %"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Offensive duels won %"
+      ],
+      [
+        "Aerial duels won per 90",
+        "Offensive duels per 90"
+      ],
+      [
+        "Defensive duels won per 90",
+        "Offensive duels per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "Pass completion (to final third) %"
+      ],
+      [
+        "Forward pass completion %",
+        "Pass completion (to penalty box) %"
+      ],
+      [
+        "Pass completion (to final third) %",
+        "Short pass completion %"
+      ],
+      [
+        "Pass completion (to penalty box) %",
+        "Short pass completion %"
+      ],
+      [
+        "Assists per 90",
+        "NPG+A per 90"
+      ],
+      [
+        "Goals per 90",
+        "NPG+A per 90"
+      ],
+      [
+        "Goals + Assists per 90",
+        "NPG+A per 90"
+      ],
+      [
+        "Goals + Assists per 90",
+        "Goals per 100 touches"
+      ],
+      [
+        "NPG+A per 90",
+        "Non-penalty goals per 90"
+      ],
+      [
+        "Forward pass completion %",
+        "Pass completion %"
+      ],
+      [
+        "Forward pass completion %",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Pass completion %",
+        "Progressive pass accuracy %"
+      ],
+      [
+        "Passes to final third per 90",
+        "Passes to penalty box per 90"
+      ],
+      [
+        "Passes to final third per 90",
+        "Progressive passes per 90"
+      ],
+      [
+        "Passes to penalty box per 90",
+        "Progressive passes per 90"
+      ],
+      [
+        "Short passes per 90",
+        "Touches per 90"
+      ],
+      [
+        "Short passes completed per 90",
+        "Touches per 90"
+      ],
+      [
+        "Passes per 90",
+        "Touches per 90"
+      ],
+      [
+        "Passes completed per 90",
+        "Touches per 90"
+      ],
+      [
+        "Successful attacking actions per 90",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Pass completion %",
+        "Possession +/-"
+      ],
+      [
+        "Possession +/-",
+        "Short pass completion %"
+      ],
+      [
+        "Shot frequency",
+        "xG per 100 touches"
+      ],
+      [
+        "Shot assists per 90",
+        "xA per 90"
+      ],
+      [
+        "Offensive duels won per 90",
+        "Successful dribbles per 90"
+      ],
+      [
+        "Interceptions per 90",
+        "Possessions won per 90"
+      ],
+      [
+        "Passes to final third per 90",
+        "Progressive passes completed per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Touches per 90"
+      ],
+      [
+        "Goals per 100 touches",
+        "Non-penalty goals per 90"
+      ],
+      [
+        "Forward passes completed per 90",
+        "Passes to final third per 90"
+      ],
+      [
+        "Possession +/-",
+        "Short passes completed per 90"
+      ],
+      [
+        "Crosses per 90",
+        "Passes to penalty box per 90"
+      ],
+      [
+        "Forward passes per 90",
+        "Progressive passes completed per 90"
+      ]
+    ]
+  },
+  "_all_metrics": [
+    "Performance Index",
+    "Minutes played",
+    "Possessions won per 90",
+    "Defensive duels per 90",
+    "Aerial duels per 90",
+    "Sliding tackles per 90",
+    "Sliding tackles (PAdj)",
+    "Shots blocked per 90",
+    "Interceptions per 90",
+    "Interceptions (PAdj)",
+    "Successful attacking actions per 90",
+    "Goals per 90",
+    "Non-penalty goals per 90",
+    "xG per 90",
+    "Headed goals per 90",
+    "Shots per 90",
+    "Assists per 90",
+    "Crosses per 90",
+    "Crosses to box per 90",
+    "Offensive duels per 90",
+    "Touches in box per 90",
+    "Progressive carries per 90",
+    "Accelerations per 90",
+    "Fouls suffered per 90",
+    "Passes per 90",
+    "Forward passes per 90",
+    "Short passes per 90",
+    "Long passes per 90",
+    "Average pass length (m)",
+    "xA per 90",
+    "Shot assists per 90",
+    "Key passes per 90",
+    "Passes to final third per 90",
+    "Passes to penalty box per 90",
+    "Through passes per 90",
+    "Deep completions per 90",
+    "Progressive passes per 90",
+    "Shots conceded per 90",
+    "Clean sheets",
+    "xG conceded per 90",
+    "Prevented goals per 90",
+    "Exits per 90",
+    "Defensive duels won %",
+    "Aerial duels won %",
+    "Shots on target %",
+    "Goal conversion %",
+    "Cross accuracy %",
+    "Dribble success rate %",
+    "Offensive duels won %",
+    "Pass completion %",
+    "Forward pass completion %",
+    "Short pass completion %",
+    "Long pass accuracy %",
+    "Pass completion (to final third) %",
+    "Pass completion (to penalty box) %",
+    "Through pass completion %",
+    "Progressive pass accuracy %",
+    "Save percentage %",
+    "Free kicks per 90",
+    "Direct free kicks per 90",
+    "Direct free kicks oT %",
+    "Corners per 90",
+    "Penalties attempted",
+    "Penalty success rate %",
+    "Matches played",
+    "Duels per 90",
+    "Duels won %",
+    "Possession +/-",
+    "Forward pass ratio",
+    "xA per 100 passes",
+    "Chance creation ratio",
+    "Inaccurate passes, %",
+    "Goals + Assists per 90",
+    "NPG+A per 90",
+    "xG+xA per 90",
+    "xG/Shot",
+    "Goals - xG per 90",
+    "Goals per xG",
+    "Assists - xA per 90",
+    "Assists per xA",
+    "Successful dribbles per 90",
+    "Shots on target per 90",
+    "Accurate crosses per 90",
+    "Offensive duels won per 90",
+    "Defensive duels won per 90",
+    "Aerial duels won per 90",
+    "Passes completed per 90",
+    "Forward passes completed per 90",
+    "Short passes completed per 90",
+    "Long passes completed per 90",
+    "Accurate passes to final third per 90",
+    "Accurate passes to penalty box per 90",
+    "Through passes completed per 90",
+    "Progressive passes completed per 90",
+    "Misplaced passes per 90",
+    "Saves per 90",
+    "Possessions lost per 90",
+    "Possessions won - lost per 90",
+    "Progressive actions per 90",
+    "Duels won per 90",
+    "Minutes per match",
+    "Backward pass ratio",
+    "Penalties scored",
+    "npxG per 90",
+    "npxG/Shot",
+    "npxG+xA per 90",
+    "Touches per 90",
+    "Progressive action rate",
+    "Progressive passes (PAdj)",
+    "Ball-carrying frequency",
+    "xG per 100 touches",
+    "Shot frequency",
+    "Dribbles per 100 touches",
+    "Goals per 100 touches",
+    "Passes received per 90",
+    "Backward passes per 90",
+    "Pre-assists per 90"
+  ]
+}

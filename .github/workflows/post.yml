@@ -1,0 +1,26 @@
+name: Post
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+jobs:
+  run:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest selenium google-api-python-client google-auth-httplib2 google-auth-oauthlib Pillow requests
+      - name: Run
+        env:
+          DATAMB_EMAIL: ${{ secrets.DATAMB_EMAIL }}
+          DATAMB_PASSWORD: ${{ secrets.DATAMB_PASSWORD }}
+          BUFFER_EMAIL: ${{ secrets.BUFFER_EMAIL }}
+          BUFFER_PASSWORD: ${{ secrets.BUFFER_PASSWORD }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
+        run: python test_twi.py
