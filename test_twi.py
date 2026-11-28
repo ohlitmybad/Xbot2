@@ -20,6 +20,16 @@ _BOT_DIR = os.path.dirname(os.path.abspath(__file__))
 AGE_OPTIONS = ["Age", "U21", "U23"]
 SINGLE_LEAGUES = {"Premier League", "La Liga"}
 PERFORMANCE_INDEX = "Performance Index"
+# Metrics with an Index up/down sort toggle (negative vs positive ranking).
+SORT_TOGGLE_METRICS = frozenset(
+    {
+        "Possessions lost per 90",
+        "Shots conceded per 90",
+        "xG conceded per 90",
+        "Assists - xA per 90",
+        "Goals - xG per 90",
+    }
+)
 LEAGUES = [
     "Top 7 Leagues",
     "Top 5 Leagues",
@@ -259,6 +269,38 @@ def filter_index_metrics(pool: Sequence[str], position: str, league: str) -> Lis
     if allow_pi:
         return list(pool)
     return [m for m in pool if m != PERFORMANCE_INDEX]
+
+
+def is_percent_metric(name: str) -> bool:
+    """True for rate metrics like 'Pass completion %' (not 'per 100 touches')."""
+    return bool(name) and str(name).rstrip().endswith("%")
+
+
+def parse_metric_number(text: str) -> Optional[float]:
+    if text is None:
+        return None
+    cleaned = re.sub(r"[^0-9.\-]+", "", str(text).strip())
+    if not cleaned or cleaned in {".", "-", "-."}:
+        return None
+    try:
+        return float(cleaned)
+    except ValueError:
+        return None
+
+
+def reaches_100_percent(value: Optional[float]) -> bool:
+    return value is not None and value >= 99.995
+
+
+def index_has_player_at_100_percent(driver) -> bool:
+    """Any ranked Index row at 100 on the current (percent) metric."""
+    values = driver.execute_script(
+        """
+        return Array.from(document.querySelectorAll('#playerTable .player-value'))
+            .map(el => (el.textContent || '').replace(/\\s+/g, ' ').trim());
+        """
+    ) or []
+    return any(reaches_100_percent(parse_metric_number(v)) for v in values)
 
 
 def _blocked_by_excludes(metric: str, groups: Sequence[Sequence[str]]) -> set:
@@ -1795,78 +1837,11 @@ class TestUntitled:
             )
         )
 
-
-
-        selected_position = pick_position(POSITIONS_PLAYER, _WEIGHTS.get("position"))
-        selected_league = pick_league(_WEIGHTS.get("league"))
-        selected_age = pick_age(selected_position, selected_league, _WEIGHTS.get("age"))
-
-        # Performance Index only for Premier League / La Liga + a specific position
-        metric_options = filter_index_metrics(
-            _INDEX_METRICS.get(selected_position) or [],
-            selected_position,
-            selected_league,
-        )
-        if not metric_options:
-            raise RuntimeError(f"No index metrics configured for {selected_position}")
-        forced = forced_metrics_from_env()
-        if forced:
-            if len(forced) != 1:
-                raise RuntimeError(f"INDEX expects 1 forced metric, got {forced}")
-            selected_metric = forced[0]
-        else:
-            selected_metric = sample_metrics_excluded(
-                metric_options,
-                1,
-                metric_weights=metric_weights_for_position(_WEIGHTS, selected_position),
-            )[0]
-
-        _select_index_dropdown(
-            self.driver,
-            "metric-select-trigger",
-            "metric-select-options",
-            selected_metric,
-            search_input_id="metricSearch",
-        )
-        _select_index_dropdown(
-            self.driver,
-            "position-select-trigger",
-            "position-select-options",
-            selected_position,
-            extra_matches=["All"] if selected_position == "All positions" else None,
-        )
-        league_aliases = ["No Top 7"] if selected_league == "Outside Top 7" else None
-        _select_index_dropdown(
-            self.driver,
-            "league-select-trigger",
-            "league-select-options",
-            selected_league,
-            extra_matches=league_aliases,
-        )
-        if selected_age != "Age":
-            age_value = selected_age[1:] if selected_age.startswith("U") else selected_age
-            _select_index_dropdown(
-                self.driver,
-                "age-select-trigger",
-                "age-select-options",
-                selected_age,
-                extra_matches=[age_value],
-            )
-
-        # Check if we need to handle the toggle sort checkbox
-        if selected_metric in ["Goals - xG per 90", "Assists - xA per 90"]:
-            # Randomly decide whether to click the toggle
-            if random.choice([True, False]):
-                try:
-                    toggle_sort = WebDriverWait(self.driver, 10).until(
-                        EC.presence_of_element_located((By.ID, "toggleSort"))
-                    )
-                    self.driver.execute_script("arguments[0].click();", toggle_sort)
-                except Exception as e:
-                    print(f"Could not click toggle sort: {e}")
-
-        # Default UI is per 90; click toggleMetrics to switch to season totals.
-        # Keep these counting metrics on per 90 for the screenshot.
+        max_retries = 8
+        tweet_text = None
+        alt_text = None
+        follow_up_text = None
+        screenshot_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "screenshot.png")
         _FORCE_PER90 = {
             "Assists per 90",
             "Goals + Assists per 90",
@@ -1875,15 +1850,101 @@ class TestUntitled:
             "Non-penalty goals per 90",
             "Headed goals per 90",
         }
-        if selected_metric not in _FORCE_PER90:
-            toggle_metrics_btn = WebDriverWait(self.driver, 10).until(
-                EC.visibility_of_element_located((By.ID, "toggleMetrics"))
-            )
-            self.driver.execute_script("arguments[0].scrollIntoView(true);", toggle_metrics_btn)
-            self.driver.execute_script("arguments[0].click();", toggle_metrics_btn)
-            time.sleep(0.5)
 
-        self.driver.execute_script("""
+        for attempt in range(max_retries):
+            if attempt > 0:
+                self.driver.get("https://datamb.football/proindex/")
+                time.sleep(1)
+                self.driver.set_window_size(976, 860)
+                WebDriverWait(self.driver, 45).until(_index_ready)
+                WebDriverWait(self.driver, 15).until(
+                    lambda d: d.execute_script(
+                        "return document.querySelectorAll('#metric-select-list .custom-select-option, "
+                        "#metric-select-options .custom-select-option').length > 0"
+                        " && document.querySelectorAll('#position-select-options .custom-select-option').length > 0"
+                        " && document.querySelectorAll('#league-select-options .custom-select-option').length > 0"
+                    )
+                )
+
+            selected_position = pick_position(POSITIONS_PLAYER, _WEIGHTS.get("position"))
+            selected_league = pick_league(_WEIGHTS.get("league"))
+            selected_age = pick_age(selected_position, selected_league, _WEIGHTS.get("age"))
+
+            # Performance Index only for Premier League / La Liga + a specific position
+            metric_options = filter_index_metrics(
+                _INDEX_METRICS.get(selected_position) or [],
+                selected_position,
+                selected_league,
+            )
+            if not metric_options:
+                raise RuntimeError(f"No index metrics configured for {selected_position}")
+            forced = forced_metrics_from_env()
+            if forced:
+                if len(forced) != 1:
+                    raise RuntimeError(f"INDEX expects 1 forced metric, got {forced}")
+                selected_metric = forced[0]
+            else:
+                selected_metric = sample_metrics_excluded(
+                    metric_options,
+                    1,
+                    metric_weights=metric_weights_for_position(_WEIGHTS, selected_position),
+                )[0]
+
+            _select_index_dropdown(
+                self.driver,
+                "metric-select-trigger",
+                "metric-select-options",
+                selected_metric,
+                search_input_id="metricSearch",
+            )
+            _select_index_dropdown(
+                self.driver,
+                "position-select-trigger",
+                "position-select-options",
+                selected_position,
+                extra_matches=["All"] if selected_position == "All positions" else None,
+            )
+            league_aliases = ["No Top 7"] if selected_league == "Outside Top 7" else None
+            _select_index_dropdown(
+                self.driver,
+                "league-select-trigger",
+                "league-select-options",
+                selected_league,
+                extra_matches=league_aliases,
+            )
+            if selected_age != "Age":
+                age_value = selected_age[1:] if selected_age.startswith("U") else selected_age
+                _select_index_dropdown(
+                    self.driver,
+                    "age-select-trigger",
+                    "age-select-options",
+                    selected_age,
+                    extra_matches=[age_value],
+                )
+
+            # Metrics with an up/down sort toggle: 50/50 whether to flip direction.
+            sort_flipped = False
+            if selected_metric in SORT_TOGGLE_METRICS and random.choice([True, False]):
+                try:
+                    toggle_sort = WebDriverWait(self.driver, 10).until(
+                        EC.presence_of_element_located((By.ID, "toggleSort"))
+                    )
+                    self.driver.execute_script("arguments[0].click();", toggle_sort)
+                    sort_flipped = True
+                except Exception as e:
+                    print(f"Could not click toggle sort: {e}")
+
+            # Default UI is per 90; click toggleMetrics to switch to season totals.
+            # Keep these counting metrics on per 90 for the screenshot.
+            if selected_metric not in _FORCE_PER90:
+                toggle_metrics_btn = WebDriverWait(self.driver, 10).until(
+                    EC.visibility_of_element_located((By.ID, "toggleMetrics"))
+                )
+                self.driver.execute_script("arguments[0].scrollIntoView(true);", toggle_metrics_btn)
+                self.driver.execute_script("arguments[0].click();", toggle_metrics_btn)
+                time.sleep(0.5)
+
+            self.driver.execute_script("""
     document.documentElement.style.overflow = 'hidden';  // Hide horizontal and vertical scroll bars
     document.body.style.overflow = 'hidden';  // Hide scroll bars on body
     var resultContainer = document.querySelector('.result-container');
@@ -1892,108 +1953,123 @@ class TestUntitled:
     }
 """)
 
-        # Inject a dummy div at the top left and move mouse to it to avoid hover effect
-        self.driver.execute_script("""
-            if (!document.getElementById('dummy-mouse-target')) {
-                var d = document.createElement('div');
-                d.id = 'dummy-mouse-target';
-                d.style.position = 'fixed';
-                d.style.left = '0px';
-                d.style.top = '0px';
-                d.style.width = '1px';
-                d.style.height = '1px';
-                d.style.zIndex = '99999';
-                d.style.background = 'transparent';
-                document.body.appendChild(d);
-            }
-        """)
-        dummy = self.driver.find_element(By.ID, "dummy-mouse-target")
-        ActionChains(self.driver).move_to_element(dummy).perform()
-
-        # Hide the dark-mode-toggle before taking the screenshot
-        self.driver.execute_script("""
-            var dmt = document.querySelector('.dark-mode-toggle');
-            if (dmt) dmt.style.display = 'none';
-        """)
-
-        # Ensure login overlay is gone and ranked rows are painted before capture
-        WebDriverWait(self.driver, 20).until(
-            lambda d: d.execute_script(
-                """
-                function isVisible(el) {
-                    if (!el) return false;
-                    const style = window.getComputedStyle(el);
-                    if (style.display === 'none' || style.visibility === 'hidden') return false;
-                    const rect = el.getBoundingClientRect();
-                    return rect.width > 0 && rect.height > 0;
+            # Inject a dummy div at the top left and move mouse to it to avoid hover effect
+            self.driver.execute_script("""
+                if (!document.getElementById('dummy-mouse-target')) {
+                    var d = document.createElement('div');
+                    d.id = 'dummy-mouse-target';
+                    d.style.position = 'fixed';
+                    d.style.left = '0px';
+                    d.style.top = '0px';
+                    d.style.width = '1px';
+                    d.style.height = '1px';
+                    d.style.zIndex = '99999';
+                    d.style.background = 'transparent';
+                    document.body.appendChild(d);
                 }
-                if (isVisible(document.querySelector('input[name="eml"]'))) return false;
-                return document.querySelectorAll('#playerTable .player-row').length > 0;
-                """
+            """)
+            dummy = self.driver.find_element(By.ID, "dummy-mouse-target")
+            ActionChains(self.driver).move_to_element(dummy).perform()
+
+            # Hide the dark-mode-toggle before taking the screenshot
+            self.driver.execute_script("""
+                var dmt = document.querySelector('.dark-mode-toggle');
+                if (dmt) dmt.style.display = 'none';
+            """)
+
+            # Ensure login overlay is gone and ranked rows are painted before capture
+            WebDriverWait(self.driver, 20).until(
+                lambda d: d.execute_script(
+                    """
+                    function isVisible(el) {
+                        if (!el) return false;
+                        const style = window.getComputedStyle(el);
+                        if (style.display === 'none' || style.visibility === 'hidden') return false;
+                        const rect = el.getBoundingClientRect();
+                        return rect.width > 0 && rect.height > 0;
+                    }
+                    if (isVisible(document.querySelector('input[name="eml"]'))) return false;
+                    return document.querySelectorAll('#playerTable .player-row').length > 0;
+                    """
+                )
             )
-        )
 
-        # Save screenshot
-        self.driver.save_screenshot('screenshot.png')
-        specific_text = self.capture_first_five_lines()
-        self._selection = {
-            "bot": "index",
-            "position": selected_position,
-            "league": selected_league,
-            "age": selected_age,
-            "metric": selected_metric,
-            "metrics": [selected_metric],
-            "top5": specific_text,
-        }
+            if is_percent_metric(selected_metric) and index_has_player_at_100_percent(self.driver):
+                print(
+                    f"  reject: player at 100% on {selected_metric!r} "
+                    f"(attempt {attempt + 1}/{max_retries})",
+                    flush=True,
+                )
+                continue
 
-        # Crop 5px from top, left, and right
-        img = Image.open('screenshot.png')
-        width, height = img.size
-        cropped = img.crop((11, 0, width - 11, height - 5))
-        cropped.save('screenshot.png')
-        
-        selected_metric = selected_metric.replace(" per 90", "")
-        selected_position = selected_position.replace("er", "ers")
-        selected_position = selected_position.replace("ack", "acks")
-        selected_position = selected_position.replace("All positions", "Players")
-        selected_age = selected_age.replace("Age", "")
-        tweet_text = f"{selected_league} {selected_age} {selected_position} : {selected_metric}\n\n{specific_text}\n\n📊 Free trial: datamb.football"
-        tweet_text = tweet_text.replace("  ", " ")
-        tweet_text = tweet_text.replace(" Wanderers", "")
-        tweet_text = tweet_text.replace("Borussia ", "")
-        tweet_text = tweet_text.replace("Deportivo ", "")
-        tweet_text = tweet_text.replace("Manchester", "Man")
-        tweet_text = tweet_text.replace(" Hotspur", "")
-        tweet_text = tweet_text.replace("West Ham United", "West Ham")
-        tweet_text = tweet_text.replace("Celta de", "Celta")
-        tweet_text = tweet_text.replace("Olympique Lyonnais", "Lyon")
-        tweet_text = tweet_text.replace("Olympique Marseille", "Marseille")
-        tweet_text = tweet_text.replace("Fortuna ", "")
-        tweet_text = tweet_text.replace("Eintracht ", "")
-        tweet_text = tweet_text.replace("Newcastle United", "Newcastle")
-        tweet_text = tweet_text.replace("Wingers", "Wingers & Att Mid")
-        tweet_text = tweet_text.replace("Goals - xG", "Goals minus xG")
-        tweet_text = tweet_text.replace("All Leagues", "🌍 All Leagues")
-        tweet_text = tweet_text.replace("Outside Top 7", "🌍 Outside Top 7")
-        tweet_text = tweet_text.replace("South America", "🌎 South America")
-        tweet_text = tweet_text.replace("Top 7 Leagues", "🇪🇺 Top 7 League")
-        tweet_text = tweet_text.replace("Top 5 Leagues", "🇪🇺 Top 5 League")
-        tweet_text = tweet_text.replace("Premier League", "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League")
-        tweet_text = tweet_text.replace("La Liga", "🇪🇸 La Liga")
-        tweet_text = tweet_text.replace("Bundesliga", "🇩🇪 Bundesliga")
-        tweet_text = tweet_text.replace("Serie A", "🇮🇹 Serie A")
-        
-        alt_text = (
-            "This is an automated tweet 🤖\n\nPosition, league, age and metrics were chosen randomly in the 2025/26 dataset.\n\n"
-            "Player age and team refer to their age and team during the season.\n\nPositions are determined via the player's average heat map.\n\n"
-            "Join the free trial for more leagues and tools!"
-        )
-        follow_up_text = "Compare Top 7 League players, or join the free trial for more leagues, metrics, and tools ⤵️ datamb.football"
-        screenshot_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "screenshot.png")
-        self._buffer_post_text = tweet_text
-        self._buffer_image_path = screenshot_path
-        self._buffer_alt_text = alt_text
-        self._buffer_reply_text = follow_up_text
+            # Save screenshot
+            self.driver.save_screenshot('screenshot.png')
+            specific_text = self.capture_first_five_lines()
+            self._selection = {
+                "bot": "index",
+                "position": selected_position,
+                "league": selected_league,
+                "age": selected_age,
+                "metric": selected_metric,
+                "metrics": [selected_metric],
+                "sort_flipped": sort_flipped,
+                "top5": specific_text,
+            }
+
+            # Crop 5px from top, left, and right
+            img = Image.open('screenshot.png')
+            width, height = img.size
+            cropped = img.crop((11, 0, width - 11, height - 5))
+            cropped.save('screenshot.png')
+
+            metric_label = selected_metric.replace(" per 90", "")
+            position_label = selected_position.replace("er", "ers")
+            position_label = position_label.replace("ack", "acks")
+            position_label = position_label.replace("All positions", "Players")
+            age_label = selected_age.replace("Age", "")
+            tweet_text = f"{selected_league} {age_label} {position_label} : {metric_label}\n\n{specific_text}\n\n📊 Free trial: datamb.football"
+            tweet_text = tweet_text.replace("  ", " ")
+            tweet_text = tweet_text.replace(" Wanderers", "")
+            tweet_text = tweet_text.replace("Borussia ", "")
+            tweet_text = tweet_text.replace("Deportivo ", "")
+            tweet_text = tweet_text.replace("Manchester", "Man")
+            tweet_text = tweet_text.replace(" Hotspur", "")
+            tweet_text = tweet_text.replace("West Ham United", "West Ham")
+            tweet_text = tweet_text.replace("Celta de", "Celta")
+            tweet_text = tweet_text.replace("Olympique Lyonnais", "Lyon")
+            tweet_text = tweet_text.replace("Olympique Marseille", "Marseille")
+            tweet_text = tweet_text.replace("Fortuna ", "")
+            tweet_text = tweet_text.replace("Eintracht ", "")
+            tweet_text = tweet_text.replace("Newcastle United", "Newcastle")
+            tweet_text = tweet_text.replace("Wingers", "Wingers & Att Mid")
+            tweet_text = tweet_text.replace("Goals - xG", "Goals minus xG")
+            tweet_text = tweet_text.replace("Assists - xA", "Assists minus xA")
+            tweet_text = tweet_text.replace("All Leagues", "🌍 All Leagues")
+            tweet_text = tweet_text.replace("Outside Top 7", "🌍 Outside Top 7")
+            tweet_text = tweet_text.replace("South America", "🌎 South America")
+            tweet_text = tweet_text.replace("Top 7 Leagues", "🇪🇺 Top 7 League")
+            tweet_text = tweet_text.replace("Top 5 Leagues", "🇪🇺 Top 5 League")
+            tweet_text = tweet_text.replace("Premier League", "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League")
+            tweet_text = tweet_text.replace("La Liga", "🇪🇸 La Liga")
+            tweet_text = tweet_text.replace("Bundesliga", "🇩🇪 Bundesliga")
+            tweet_text = tweet_text.replace("Serie A", "🇮🇹 Serie A")
+
+            alt_text = (
+                "This is an automated tweet 🤖\n\nPosition, league, age and metrics were chosen randomly in the 2026/27 dataset.\n\n"
+                "Player age and team refer to their age and team during the season.\n\nPositions are determined via the player's average heat map.\n\n"
+                "Join the free trial for more leagues and tools!"
+            )
+            follow_up_text = "Compare Top 7 League players, or join the free trial for more leagues, metrics, and tools ⤵️ datamb.football"
+            self._buffer_post_text = tweet_text
+            self._buffer_image_path = screenshot_path
+            self._buffer_alt_text = alt_text
+            self._buffer_reply_text = follow_up_text
+            break
+        else:
+            raise RuntimeError(
+                f"Failed after {max_retries} attempts (player at 100% on a % metric)"
+            )
+
         schedule_twitter_post_via_buffer(
             None,
             tweet_text,
