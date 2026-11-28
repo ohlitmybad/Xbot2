@@ -1971,11 +1971,24 @@ class TestUntitled:
             dummy = self.driver.find_element(By.ID, "dummy-mouse-target")
             ActionChains(self.driver).move_to_element(dummy).perform()
 
-            # Hide the dark-mode-toggle before taking the screenshot
-            self.driver.execute_script("""
-                var dmt = document.querySelector('.dark-mode-toggle');
+            # 50/50 light/dark, then hide the toggle before capture
+            dark = random.choice([True, False])
+            self.driver.execute_script(
+                """
+                const wantDark = arguments[0];
+                if (document.body.classList.contains('dark-mode') !== wantDark) {
+                    if (typeof toggleDarkMode === 'function') toggleDarkMode();
+                    else {
+                        const btn = document.querySelector('.dark-mode-toggle, .toggle-icon');
+                        if (btn) btn.click();
+                    }
+                }
+                const dmt = document.querySelector('.dark-mode-toggle');
                 if (dmt) dmt.style.display = 'none';
-            """)
+                """,
+                dark,
+            )
+            time.sleep(0.3)
 
             # Ensure login overlay is gone and ranked rows are painted before capture
             WebDriverWait(self.driver, 20).until(
@@ -2013,6 +2026,7 @@ class TestUntitled:
                 "metric": selected_metric,
                 "metrics": [selected_metric],
                 "sort_flipped": sort_flipped,
+                "dark": dark,
                 "top5": specific_text,
             }
 
