@@ -1,8 +1,0 @@
-local_output/
-trigger.gs
-__pycache__/
-*.pyc
-.DS_Store
-*.png
-screenshot.png
-learned_weights.json
